@@ -1,5 +1,5 @@
 //
-//  ARFirstViewController.h
+//  ARTabBarVC.h
 //  Arendator
 //
 //  Created by Yury Nechaev on 13.09.13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ARFirstViewController : UIViewController
-
+@interface ARTabBarVC : UITabBarController
++ (ARTabBarVC *)  sharedInstance;
 @end
