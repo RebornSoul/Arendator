@@ -6,3 +6,18 @@
 "btnSearch" = "Искать";
 
 "sectionPreviousSearches" = "Предыдущие результаты";
+"sectionMoreOptions" = "Дополнительные параметры";
+
+"doesnotmatter" = "...";
+"yes" = "Да";
+"no" = "Нет";
+
+"ITEM_allowedChildren" = "Можно с детьми";
+"ITEM_allowedPets" = "Можно с животными";
+"ITEM_optBalcony" = "Балкон";
+"ITEM_optFridge" = "Холодильник";
+"ITEM_optFurniture" = "Мебель";
+"ITEM_optKitchenFurniture" = "Кухонная мебель";
+"ITEM_optPhone" = "Телефон";
+"ITEM_optTV" = "Телевизор";
+"ITEM_optWashMachine" = "Холодильник";

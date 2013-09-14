@@ -12,7 +12,7 @@
 #import "Search.h"
 
 @implementation ARSearchesViewController {
-    NSArray *oldSearches;
+    NSMutableArray *oldSearches;
 }
 
 - (id)init {
@@ -25,14 +25,13 @@
 
 
 - (void)reloadData {
-    NSMutableArray *old = [NSMutableArray arrayWithArray:[DataModel allInstances:[Search class]]];
-    oldSearches = [old sortedArrayWithOptions:NSSortStable usingComparator:^NSComparisonResult(id obj1, id obj2) {
+    oldSearches = [NSMutableArray arrayWithArray:[DataModel allInstances:[Search class]]];
+    [oldSearches sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         Search *s1 = obj1;
         Search *s2 = obj2;
         return [s1.time compare:s2.time];
     }];
     
-    oldSearches = old;
     [self->_tableView reloadData];
 }
 
@@ -74,6 +73,32 @@
     }
 
     return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [tableView beginUpdates];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        [oldSearches removeObjectAtIndex:indexPath.row];
+        [tableView endUpdates];
+        
+        Search *search = oldSearches[indexPath.row];
+        [DataModel deleteObject:search];
+        [DataModel save];
+        
+        [self performSelector:@selector(reloadData) withObject:nil afterDelay:0.25];
+    }
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return indexPath.section == SECT_SAVED_SEARCHES;
+}
+
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
 }
 
 
