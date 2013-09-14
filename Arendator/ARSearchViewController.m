@@ -8,7 +8,9 @@
 
 #import "ARSearchViewController.h"
 
-@implementation ARSearchViewController
+@implementation ARSearchViewController {
+    UITableView *tableView;
+}
 
 - (id)init {
     self = [super init];
@@ -23,7 +25,8 @@
 - (void)loadView {
     [super loadView];
     
-    
+    tableView = [[UITableView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:tableView];
 }
 
 @end
