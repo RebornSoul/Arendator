@@ -146,4 +146,12 @@ static NSString *formatBabki(NSNumber *value) {
     return [NSString stringWithFormat:NSLocalizedString(@"priceExactFMT", @""), [NSString stringWithFormat:@"%.1f", roundf(self.priceTo.integerValue / 500) / 2]];
 }
 
+
+- (void)clearSearchResults {
+    for (SearchResult *result in self.searchResults) {
+        [DataModel deleteObject:result];
+    }
+    [DataModel save];
+}
+
 @end
