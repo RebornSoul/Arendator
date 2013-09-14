@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		034FE2D517E4579A001D1226 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 034FE2D217E4579A001D1226 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		034FE2D617E4579A001D1226 /* GDataXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 034FE2D417E4579A001D1226 /* GDataXMLParser.m */; };
-		03CE2FF117E4572D002B6F13 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CE2FF017E4572D002B6F13 /* SearchResult.m */; };
-		03CE2FF417E4572D002B6F13 /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CE2FF317E4572D002B6F13 /* Search.m */; };
+		034FE2D817E4592E001D1226 /* landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 034FE2D717E4592E001D1226 /* landscape.png */; };
+		034FE2DB17E4593A001D1226 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 034FE2D917E4593A001D1226 /* Localizable.strings */; };
+		034FE2DE17E45A64001D1226 /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 034FE2DD17E45A64001D1226 /* Search.m */; };
+		034FE2E117E45A64001D1226 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 034FE2E017E45A64001D1226 /* SearchResult.m */; };
 		03E5450017E448BA00E8F81B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03E544FE17E448BA00E8F81B /* DataModel.xcdatamodeld */; };
 		03E5450517E448C900E8F81B /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5450217E448C900E8F81B /* DataModel.m */; };
 		03E5450617E448C900E8F81B /* DataModel+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5450417E448C900E8F81B /* DataModel+Helper.m */; };
@@ -50,14 +50,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		034FE2D117E4579A001D1226 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = Arendator/GDataXMLNode.h; sourceTree = "<group>"; };
-		034FE2D217E4579A001D1226 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = Arendator/GDataXMLNode.m; sourceTree = "<group>"; };
-		034FE2D317E4579A001D1226 /* GDataXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDataXMLParser.h; path = Arendator/GDataXMLParser.h; sourceTree = "<group>"; };
-		034FE2D417E4579A001D1226 /* GDataXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataXMLParser.m; path = Arendator/GDataXMLParser.m; sourceTree = "<group>"; };
-		03CE2FEF17E4572D002B6F13 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Arendator/ManagedClasses/SearchResult.h; sourceTree = "<group>"; };
-		03CE2FF017E4572D002B6F13 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Arendator/ManagedClasses/SearchResult.m; sourceTree = "<group>"; };
-		03CE2FF217E4572D002B6F13 /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search.h; path = Arendator/ManagedClasses/Search.h; sourceTree = "<group>"; };
-		03CE2FF317E4572D002B6F13 /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search.m; path = Arendator/ManagedClasses/Search.m; sourceTree = "<group>"; };
+		034FE2D717E4592E001D1226 /* landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = landscape.png; path = Arendator/Images/landscape.png; sourceTree = "<group>"; };
+		034FE2DA17E4593A001D1226 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		034FE2DC17E45A64001D1226 /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search.h; path = Arendator/ManagedClasses/Search.h; sourceTree = "<group>"; };
+		034FE2DD17E45A64001D1226 /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search.m; path = Arendator/ManagedClasses/Search.m; sourceTree = "<group>"; };
+		034FE2DF17E45A64001D1226 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Arendator/ManagedClasses/SearchResult.h; sourceTree = "<group>"; };
+		034FE2E017E45A64001D1226 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Arendator/ManagedClasses/SearchResult.m; sourceTree = "<group>"; };
 		03E544FF17E448BA00E8F81B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		03E5450117E448C900E8F81B /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataModel.h; path = Arendator/DataModel.h; sourceTree = "<group>"; };
 		03E5450217E448C900E8F81B /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataModel.m; path = Arendator/DataModel.m; sourceTree = "<group>"; };
@@ -144,10 +142,10 @@
 		03E5450717E448CC00E8F81B /* ManagedClasses */ = {
 			isa = PBXGroup;
 			children = (
-				03CE2FF217E4572D002B6F13 /* Search.h */,
-				03CE2FF317E4572D002B6F13 /* Search.m */,
-				03CE2FEF17E4572D002B6F13 /* SearchResult.h */,
-				03CE2FF017E4572D002B6F13 /* SearchResult.m */,
+				034FE2DF17E45A64001D1226 /* SearchResult.h */,
+				034FE2E017E45A64001D1226 /* SearchResult.m */,
+				034FE2DC17E45A64001D1226 /* Search.h */,
+				034FE2DD17E45A64001D1226 /* Search.m */,
 			);
 			name = ManagedClasses;
 			sourceTree = "<group>";
@@ -170,6 +168,7 @@
 		03E5451517E448F700E8F81B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				034FE2D717E4592E001D1226 /* landscape.png */,
 				03E5451617E4490400E8F81B /* tbSearch@2x.png */,
 			);
 			name = Images;
@@ -186,10 +185,6 @@
 		710DA75E17E453CA00D59298 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
-				034FE2D117E4579A001D1226 /* GDataXMLNode.h */,
-				034FE2D217E4579A001D1226 /* GDataXMLNode.m */,
-				034FE2D317E4579A001D1226 /* GDataXMLParser.h */,
-				034FE2D417E4579A001D1226 /* GDataXMLParser.m */,
 			);
 			name = Parser;
 			sourceTree = "<group>";
@@ -249,6 +244,7 @@
 		712F128817E37F4000EA2363 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				034FE2D917E4593A001D1226 /* Localizable.strings */,
 				712F128917E37F4000EA2363 /* Arendator-Info.plist */,
 				712F128A17E37F4000EA2363 /* InfoPlist.strings */,
 				712F128D17E37F4000EA2363 /* main.m */,
@@ -358,9 +354,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				03E5451717E4490400E8F81B /* tbSearch@2x.png in Resources */,
+				034FE2DB17E4593A001D1226 /* Localizable.strings in Resources */,
 				03E5451A17E44B2500E8F81B /* spb_metro.json in Resources */,
 				712F129D17E37F4000EA2363 /* Images.xcassets in Resources */,
 				712F128C17E37F4000EA2363 /* InfoPlist.strings in Resources */,
+				034FE2D817E4592E001D1226 /* landscape.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,19 +410,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03CE2FF117E4572D002B6F13 /* SearchResult.m in Sources */,
-				034FE2D517E4579A001D1226 /* GDataXMLNode.m in Sources */,
+				034FE2E117E45A64001D1226 /* SearchResult.m in Sources */,
 				712F128E17E37F4000EA2363 /* main.m in Sources */,
-				034FE2D617E4579A001D1226 /* GDataXMLParser.m in Sources */,
 				03E5451317E448EA00E8F81B /* ARSearchesViewController.m in Sources */,
 				03E5450017E448BA00E8F81B /* DataModel.xcdatamodeld in Sources */,
 				71CF7D7817E43E5300048063 /* ARCIANFetcher.m in Sources */,
 				712F129217E37F4000EA2363 /* ARAppDelegate.m in Sources */,
+				034FE2DE17E45A64001D1226 /* Search.m in Sources */,
 				03E5451D17E44B3A00E8F81B /* ARMetroStations.m in Sources */,
 				03E5451417E448EA00E8F81B /* ARSearchViewController.m in Sources */,
 				03E5450617E448C900E8F81B /* DataModel+Helper.m in Sources */,
 				712F12BB17E3806F00EA2363 /* ARTabBarVC.m in Sources */,
-				03CE2FF417E4572D002B6F13 /* Search.m in Sources */,
 				03E5450517E448C900E8F81B /* DataModel.m in Sources */,
 				03E5452417E44E1300E8F81B /* ARBaseViewController.m in Sources */,
 			);
@@ -449,6 +445,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		034FE2D917E4593A001D1226 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				034FE2DA17E4593A001D1226 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		712F128A17E37F4000EA2363 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

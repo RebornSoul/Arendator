@@ -1,2 +1,8 @@
 "titleSearch" = "Поиск квартир";
+"titleSearchVC" = "Поиск квартир";
 
+"itemTitle" = "Название";
+"itemNewSearch" = "Новый поиск";
+"btnSearch" = "Искать";
+
+"sectionPreviousSearches" = "Предыдущие результаты";

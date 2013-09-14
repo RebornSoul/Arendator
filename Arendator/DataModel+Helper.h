@@ -22,10 +22,3 @@
 
 @end
 
-
-static NSString *generateGUID() {
-    CFUUIDRef uuidObj = CFUUIDCreate(nil);
-    NSString *uuidString = (__bridge NSString*)CFUUIDCreateString(nil, uuidObj);
-    CFRelease(uuidObj);
-    return uuidString;
-}

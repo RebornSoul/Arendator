@@ -13,7 +13,6 @@
 
 @interface SearchResult : NSManagedObject
 
-@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * uid;
 @property (nonatomic, retain) Search *search;
 

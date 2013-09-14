@@ -29,6 +29,7 @@
 @dynamic roomTo;
 @dynamic time;
 @dynamic uid;
+@dynamic title;
 @dynamic serachResults;
 
 @end

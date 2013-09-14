@@ -8,9 +8,7 @@
 
 #import "ARBaseViewController.h"
 
-@implementation ARBaseViewController {
-    UITableView *_tableView;
-}
+@implementation ARBaseViewController
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -31,14 +29,23 @@
 - (void)loadView {
     [super loadView];
     
+    self.view.clipsToBounds = YES;
+    
     _landscape = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"landscape"]];
     _landscape.alpha = 0.2;
     [self.view addSubview:_landscape];
     
     _tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:_tableView];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
     
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    _landscape.frame = CGRectMake(0, self.view.frame.size.height - 60 + 20 - _landscape.image.size.height, _landscape.image.size.width, _landscape.image.size.height);
+    
+    [self animateLandscape];
+    
 }
 
 
@@ -49,9 +56,6 @@
     _tableView.frame = self.view.frame;
     _tableView.contentInset = UIEdgeInsetsMake(20+44, 0, 80 + 20 + 44, 0);
     
-    _landscape.frame = CGRectMake(0, self.view.frame.size.height - 60 + 20 - _landscape.image.size.height, _landscape.image.size.width, _landscape.image.size.height);
-    
-    [self animateLandscape];
 }
 
 

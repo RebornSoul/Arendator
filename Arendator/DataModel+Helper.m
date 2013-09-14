@@ -11,6 +11,13 @@
 #import "Search.h"
 #import "SearchResult.h"
 
+static NSString *generateGUID() {
+    CFUUIDRef uuidObj = CFUUIDCreate(nil);
+    NSString *uuidString = (__bridge NSString*)CFUUIDCreateString(nil, uuidObj);
+    CFRelease(uuidObj);
+    return uuidString;
+}
+
 @implementation SearchResult (Helper)
 
 + (SearchResult *)newInstanceForSearch:(Search *)parent {
@@ -29,7 +36,7 @@
 @implementation Search (Helper)
 
 + (Search *)newInstance {
-    Search *result = (Search *)[DataModel createObjectOfClass:[SearchResult class]];
+    Search *result = (Search *)[DataModel createObjectOfClass:[Search class]];
     if (result) {
         result.uid = generateGUID();
         result.time = [NSDate date];

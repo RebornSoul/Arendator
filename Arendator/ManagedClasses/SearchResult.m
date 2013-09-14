@@ -12,7 +12,6 @@
 
 @implementation SearchResult
 
-@dynamic title;
 @dynamic uid;
 @dynamic search;
 
