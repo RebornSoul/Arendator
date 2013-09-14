@@ -7,6 +7,7 @@
 //
 
 #import "ARTabBarVC.h"
+#import "ARSearchViewController.h"
 
 @interface ARTabBarVC ()
 
@@ -25,21 +26,20 @@ static ARTabBarVC *instanceTabBarVC = nil;
 }
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        ARSearchViewController *searchCon = [[ARSearchViewController alloc] init];
+        UINavigationController *navCon1 = [[UINavigationController alloc] initWithRootViewController:searchCon];
+        
+        [self setViewControllers:@[navCon1]];
+
+        
     }
     return self;
 }
 
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    
-}
 
 - (void)didReceiveMemoryWarning
 {

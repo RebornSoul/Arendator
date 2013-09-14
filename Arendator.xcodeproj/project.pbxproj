@@ -10,8 +10,13 @@
 		03E544D717E4378400E8F81B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E544D617E4378400E8F81B /* CoreData.framework */; };
 		03E544DA17E437DE00E8F81B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03E544D817E437DE00E8F81B /* DataModel.xcdatamodeld */; };
 		03E544DD17E437F000E8F81B /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E544DC17E437F000E8F81B /* DataModel.m */; };
-		03E544E217E43D5A00E8F81B /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E544E117E43D5A00E8F81B /* SearchResult.m */; };
-		03E544E517E43D5A00E8F81B /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E544E417E43D5A00E8F81B /* Search.m */; };
+		03E544E817E43DA300E8F81B /* DataModel+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E544E717E43DA300E8F81B /* DataModel+Helper.m */; };
+		03E544EB17E43F4400E8F81B /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E544EA17E43F4400E8F81B /* Search.m */; };
+		03E544EE17E43F4400E8F81B /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E544ED17E43F4400E8F81B /* SearchResult.m */; };
+		03E544F117E4418900E8F81B /* ARSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E544F017E4418900E8F81B /* ARSearchViewController.m */; };
+		03E544F617E442A000E8F81B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03E544F417E442A000E8F81B /* Localizable.strings */; };
+		03E544F917E444CB00E8F81B /* tbSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E544F817E444CB00E8F81B /* tbSearch@2x.png */; };
+		03E544FC17E4450400E8F81B /* ARSearchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E544FB17E4450400E8F81B /* ARSearchesViewController.m */; };
 		23452C7C12A74830A7D8F91E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1680E96B5B447A898FDFF2 /* libPods.a */; };
 		712F128217E37F4000EA2363 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712F128117E37F4000EA2363 /* Foundation.framework */; };
 		712F128417E37F4000EA2363 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712F128317E37F4000EA2363 /* CoreGraphics.framework */; };
@@ -43,10 +48,18 @@
 		03E544D917E437DE00E8F81B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		03E544DB17E437F000E8F81B /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
 		03E544DC17E437F000E8F81B /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
-		03E544E017E43D5A00E8F81B /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = ManagedClasses/SearchResult.h; sourceTree = "<group>"; };
-		03E544E117E43D5A00E8F81B /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = ManagedClasses/SearchResult.m; sourceTree = "<group>"; };
-		03E544E317E43D5A00E8F81B /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search.h; path = ManagedClasses/Search.h; sourceTree = "<group>"; };
-		03E544E417E43D5A00E8F81B /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search.m; path = ManagedClasses/Search.m; sourceTree = "<group>"; };
+		03E544E617E43DA300E8F81B /* DataModel+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataModel+Helper.h"; sourceTree = "<group>"; };
+		03E544E717E43DA300E8F81B /* DataModel+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DataModel+Helper.m"; sourceTree = "<group>"; };
+		03E544E917E43F4400E8F81B /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
+		03E544EA17E43F4400E8F81B /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Search.m; sourceTree = "<group>"; };
+		03E544EC17E43F4400E8F81B /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
+		03E544ED17E43F4400E8F81B /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
+		03E544EF17E4418900E8F81B /* ARSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSearchViewController.h; sourceTree = "<group>"; };
+		03E544F017E4418900E8F81B /* ARSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSearchViewController.m; sourceTree = "<group>"; };
+		03E544F517E442A000E8F81B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		03E544F817E444CB00E8F81B /* tbSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tbSearch@2x.png"; path = "Arendator/Images/tbSearch@2x.png"; sourceTree = "<group>"; };
+		03E544FA17E4450400E8F81B /* ARSearchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSearchesViewController.h; sourceTree = "<group>"; };
+		03E544FB17E4450400E8F81B /* ARSearchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSearchesViewController.m; sourceTree = "<group>"; };
 		62300BE0BFDB45FBA72777F6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		712F127E17E37F4000EA2363 /* Arendator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arendator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		712F128117E37F4000EA2363 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -102,6 +115,8 @@
 				03E544D817E437DE00E8F81B /* DataModel.xcdatamodeld */,
 				03E544DB17E437F000E8F81B /* DataModel.h */,
 				03E544DC17E437F000E8F81B /* DataModel.m */,
+				03E544E617E43DA300E8F81B /* DataModel+Helper.h */,
+				03E544E717E43DA300E8F81B /* DataModel+Helper.m */,
 			);
 			name = DataModel;
 			path = Arendator;
@@ -110,17 +125,26 @@
 		03E544DF17E43D4700E8F81B /* ManagedClasses */ = {
 			isa = PBXGroup;
 			children = (
-				03E544E317E43D5A00E8F81B /* Search.h */,
-				03E544E417E43D5A00E8F81B /* Search.m */,
-				03E544E017E43D5A00E8F81B /* SearchResult.h */,
-				03E544E117E43D5A00E8F81B /* SearchResult.m */,
+				03E544EC17E43F4400E8F81B /* SearchResult.h */,
+				03E544ED17E43F4400E8F81B /* SearchResult.m */,
+				03E544E917E43F4400E8F81B /* Search.h */,
+				03E544EA17E43F4400E8F81B /* Search.m */,
 			);
 			name = ManagedClasses;
+			sourceTree = "<group>";
+		};
+		03E544F717E443F500E8F81B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				03E544F817E444CB00E8F81B /* tbSearch@2x.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		712F127517E37F4000EA2363 = {
 			isa = PBXGroup;
 			children = (
+				03E544F717E443F500E8F81B /* Images */,
 				03E544DE17E43BC800E8F81B /* DataModel */,
 				712F128717E37F4000EA2363 /* Arendator */,
 				712F12A917E37F4000EA2363 /* ArendatorTests */,
@@ -161,6 +185,10 @@
 				712F12BA17E3806F00EA2363 /* ARTabBarVC.m */,
 				712F129C17E37F4000EA2363 /* Images.xcassets */,
 				712F128817E37F4000EA2363 /* Supporting Files */,
+				03E544EF17E4418900E8F81B /* ARSearchViewController.h */,
+				03E544F017E4418900E8F81B /* ARSearchViewController.m */,
+				03E544FA17E4450400E8F81B /* ARSearchesViewController.h */,
+				03E544FB17E4450400E8F81B /* ARSearchesViewController.m */,
 			);
 			path = Arendator;
 			sourceTree = "<group>";
@@ -168,6 +196,7 @@
 		712F128817E37F4000EA2363 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				03E544F417E442A000E8F81B /* Localizable.strings */,
 				712F128917E37F4000EA2363 /* Arendator-Info.plist */,
 				712F128A17E37F4000EA2363 /* InfoPlist.strings */,
 				712F128D17E37F4000EA2363 /* main.m */,
@@ -276,7 +305,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03E544F917E444CB00E8F81B /* tbSearch@2x.png in Resources */,
 				712F129D17E37F4000EA2363 /* Images.xcassets in Resources */,
+				03E544F617E442A000E8F81B /* Localizable.strings in Resources */,
 				712F128C17E37F4000EA2363 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,13 +360,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03E544E217E43D5A00E8F81B /* SearchResult.m in Sources */,
+				03E544EE17E43F4400E8F81B /* SearchResult.m in Sources */,
+				03E544F117E4418900E8F81B /* ARSearchViewController.m in Sources */,
+				03E544EB17E43F4400E8F81B /* Search.m in Sources */,
+				03E544FC17E4450400E8F81B /* ARSearchesViewController.m in Sources */,
 				712F128E17E37F4000EA2363 /* main.m in Sources */,
 				03E544DD17E437F000E8F81B /* DataModel.m in Sources */,
+				03E544E817E43DA300E8F81B /* DataModel+Helper.m in Sources */,
 				03E544DA17E437DE00E8F81B /* DataModel.xcdatamodeld in Sources */,
 				712F129217E37F4000EA2363 /* ARAppDelegate.m in Sources */,
 				712F12BB17E3806F00EA2363 /* ARTabBarVC.m in Sources */,
-				03E544E517E43D5A00E8F81B /* Search.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +392,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		03E544F417E442A000E8F81B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03E544F517E442A000E8F81B /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		712F128A17E37F4000EA2363 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
