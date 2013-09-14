@@ -12,6 +12,6 @@
 @interface ARCIANFetcher : NSObject
 @property (nonatomic, strong) GDataXMLDocument *xmlDocument;
 
-- (ARCIANFetcher *) sharedInstance;
++ (ARCIANFetcher *) sharedInstance;
 
 @end

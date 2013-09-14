@@ -21,6 +21,7 @@
 		712F12AE17E37F4000EA2363 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 712F12AC17E37F4000EA2363 /* InfoPlist.strings */; };
 		712F12B017E37F4000EA2363 /* ArendatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 712F12AF17E37F4000EA2363 /* ArendatorTests.m */; };
 		712F12BB17E3806F00EA2363 /* ARTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 712F12BA17E3806F00EA2363 /* ARTabBarVC.m */; };
+		71737D8817E4457B0047B1C4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71737D8717E4457B0047B1C4 /* SystemConfiguration.framework */; };
 		71CF7D7817E43E5300048063 /* ARCIANFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CF7D7717E43E5300048063 /* ARCIANFetcher.m */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		712F12AF17E37F4000EA2363 /* ArendatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArendatorTests.m; sourceTree = "<group>"; };
 		712F12B917E3806F00EA2363 /* ARTabBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTabBarVC.h; sourceTree = "<group>"; };
 		712F12BA17E3806F00EA2363 /* ARTabBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTabBarVC.m; sourceTree = "<group>"; };
+		71737D8717E4457B0047B1C4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		71CF7D7617E43E5300048063 /* ARCIANFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCIANFetcher.h; sourceTree = "<group>"; };
 		71CF7D7717E43E5300048063 /* ARCIANFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARCIANFetcher.m; sourceTree = "<group>"; };
 		FE1680E96B5B447A898FDFF2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71737D8817E4457B0047B1C4 /* SystemConfiguration.framework in Frameworks */,
 				712F128417E37F4000EA2363 /* CoreGraphics.framework in Frameworks */,
 				712F128617E37F4000EA2363 /* UIKit.framework in Frameworks */,
 				712F128217E37F4000EA2363 /* Foundation.framework in Frameworks */,
@@ -107,6 +110,7 @@
 		712F128017E37F4000EA2363 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				71737D8717E4457B0047B1C4 /* SystemConfiguration.framework */,
 				712F128117E37F4000EA2363 /* Foundation.framework */,
 				712F128317E37F4000EA2363 /* CoreGraphics.framework */,
 				712F128517E37F4000EA2363 /* UIKit.framework */,
