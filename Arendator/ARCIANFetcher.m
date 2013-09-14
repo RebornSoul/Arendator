@@ -12,7 +12,6 @@
 
 @implementation ARCIANFetcher
 
-static double 	defaultTimeInterval = 60.0;
 static NSString *defaultRegion = @"10";
 static ARCIANFetcher *instanceFetcher = nil;
 
@@ -111,33 +110,45 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
                                                  encoding:NSWindowsCP1251StringEncoding];
         NSData* encodedData = [newStr dataUsingEncoding:NSUTF16StringEncoding];
         TFHpple *tutorialsParser = [TFHpple hppleWithHTMLData:encodedData];
-        NSString *tutorialsXpathQueryString = @"//td[@class='cat']";
+        NSString *tutorialsXpathQueryString = @"//table[@class='cat']//tr";
         NSArray *tutorialsNodes = [tutorialsParser searchWithXPathQuery:tutorialsXpathQueryString];
-        
-        // 4
-        NSLog(@"Nodes: %i", tutorialsNodes.count);
+        NSLog(@"Nodes: %i", [tutorialsNodes count]);
+        BOOL firstElement = YES;
         for (TFHppleElement *element in tutorialsNodes) {
-            //        NSLog(@"Element: %@", element);
-            for (TFHppleElement *elementChild in element.children) {
-                //            NSLog(@"Content: %@", element);
-                for (TFHppleElement *elementChildChild in elementChild.children) {
-                    NSString *content = elementChildChild.content;
-                    if (content.length) {
-                        NSLog(@"Child tag: %@",elementChildChild.tagName);
-                        NSLog(@"Child content: %@", elementChildChild.content);
-                        NSLog(@"Child parameters: %@", elementChildChild.attributes);
-                    } else {
-                        for (TFHppleElement *elementChild2 in elementChildChild.children) {
-                            NSString *innerContent = elementChild2.content;
-                            if (innerContent.length ){
-                                NSLog(@"Inner tag: %@",elementChildChild.tagName);
-                                NSLog(@"Inner content: %@", elementChild2.content);
-                                NSLog(@"Inner parameters: %@", elementChildChild.attributes);
+            if (firstElement) firstElement = NO;
+            else {
+                int upperCounter = 0;
+                for (TFHppleElement *elementChild in element.children) {
+                    NSLog(@"~============================{ %i", upperCounter);
+                    NSLog(@"%i: Content: %@", upperCounter, element.content);
+                    upperCounter += 1;
+                    int midCounter = 0;
+                    for (TFHppleElement *elementChildChild in elementChild.children) {
+                        NSLog(@"%i,%i: Content: %@", upperCounter,midCounter, elementChildChild.content);
+                        midCounter += 1;
+                        int counter = 0;
+                        for (TFHppleElement *subElement in elementChildChild.children) {
+                            NSLog(@"~=========={ %i }===========~", counter);
+                            NSLog(@"%i,%i,%i: Sub content: %@", upperCounter,midCounter,counter, elementChildChild.content);
+                            counter += 1;
+                            int lowerCounter = 0;
+                            for (TFHppleElement *sub2Element in subElement.children) {
+                                NSLog(@"~========{ %i", lowerCounter);
+                                NSLog(@"Sub sub content: %@", sub2Element.content);
+                                lowerCounter += 1;
+                                for (TFHppleElement *sub3Element in sub2Element.children) {
+                                    NSLog(@"Sub sub sub content: %@", sub3Element.content);
+                                    for (TFHppleElement *sub4Element in sub3Element.children) {
+                                        NSLog(@"Sub sub sub sub content: %@", sub4Element.content);
+                                        
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
+            NSLog(@"==============================================================");
         }
 
         
@@ -177,6 +188,7 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
     if (search.optWashMachine) [params setObject:@"1" forKey:washingMchnKey];
     if (search.priceFrom) [params setObject:search.priceFrom.stringValue forKey:minPriceKey];
     if (search.priceTo) [params setObject:search.priceTo.stringValue forKey:maxPriceKey];
+    NSLog(@"%@",params);
     return params;
 }
 
@@ -185,20 +197,5 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
 {
     
 }
-
-- (void)loadResultsForSearch:(Search*)search {
-    // 1
-    NSURL *tutorialsUrl = [NSURL URLWithString:@"http://www.cian.ru/cat.php?deal_type=1&obl_id=10&city[0]=11622&p=1"];
-    NSData *tutorialsHtmlDataRAW = [NSData dataWithContentsOfURL:tutorialsUrl];
-    NSString* newStr = [[NSString alloc] initWithData:tutorialsHtmlDataRAW
-                                             encoding:NSWindowsCP1251StringEncoding];
-    NSData* tutorialsHtmlData = [newStr dataUsingEncoding:NSUTF16StringEncoding];
-    
-    // 2
-    TFHpple *tutorialsParser = [TFHpple hppleWithHTMLData:tutorialsHtmlData];
-    
-    
-    // //table[@class='cat']/tbody/tr[@id='tr_9790941']/td
-    }
 
 @end

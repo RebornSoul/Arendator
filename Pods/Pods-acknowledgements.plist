@@ -41,6 +41,14 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Copyright 2013 Google Inc.</string>
+			<key>Title</key>
+			<string>Google-Maps-iOS-SDK</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>Copyright (C) 2007-2013 Stig Brautaset. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

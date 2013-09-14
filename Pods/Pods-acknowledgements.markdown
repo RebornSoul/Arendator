@@ -24,6 +24,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## Google-Maps-iOS-SDK
+
+Copyright 2013 Google Inc.
+
 ## SBJson
 
 Copyright (C) 2007-2013 Stig Brautaset. All rights reserved.
