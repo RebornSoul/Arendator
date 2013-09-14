@@ -11,8 +11,20 @@
 @class SearchResult;
 @class Search;
 
+typedef enum {
+    kSearchStatusNone = 0,
+    kSearchStatusDataLoading,
+    kSearchStatusDataParsing,
+    kSearchStatusDataSaving,
+    kSearchStatusComplete
+} kSearchStatus;
+
 @interface ARCIANFetcher : NSObject
 
 + (ARCIANFetcher *) sharedInstance;
-- (SearchResult* ) performSearch:(Search*)search;
+- (void)performSearch:(Search *)search
+      onPage:(NSInteger)page
+    progress:(void (^)(float progress, kSearchStatus status))progressBlock
+      result:(void (^)(BOOL finished, NSArray *searchResults))successBlock
+     failure:(void (^)(NSError *error))failureBlock;
 @end
