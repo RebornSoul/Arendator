@@ -64,19 +64,42 @@ static NSString *generateGUID() {
 }
 
 
-/*
-"rangeDoesNotMatter" = "Не важно";
-"rangeFromFMT" = "от %i";
-"rangeToFMT" = "до %";
-"rangeFromToFMT" = "от %i до %i";
- */
 - (NSString *)humanReadablePriceRange {
-    return @"?";
+    if (!self.priceFrom && !self.priceTo)
+        return NSLocalizedString(@"rangeDoesNotMatter", @"");
+    if (!!self.priceFrom && !!self.priceTo) {
+        if (self.priceFrom.intValue == self.priceTo.intValue)
+            return [NSString stringWithFormat:NSLocalizedString(@"priceExactFMT", @""), formatBabki(self.priceFrom)];
+        return [NSString stringWithFormat:NSLocalizedString(@"priceFromToFMT", @""), formatBabki(self.priceFrom), formatBabki(self.priceTo)];
+    }
+    if (!!self.priceFrom)
+        return [NSString stringWithFormat:NSLocalizedString(@"priceFromFMT", @""), formatBabki(self.priceFrom)];
+    if (!!self.priceTo)
+        return [NSString stringWithFormat:NSLocalizedString(@"priceToFMT", @""), formatBabki(self.priceTo)];
+    return @"???";
+}
+
+
+static NSString *formatBabki(NSNumber *value) {
+    float val = roundf(value.integerValue / 500) / 2;
+    NSString *result = [NSString stringWithFormat:@"%.1f", val];
+    return [[result stringByReplacingOccurrencesOfString:@".0" withString:@""] stringByReplacingOccurrencesOfString:@",0" withString:@""];
 }
 
 
 - (NSString *)humanReadableRoomRange {
-    return @"?";
+    if (!self.roomFrom && !self.roomTo)
+        return NSLocalizedString(@"rangeDoesNotMatter", @"");
+    if (!!self.roomFrom && !!self.roomTo) {
+        if (self.roomFrom.integerValue == self.roomTo.integerValue)
+            return [NSString stringWithFormat:@"%i", self.roomFrom.integerValue];
+        return [NSString stringWithFormat:NSLocalizedString(@"rangeFromToFMT", @""), self.roomFrom.integerValue, self.roomTo.integerValue];
+    }
+    if (!!self.roomFrom)
+        return [NSString stringWithFormat:NSLocalizedString(@"rangeFromFMT", @""), self.roomFrom.integerValue];
+    if (!!self.roomTo)
+        return [NSString stringWithFormat:NSLocalizedString(@"rangeToFMT", @""), self.roomTo.integerValue];
+    return @"???";
 }
 
 @end

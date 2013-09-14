@@ -11,6 +11,8 @@
 #import "DataModel+Helper.h"
 #import "DataModel.h"
 #import "ARMetroStationSelector.h"
+#import "ARRoomCountSelector.h"
+#import "ARPriceSelector.h"
 #import "ARMetroStations.h"
 
 @implementation ARSearchViewController {
@@ -121,6 +123,13 @@
 }
 
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    _search.title = textField.text;    
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
 - (void)onSearchClick:(UIBarButtonItem *)sender {
     canceled = NO;
     [DataModel save];
@@ -150,6 +159,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == SECT_MAIN)
         switch (indexPath.row) {
             case ITEM_METRO: {
@@ -157,15 +167,27 @@
                 [self.navigationController pushViewController:selector animated:YES];
                 break;
             }
+            case ITEM_PRICE: {
+                ARPriceSelector *selector = [[ARPriceSelector alloc] initWithSearch:_search];
+                [self.navigationController pushViewController:selector animated:YES];
+                break;
+            }
+            case ITEM_ROOMS: {
+                ARRoomCountSelector *selector = [[ARRoomCountSelector alloc] initWithSearch:_search];
+                [self.navigationController pushViewController:selector animated:YES];
+            }
         }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *ruid = @"";
+    NSString *ruid = [NSString stringWithFormat:@"%i", indexPath.section];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ruid];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ruid];
+        UITableViewCellStyle style = UITableViewCellStyleValue1;
+        if (indexPath.section == SECT_MAIN && indexPath.row == ITEM_METRO)
+            style = UITableViewCellStyleSubtitle;
+        cell = [[UITableViewCell alloc] initWithStyle:style reuseIdentifier:ruid];
         cell.backgroundColor = [UIColor clearColor];
     }
     [cell prepareForReuse];
@@ -184,11 +206,13 @@
             break;
         case ITEM_PRICE:
             cell.textLabel.text = NSLocalizedString(@"itemPrice", @"");
-            if (!_search.priceFrom && !_search.priceTo)
-                cell.detailTextLabel.text = 
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.detailTextLabel.text = _search.humanReadablePriceRange;
             break;
         case ITEM_ROOMS:
             cell.textLabel.text = NSLocalizedString(@"itemRooms", @"");
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.detailTextLabel.text = _search.humanReadableRoomRange;
             break;
     } else {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;

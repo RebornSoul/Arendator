@@ -40,12 +40,23 @@ static NSArray *_data = nil;
 }
 
 
++ (NSString *)stationNameById:(NSInteger)stationId {
+    [ARMetroStations stationsForCity:0];
+    for (NSDictionary *station in _data)
+        if ([[NSString stringWithFormat:@"%i", stationId] isEqualToString:station[@"id"]])
+            return station[@"name"];
+    return nil;
+}
+
 + (NSString *)humanReadableSationsStringFormIdString:(NSString *)ids {
+    [ARMetroStations stationsForCity:0];
     NSMutableArray *result = [NSMutableArray array];
-    for (NSString *ssId in [ids componentsSeparatedByString:@","])
-        for (NSDictionary *station in _data)
-            if ([ssId isEqualToString:station[@"id"]])
-                [result addObject:station[@"name"]];
+    for (NSString *station in [ids componentsSeparatedByString:@","]) {
+        NSString *name = [ARMetroStations stationNameById:[station integerValue]];
+        if (name)
+            [result addObject:name];
+    }
+    NSLog(@"%@", result);
     return [result componentsJoinedByString:@", "];
 }
 

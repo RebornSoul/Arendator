@@ -29,7 +29,7 @@
     [oldSearches sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         Search *s1 = obj1;
         Search *s2 = obj2;
-        return [s1.time compare:s2.time];
+        return [s2.time compare:s1.time];
     }];
     
     [super reloadData];
