@@ -28,4 +28,9 @@
     return [NSArray arrayWithArray:result];
 }
 
+
++ (NSInteger)metroStationIdByText:(NSString *)text {
+    return 0;
+}
+
 @end

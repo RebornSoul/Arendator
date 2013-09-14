@@ -20,5 +20,8 @@
 
 + (Search *)newInstance;
 
+- (Boolean)metroStationChecked:(NSInteger)stationId;
+- (void)checkMetroStation:(NSInteger)stationId check:(Boolean)value;
+
 @end
 

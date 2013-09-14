@@ -10,6 +10,7 @@
 #import "ARBaseViewController.h"
 #import "DataModel+Helper.h"
 #import "DataModel.h"
+#import "ARMetroStationSelector.h"
 
 @implementation ARSearchViewController {
     Search *_search;
@@ -33,6 +34,25 @@
     if (canceled && newEntity) {
         [DataModel deleteObject:_search];
     }
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (_search.serachResults.count != 0) {
+        self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 54)];
+        int gap = 8;
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        btn.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+        btn.frame = CGRectMake(gap, gap, self.tableView.tableHeaderView.frame.size.width - 2 * gap, self.tableView.tableHeaderView.frame.size.height - 2 * gap);
+        [btn setTitle:[NSString stringWithFormat:NSLocalizedString(@"btnPrevResultsFMT", @""), _search.serachResults.count] forState:UIControlStateNormal];
+        [self.tableView.tableHeaderView addSubview:btn];
+        self.tableView.tableHeaderView.backgroundColor = [UIColor clearColor];
+    } else
+        self.tableView.tableHeaderView = nil;
+    
+    [self reloadData];
 }
 
 
@@ -65,7 +85,7 @@
 
 - (id)initWithSearch:(Search *)search {
     self = [super init];
-    self.title = NSLocalizedString(@"titleSearchVC", @"");
+    self.title = NSLocalizedString(@"titleSearch", @"");
     
     canceled = YES;
     _search = search;
@@ -107,6 +127,9 @@
 #define SECT_MORE 1
 
 #define ITEM_TITLE 0
+#define ITEM_METRO 1
+#define ITEM_PRICE 2
+#define ITEM_ROOMS 3
 
 #define ITEM_allowedChildren 0
 #define ITEM_allowedPets 1
@@ -118,21 +141,47 @@
 #define ITEM_optTV 7
 #define ITEM_optWashMachine 8
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == SECT_MAIN)
+        switch (indexPath.row) {
+            case ITEM_METRO: {
+                ARMetroStationSelector *selector = [[ARMetroStationSelector alloc] initWithSearch:_search];
+                [self.navigationController pushViewController:selector animated:YES];
+                break;
+            }
+        }
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *ruid = @"";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ruid];
-    if (!cell)
+    if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ruid];
+        cell.backgroundColor = [UIColor clearColor];
+    }
     [cell prepareForReuse];
-    cell.backgroundColor = [UIColor clearColor];
     
     if (indexPath.section == SECT_MAIN)
     switch (indexPath.row) {
         case ITEM_TITLE:
             cell.textLabel.text = NSLocalizedString(@"itemTitle", @"");
             cell.accessoryView = titleTF;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             break;
-    } else
+        case ITEM_METRO:
+            cell.textLabel.text = NSLocalizedString(@"itemMetro", @"");
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            break;
+        case ITEM_PRICE:
+            cell.textLabel.text = NSLocalizedString(@"itemPrice", @"");
+            break;
+        case ITEM_ROOMS:
+            cell.textLabel.text = NSLocalizedString(@"itemRooms", @"");
+            break;
+    } else {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         switch (indexPath.row) {
             case ITEM_allowedChildren:
                 cell.textLabel.text = NSLocalizedString(@"ITEM_allowedChildren", @"");
@@ -171,6 +220,7 @@
                 cell.accessoryView = sc_optWashMachine;
                 break;
         }
+    }
     
     return cell;
 }
@@ -182,7 +232,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return section == SECT_MAIN ? 1 : 8;
+    return section == SECT_MAIN ? 4 : 8;
 }
 
 

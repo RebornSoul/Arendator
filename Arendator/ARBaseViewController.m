@@ -11,6 +11,11 @@
 @implementation ARBaseViewController
 
 
+- (void)reloadData {
+    [self.tableView reloadData];
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return nil;
 }
@@ -35,10 +40,11 @@
     _landscape.alpha = 0.2;
     [self.view addSubview:_landscape];
     
-    _tableView = [[UITableView alloc] initWithFrame:self.view.frame];
+    _tableView = [[UITableView alloc] init];
     [self.view addSubview:_tableView];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.0];
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -52,9 +58,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    _tableView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.0];
-    _tableView.frame = self.view.frame;
-    _tableView.contentInset = UIEdgeInsetsMake(20+44, 0, 80 + 20 + 44, 0);
+    _tableView.frame = CGRectMake(0, 64, 320, self.view.frame.size.height - 112);
     
 }
 

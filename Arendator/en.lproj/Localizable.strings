@@ -1,16 +1,26 @@
+"tabBarSearch" = "Поиск квартир";
 "titleSearch" = "Поиск квартир";
-"titleSearchVC" = "Поиск квартир";
+"titleMetro" = "Станции метро";
+
+"tabBarAbout" = "О программе…";
+"titleAbout" = "О программе…";
 
 "itemTitle" = "Название";
+"itemMetro" = "Станции метро";
+"itemPrice" = "Цена аренды";
+"itemRooms" = "Количество комнат";
+
 "itemNewSearch" = "Новый поиск";
 "btnSearch" = "Искать";
 
-"sectionPreviousSearches" = "Предыдущие результаты";
+"sectionPreviousSearches" = "Предыдущие результытаты";
 "sectionMoreOptions" = "Дополнительные параметры";
 
-"doesnotmatter" = "...";
+"doesnotmatter" = "…";
 "yes" = "Да";
 "no" = "Нет";
+
+"btnPrevResultsFMT" = "Предыдущие результытаты: %i";
 
 "ITEM_allowedChildren" = "Можно с детьми";
 "ITEM_allowedPets" = "Можно с животными";

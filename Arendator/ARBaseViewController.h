@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface ARBaseViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-@protected
-    UITableView *_tableView;
+
 }
 
 @property (nonatomic, readonly) UIImageView *landscape;
+@property (nonatomic, readonly) UITableView *tableView;
+
+- (void)reloadData;
 
 @end

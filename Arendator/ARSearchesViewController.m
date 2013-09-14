@@ -17,7 +17,7 @@
 
 - (id)init {
     self = [super init];
-    self.title = NSLocalizedString(@"titleSearch", @"");
+    self.title = NSLocalizedString(@"tabBarSearch", @"");
     self.tabBarItem.image = [UIImage imageNamed:@"tbSearch"];
     
     return self;
@@ -32,7 +32,7 @@
         return [s1.time compare:s2.time];
     }];
     
-    [self->_tableView reloadData];
+    [super reloadData];
 }
 
 
@@ -59,8 +59,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *ruid = @"";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ruid];
-    if (!cell)
+    if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ruid];
+        cell.backgroundColor = [UIColor clearColor];
+    }
+    [cell prepareForReuse];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     if (indexPath.section == SECT_NEW) {

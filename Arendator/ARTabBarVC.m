@@ -9,6 +9,7 @@
 #import "ARTabBarVC.h"
 #import "ARSearchViewController.h"
 #import "ARSearchesViewController.h"
+#import "ARAboutViewcontroller.h"
 
 @interface ARTabBarVC ()
 
@@ -32,8 +33,11 @@ static ARTabBarVC *instanceTabBarVC = nil;
     if (self) {
         ARSearchesViewController *searchCon = [[ARSearchesViewController alloc] init];
         UINavigationController *navCon1 = [[UINavigationController alloc] initWithRootViewController:searchCon];
+
+        ARAboutViewcontroller *aboutCon = [[ARAboutViewcontroller alloc] init];
+        UINavigationController *navCon2 = [[UINavigationController alloc] initWithRootViewController:aboutCon];
         
-        [self setViewControllers:@[navCon1]];
+        [self setViewControllers:@[navCon1, navCon2]];
 
         
     }

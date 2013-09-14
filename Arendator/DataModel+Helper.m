@@ -45,4 +45,23 @@ static NSString *generateGUID() {
     return result;
 }
 
+
+- (Boolean)metroStationChecked:(NSInteger)stationId {
+    NSArray *stations = [self.metroIdStr componentsSeparatedByString:@","];
+    for (NSString *station in stations)
+        if ([station isEqualToString:[NSString stringWithFormat:@"%i", stationId]])
+            return YES;
+    return NO;
+}
+
+
+- (void)checkMetroStation:(NSInteger)stationId check:(Boolean)value {
+    NSMutableArray *stations = [NSMutableArray arrayWithArray:[self.metroIdStr componentsSeparatedByString:@","]];
+    [stations removeObject:[NSString stringWithFormat:@"%i", stationId]];
+    if (value)
+        [stations addObject:[NSString stringWithFormat:@"%i", stationId]];
+    self.metroIdStr = [stations componentsJoinedByString:@","];
+}
+
+
 @end
