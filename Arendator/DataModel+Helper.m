@@ -74,7 +74,7 @@ static NSString *generateGUID() {
     if (result) {
         result.uid = generateGUID();
         result.time = [NSDate date];
-        result.cityId = @0;
+        result.cityId = @10;
     }
     return result;
 }

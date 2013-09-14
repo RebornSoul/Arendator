@@ -105,13 +105,6 @@
     if (!_search)
         _search = [Search newInstance];
     
-    if (!newEntity && _search.searchResults.count == 0) {
-        [SearchResult randomTestInstanceForSearch:_search];
-        [SearchResult randomTestInstanceForSearch:_search];
-        [SearchResult randomTestInstanceForSearch:_search];
-        [DataModel save];
-    }
-    
     titleTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 200, 25)];
     titleTF.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.1];
     titleTF.textAlignment = NSTextAlignmentRight;
@@ -154,9 +147,20 @@
 //    [[[UIAlertView alloc] initWithTitle:@"???" message:@"NOT IMPL" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 //    [someone DOSEARCH:_search]; //ЮРА
     
+    [SearchResult randomTestInstanceForSearch:_search];
+    [SearchResult randomTestInstanceForSearch:_search];
+    [SearchResult randomTestInstanceForSearch:_search];
+    [DataModel save];
+    
     [ARBlockingView showWithTitle:NSLocalizedString(@"pleaseWait", @"")];
+    [self performSelector:@selector(hideTMP) withObject:nil afterDelay:3];
 }
 
+
+- (void)hideTMP {
+    [ARBlockingView hide];
+    [self reloadData];
+}
 
 #define SECT_MAIN 0
 #define SECT_MORE 1
