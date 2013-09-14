@@ -15,6 +15,7 @@
 #import "ARPriceSelector.h"
 #import "ARMetroStations.h"
 #import "ARBlockingView.h"
+#import "ARSearchResultsViewController.h"
 
 @implementation ARSearchViewController {
     Search *_search;
@@ -45,18 +46,25 @@
     [super viewWillAppear:animated];
     
     if (_search.searchResults.count != 0) {
-        self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 54)];
-        int gap = 8;
+        self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 58)];
+        int gap = 15;
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        btn.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
-        btn.frame = CGRectMake(gap, gap, self.tableView.tableHeaderView.frame.size.width - 2 * gap, self.tableView.tableHeaderView.frame.size.height - 2 * gap);
+        btn.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.1];
+        btn.frame = CGRectMake(gap, gap, self.tableView.tableHeaderView.frame.size.width - 2 * gap, self.tableView.tableHeaderView.frame.size.height - gap * 1.2);
         [btn setTitle:[NSString stringWithFormat:NSLocalizedString(@"btnPrevResultsFMT", @""), _search.searchResults.count] forState:UIControlStateNormal];
         [self.tableView.tableHeaderView addSubview:btn];
         self.tableView.tableHeaderView.backgroundColor = [UIColor clearColor];
+        [btn addTarget:self action:@selector(onPrevResultsClick:) forControlEvents:UIControlEventTouchUpInside];
     } else
         self.tableView.tableHeaderView = nil;
     
     [self reloadData];
+}
+
+
+- (void)onPrevResultsClick:(UIButton *)sender {
+    ARSearchResultsViewController *controler = [[ARSearchResultsViewController alloc] initWithSearch:_search];
+    [self.navigationController pushViewController:controler animated:YES];
 }
 
 

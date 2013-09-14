@@ -3,6 +3,7 @@
 "titleMetro" = "Станции метро";
 "titleRoomCount" = "Количество комнат";
 "titlePrice" = "Цена аренды";
+"titleSearchResults" = "Результаты поиска";
 
 "tabBarAbout" = "О программе…";
 "titleAbout" = "О программе…";
@@ -38,7 +39,7 @@
 "priceToFMT" = "до %@ т.р.";
 "priceFromToFMT" = "%@ - %@ т.р.";
 
-"resultCountXFlatsFMT" = " (%i квартир)";
+"resultCountXFlatsFMT" = " (найдено: %i)";
 
 "btnPrevResultsFMT" = "Предыдущие результытаты: %i";
 

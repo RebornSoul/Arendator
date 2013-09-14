@@ -59,6 +59,16 @@ static NSString *generateGUID() {
 // ---------------------------------------------------------- //
 @implementation Search (Helper)
 
+- (NSString *)roomsAsString {
+    int from = !!self.roomFrom ? self.roomFrom.integerValue : 1;
+    int to = !!self.roomTo ? self.roomTo.integerValue : 6;
+    NSMutableArray *result = [NSMutableArray array];
+    for (int i = from; i <= to; i++)
+        [result addObject:[NSNumber numberWithInt:i]];
+    return [result componentsJoinedByString:@","];
+}
+
+
 + (Search *)newInstance {
     Search *result = (Search *)[DataModel createObjectOfClass:[Search class]];
     if (result) {

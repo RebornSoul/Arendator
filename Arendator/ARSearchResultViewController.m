@@ -8,6 +8,16 @@
 
 #import "ARSearchResultViewController.h"
 
-@implementation ARSearchResultViewController
+@implementation ARSearchResultViewController {
+    SearchResult *_searchResult;
+}
+
+- (id)initWithSearchResult:(SearchResult *)searchResult {
+    self = [super init];
+    
+    _searchResult = searchResult;
+    
+    return self;
+}
 
 @end

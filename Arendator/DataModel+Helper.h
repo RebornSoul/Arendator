@@ -30,5 +30,7 @@
 @property (nonatomic, readonly) NSString *humanReadablePriceForm;
 @property (nonatomic, readonly) NSString *humanReadablePriceTo;
 
+@property (nonatomic, readonly) NSString *roomsAsString;
+
 @end
 

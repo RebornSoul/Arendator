@@ -8,6 +8,7 @@
 
 #import "ARSearchResultsViewController.h"
 #import "SearchResult.h"
+#import "ARSearchResultViewController.h"
 
 @implementation ARSearchResultsViewController {
     Search *_search;
@@ -18,7 +19,8 @@
     self = [super init];
     
     _search = search;
-    results = [search.searchResults allObjects];
+    results = [_search.searchResults allObjects];
+    self.title = [NSString stringWithFormat:@"%@ (%i)", NSLocalizedString(@"titleSearchResults", @""), _search.searchResults.count];
     
     return self;
 }
@@ -32,6 +34,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    SearchResult *result = results[indexPath.row];
+    ARSearchResultViewController *controller = [[ARSearchResultViewController alloc] initWithSearchResult:result];
+    [self.navigationController pushViewController:controller animated:YES];    
 }
 
 
@@ -44,9 +49,10 @@
         cell.backgroundColor = [UIColor clearColor];
     }
     [cell prepareForReuse];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     SearchResult *result = results[indexPath.row];
-    
+    cell.textLabel.text = result.street;
     
     return cell;
 }
