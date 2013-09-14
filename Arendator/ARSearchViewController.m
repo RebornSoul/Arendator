@@ -43,9 +43,7 @@
 }
 
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
+- (void)updateHeader {
     if (_search.searchResults.count != 0) {
         self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 58)];
         int gap = 15;
@@ -58,6 +56,11 @@
         [btn addTarget:self action:@selector(onPrevResultsClick:) forControlEvents:UIControlEventTouchUpInside];
     } else
         self.tableView.tableHeaderView = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self updateHeader];
     
     [self reloadData];
 }
@@ -145,6 +148,8 @@
     newEntity = NO;
     [DataModel save];
     
+    [_search clearSearchResults];
+    
     [[ARCIANFetcher sharedInstance] performSearch:_search onPage:0 progress:^(float progress, kSearchStatus status) {
         NSLog(@"progress");
     } result:^(BOOL finished, NSArray *searchResults) {
@@ -159,13 +164,13 @@
     [DataModel save]; */
     
     [ARBlockingView showWithTitle:NSLocalizedString(@"pleaseWait", @"")];
-//    [self performSelector:@selector(hideTMP) withObject:nil afterDelay:3];
+    [self performSelector:@selector(hideTMP) withObject:nil afterDelay:3];
 }
 
 
 - (void)hideTMP {
     [ARBlockingView hide];
-    [self reloadData];
+    [self updateHeader];
 }
 
 #define SECT_MAIN 0

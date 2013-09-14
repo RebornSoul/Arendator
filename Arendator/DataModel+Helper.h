@@ -32,5 +32,7 @@
 
 @property (nonatomic, readonly) NSString *roomsAsString;
 
+- (void)clearSearchResults;
+
 @end
 
