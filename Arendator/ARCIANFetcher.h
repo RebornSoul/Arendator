@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class SearchResult;
+@class Search;
+
 @interface ARCIANFetcher : NSObject
 
 + (ARCIANFetcher *) sharedInstance;
-
+- (SearchResult* ) performSearch:(Search*)search;
 @end

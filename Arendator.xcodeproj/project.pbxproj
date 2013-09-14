@@ -26,6 +26,9 @@
 		03E5451D17E44B3A00E8F81B /* ARMetroStations.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5451C17E44B3A00E8F81B /* ARMetroStations.m */; };
 		03E5452417E44E1300E8F81B /* ARBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5452317E44E1300E8F81B /* ARBaseViewController.m */; };
 		23452C7C12A74830A7D8F91E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1680E96B5B447A898FDFF2 /* libPods.a */; };
+		7106A6B917E48A0A002469FC /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 7106A6B417E48A0A002469FC /* TFHpple.m */; };
+		7106A6BA17E48A0A002469FC /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 7106A6B617E48A0A002469FC /* TFHppleElement.m */; };
+		7106A6BB17E48A0A002469FC /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 7106A6B817E48A0A002469FC /* XPathQuery.m */; };
 		710DA76017E4551C00D59298 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710DA75F17E4551C00D59298 /* MobileCoreServices.framework */; };
 		712F128217E37F4000EA2363 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712F128117E37F4000EA2363 /* Foundation.framework */; };
 		712F128417E37F4000EA2363 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712F128317E37F4000EA2363 /* CoreGraphics.framework */; };
@@ -87,6 +90,12 @@
 		03E5452217E44E1300E8F81B /* ARBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARBaseViewController.h; sourceTree = "<group>"; };
 		03E5452317E44E1300E8F81B /* ARBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARBaseViewController.m; sourceTree = "<group>"; };
 		62300BE0BFDB45FBA72777F6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		7106A6B317E48A0A002469FC /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = Arendator/Parser/TFHpple.h; sourceTree = "<group>"; };
+		7106A6B417E48A0A002469FC /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = Arendator/Parser/TFHpple.m; sourceTree = "<group>"; };
+		7106A6B517E48A0A002469FC /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = Arendator/Parser/TFHppleElement.h; sourceTree = "<group>"; };
+		7106A6B617E48A0A002469FC /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHppleElement.m; path = Arendator/Parser/TFHppleElement.m; sourceTree = "<group>"; };
+		7106A6B717E48A0A002469FC /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XPathQuery.h; path = Arendator/Parser/XPathQuery.h; sourceTree = "<group>"; };
+		7106A6B817E48A0A002469FC /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XPathQuery.m; path = Arendator/Parser/XPathQuery.m; sourceTree = "<group>"; };
 		710DA75F17E4551C00D59298 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		712F127E17E37F4000EA2363 /* Arendator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arendator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		712F128117E37F4000EA2363 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -107,8 +116,8 @@
 		712F12B917E3806F00EA2363 /* ARTabBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTabBarVC.h; sourceTree = "<group>"; };
 		712F12BA17E3806F00EA2363 /* ARTabBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTabBarVC.m; sourceTree = "<group>"; };
 		71737D8717E4457B0047B1C4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		71CF7D7617E43E5300048063 /* ARCIANFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCIANFetcher.h; sourceTree = "<group>"; };
-		71CF7D7717E43E5300048063 /* ARCIANFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARCIANFetcher.m; sourceTree = "<group>"; };
+		71CF7D7617E43E5300048063 /* ARCIANFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARCIANFetcher.h; path = Arendator/ARCIANFetcher.h; sourceTree = "<group>"; };
+		71CF7D7717E43E5300048063 /* ARCIANFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARCIANFetcher.m; path = Arendator/ARCIANFetcher.m; sourceTree = "<group>"; };
 		71DE254317E45A5200DF20F9 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		FE1680E96B5B447A898FDFF2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -208,9 +217,24 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		7106A6BC17E48A25002469FC /* Request controllers */ = {
+			isa = PBXGroup;
+			children = (
+				71CF7D7617E43E5300048063 /* ARCIANFetcher.h */,
+				71CF7D7717E43E5300048063 /* ARCIANFetcher.m */,
+			);
+			name = "Request controllers";
+			sourceTree = "<group>";
+		};
 		710DA75E17E453CA00D59298 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				7106A6B317E48A0A002469FC /* TFHpple.h */,
+				7106A6B417E48A0A002469FC /* TFHpple.m */,
+				7106A6B517E48A0A002469FC /* TFHppleElement.h */,
+				7106A6B617E48A0A002469FC /* TFHppleElement.m */,
+				7106A6B717E48A0A002469FC /* XPathQuery.h */,
+				7106A6B817E48A0A002469FC /* XPathQuery.m */,
 			);
 			name = Parser;
 			sourceTree = "<group>";
@@ -218,6 +242,7 @@
 		712F127517E37F4000EA2363 = {
 			isa = PBXGroup;
 			children = (
+				7106A6BC17E48A25002469FC /* Request controllers */,
 				710DA75E17E453CA00D59298 /* Parser */,
 				03E5451817E44A7800E8F81B /* Data */,
 				03E5451517E448F700E8F81B /* Images */,
@@ -262,8 +287,6 @@
 				712F129117E37F4000EA2363 /* ARAppDelegate.m */,
 				712F129C17E37F4000EA2363 /* Images.xcassets */,
 				712F128817E37F4000EA2363 /* Supporting Files */,
-				71CF7D7617E43E5300048063 /* ARCIANFetcher.h */,
-				71CF7D7717E43E5300048063 /* ARCIANFetcher.m */,
 			);
 			path = Arendator;
 			sourceTree = "<group>";
@@ -438,7 +461,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7106A6BA17E48A0A002469FC /* TFHppleElement.m in Sources */,
 				712F128E17E37F4000EA2363 /* main.m in Sources */,
+				7106A6BB17E48A0A002469FC /* XPathQuery.m in Sources */,
 				03E5451317E448EA00E8F81B /* ARSearchesViewController.m in Sources */,
 				0362468E17E47DAA00CCCE34 /* ARMetroStationSelector.m in Sources */,
 				03E5450017E448BA00E8F81B /* DataModel.xcdatamodeld in Sources */,
@@ -451,6 +476,7 @@
 				0362468317E4749B00CCCE34 /* ARSearchResultViewController.m in Sources */,
 				0362468017E4748900CCCE34 /* ARSearchResultsViewController.m in Sources */,
 				0362469117E487A200CCCE34 /* Search.m in Sources */,
+				7106A6B917E48A0A002469FC /* TFHpple.m in Sources */,
 				712F12BB17E3806F00EA2363 /* ARTabBarVC.m in Sources */,
 				03E5450517E448C900E8F81B /* DataModel.m in Sources */,
 				03E5452417E44E1300E8F81B /* ARBaseViewController.m in Sources */,

@@ -9,7 +9,6 @@
 #import "ARAppDelegate.h"
 #import "ARTabBarVC.h"
 #import "DataModel.h"
-#import "GDataXMLParser.h"
 
 
 @interface  ARAppDelegate ()
@@ -28,14 +27,7 @@
 	self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
-    [self test];
     return YES;
-}
-
-- (void) test {
-    NSString *urlString = @"http://www.cian.ru/cat.php?deal_type=1&obl_id=10&city[0]=11622&p=1";
-    GDataXMLParser *parser = [[GDataXMLParser alloc] init];
-    [parser downloadAndParse:[NSURL URLWithString:urlString]];
 }
 
 @end
