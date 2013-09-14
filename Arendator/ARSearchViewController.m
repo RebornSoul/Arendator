@@ -156,12 +156,20 @@
         NSLog(@"------------- > finished");
         [ARBlockingView hide];
         [self updateHeader];
+        if (_search.searchResults.count > 0)
+            [self onPrevResultsClick:nil];
+        else
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"msgErrorTitle", @"")
+                                       message:NSLocalizedString(@"msgErrorNoResults", @"")
+                                      delegate:nil
+                             cancelButtonTitle:NSLocalizedString(@"btnOK", @"")
+                              otherButtonTitles:nil] show];
     } failure:^(NSError *error) {
         [ARBlockingView hide];
         [self updateHeader];
         NSLog(@"------------- > failure %@", error.localizedDescription);
         
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"msgErroTitle", @"")
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"msgErrorTitle", @"")
                                    message:[NSString stringWithFormat:NSLocalizedString(@"msgDownloadErrorFMT", @""), error.localizedDescription]
                                   delegate:nil
                          cancelButtonTitle:NSLocalizedString(@"btnOK", @"")
