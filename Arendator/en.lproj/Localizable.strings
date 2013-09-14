@@ -1,4 +1,8 @@
 "tabBarSearch" = "Поиск квартир";
+"tabBarFavorites" = "Избранное";
+"tabBarAbout" = "О программе…";
+"tabBarPlus" = "Подать объявление";
+
 "titleSearch" = "Поиск квартир";
 "titleMetro" = "Станции метро";
 "titleRoomCount" = "Количество комнат";
@@ -10,7 +14,7 @@
 "msgErrorNoResults" = "По вашему запросу ничего не найдено, попробуйте изменить условия поиска.";
 "btnOK" = "OK";
 
-"tabBarAbout" = "О программе…";
+
 "titleAbout" = "О программе…";
 
 "itemTitle" = "Название";

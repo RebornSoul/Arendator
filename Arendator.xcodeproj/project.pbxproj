@@ -12,6 +12,11 @@
 		032FD46717E4D2B5005D1CD8 /* metroLine[3]@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FD46217E4D2B5005D1CD8 /* metroLine[3]@2x.png */; };
 		032FD46817E4D2B5005D1CD8 /* metroLine[4]@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FD46317E4D2B5005D1CD8 /* metroLine[4]@2x.png */; };
 		032FD46917E4D2B5005D1CD8 /* metroLine[5]@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FD46417E4D2B5005D1CD8 /* metroLine[5]@2x.png */; };
+		032FD46C17E4D5F1005D1CD8 /* ARFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 032FD46B17E4D5F1005D1CD8 /* ARFavoritesViewController.m */; };
+		032FD46F17E4D605005D1CD8 /* ARAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 032FD46E17E4D605005D1CD8 /* ARAddViewController.m */; };
+		032FD47217E4D6DC005D1CD8 /* tbFavorites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FD47017E4D6DC005D1CD8 /* tbFavorites@2x.png */; };
+		032FD47317E4D6DC005D1CD8 /* tbPlus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FD47117E4D6DC005D1CD8 /* tbPlus@2x.png */; };
+		032FD47517E4D8B1005D1CD8 /* btSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FD47417E4D8B1005D1CD8 /* btSearch@2x.png */; };
 		034FE2D817E4592E001D1226 /* landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 034FE2D717E4592E001D1226 /* landscape.png */; };
 		034FE2DB17E4593A001D1226 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 034FE2D917E4593A001D1226 /* Localizable.strings */; };
 		0362468017E4748900CCCE34 /* ARSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0362467F17E4748900CCCE34 /* ARSearchResultsViewController.m */; };
@@ -72,6 +77,13 @@
 		032FD46217E4D2B5005D1CD8 /* metroLine[3]@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "metroLine[3]@2x.png"; path = "Arendator/Images/metroLine[3]@2x.png"; sourceTree = "<group>"; };
 		032FD46317E4D2B5005D1CD8 /* metroLine[4]@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "metroLine[4]@2x.png"; path = "Arendator/Images/metroLine[4]@2x.png"; sourceTree = "<group>"; };
 		032FD46417E4D2B5005D1CD8 /* metroLine[5]@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "metroLine[5]@2x.png"; path = "Arendator/Images/metroLine[5]@2x.png"; sourceTree = "<group>"; };
+		032FD46A17E4D5F1005D1CD8 /* ARFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFavoritesViewController.h; sourceTree = "<group>"; };
+		032FD46B17E4D5F1005D1CD8 /* ARFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFavoritesViewController.m; sourceTree = "<group>"; };
+		032FD46D17E4D605005D1CD8 /* ARAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAddViewController.h; sourceTree = "<group>"; };
+		032FD46E17E4D605005D1CD8 /* ARAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAddViewController.m; sourceTree = "<group>"; };
+		032FD47017E4D6DC005D1CD8 /* tbFavorites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tbFavorites@2x.png"; path = "Arendator/Images/tbFavorites@2x.png"; sourceTree = "<group>"; };
+		032FD47117E4D6DC005D1CD8 /* tbPlus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tbPlus@2x.png"; path = "Arendator/Images/tbPlus@2x.png"; sourceTree = "<group>"; };
+		032FD47417E4D8B1005D1CD8 /* btSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btSearch@2x.png"; path = "Arendator/Images/btSearch@2x.png"; sourceTree = "<group>"; };
 		034FE2D717E4592E001D1226 /* landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = landscape.png; path = Arendator/Images/landscape.png; sourceTree = "<group>"; };
 		034FE2DA17E4593A001D1226 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0362467E17E4748900CCCE34 /* ARSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSearchResultsViewController.h; sourceTree = "<group>"; };
@@ -220,6 +232,10 @@
 				03BCCCA017E4920A00CA02CF /* ARRoomCountSelector.m */,
 				03BCCCA817E4A8D700CA02CF /* ARBlockingView.h */,
 				03BCCCA917E4A8D700CA02CF /* ARBlockingView.m */,
+				032FD46A17E4D5F1005D1CD8 /* ARFavoritesViewController.h */,
+				032FD46B17E4D5F1005D1CD8 /* ARFavoritesViewController.m */,
+				032FD46D17E4D605005D1CD8 /* ARAddViewController.h */,
+				032FD46E17E4D605005D1CD8 /* ARAddViewController.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -227,6 +243,9 @@
 		03E5451517E448F700E8F81B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				032FD47417E4D8B1005D1CD8 /* btSearch@2x.png */,
+				032FD47017E4D6DC005D1CD8 /* tbFavorites@2x.png */,
+				032FD47117E4D6DC005D1CD8 /* tbPlus@2x.png */,
 				032FD46017E4D2B5005D1CD8 /* metroLine[1]@2x.png */,
 				032FD46117E4D2B5005D1CD8 /* metroLine[2]@2x.png */,
 				032FD46217E4D2B5005D1CD8 /* metroLine[3]@2x.png */,
@@ -435,9 +454,11 @@
 			files = (
 				03E5451717E4490400E8F81B /* tbSearch@2x.png in Resources */,
 				034FE2DB17E4593A001D1226 /* Localizable.strings in Resources */,
+				032FD47317E4D6DC005D1CD8 /* tbPlus@2x.png in Resources */,
 				032FD46817E4D2B5005D1CD8 /* metroLine[4]@2x.png in Resources */,
 				032FD46917E4D2B5005D1CD8 /* metroLine[5]@2x.png in Resources */,
 				03E5451A17E44B2500E8F81B /* spb_metro.json in Resources */,
+				032FD47517E4D8B1005D1CD8 /* btSearch@2x.png in Resources */,
 				032FD46517E4D2B5005D1CD8 /* metroLine[1]@2x.png in Resources */,
 				712F129D17E37F4000EA2363 /* Images.xcassets in Resources */,
 				712F128C17E37F4000EA2363 /* InfoPlist.strings in Resources */,
@@ -445,6 +466,7 @@
 				032FD46717E4D2B5005D1CD8 /* metroLine[3]@2x.png in Resources */,
 				034FE2D817E4592E001D1226 /* landscape.png in Resources */,
 				0362468517E4771100CCCE34 /* tbAbout@2x.png in Resources */,
+				032FD47217E4D6DC005D1CD8 /* tbFavorites@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,10 +525,12 @@
 				7106A6BB17E48A0A002469FC /* XPathQuery.m in Sources */,
 				03E5451317E448EA00E8F81B /* ARSearchesViewController.m in Sources */,
 				0362468E17E47DAA00CCCE34 /* ARMetroStationSelector.m in Sources */,
+				032FD46F17E4D605005D1CD8 /* ARAddViewController.m in Sources */,
 				03E5450017E448BA00E8F81B /* DataModel.xcdatamodeld in Sources */,
 				71CF7D7817E43E5300048063 /* ARCIANFetcher.m in Sources */,
 				03BCCCAA17E4A8D700CA02CF /* ARBlockingView.m in Sources */,
 				712F129217E37F4000EA2363 /* ARAppDelegate.m in Sources */,
+				032FD46C17E4D5F1005D1CD8 /* ARFavoritesViewController.m in Sources */,
 				03E5451D17E44B3A00E8F81B /* ARMetroStations.m in Sources */,
 				03BCCC9E17E491FE00CA02CF /* ARPriceSelector.m in Sources */,
 				03E5451417E448EA00E8F81B /* ARSearchViewController.m in Sources */,

@@ -69,6 +69,7 @@
     if (indexPath.section == SECT_NEW) {
         cell.textLabel.text = NSLocalizedString(@"itemNewSearch", @"");
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.imageView.image = [UIImage imageNamed:@"btSearch"];
     } else {
         Search *search = oldSearches[indexPath.row];
         cell.textLabel.text = search.title;

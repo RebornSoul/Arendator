@@ -10,6 +10,8 @@
 #import "ARSearchViewController.h"
 #import "ARSearchesViewController.h"
 #import "ARAboutViewcontroller.h"
+#import "ARAddViewController.h"
+#import "ARFavoritesViewController.h"
 
 @interface ARTabBarVC ()
 
@@ -34,10 +36,16 @@ static ARTabBarVC *instanceTabBarVC = nil;
         ARSearchesViewController *searchCon = [[ARSearchesViewController alloc] init];
         UINavigationController *navCon1 = [[UINavigationController alloc] initWithRootViewController:searchCon];
 
-        ARAboutViewcontroller *aboutCon = [[ARAboutViewcontroller alloc] init];
-        UINavigationController *navCon2 = [[UINavigationController alloc] initWithRootViewController:aboutCon];
+        ARAddViewController *addCon = [[ARAddViewController alloc] init];
+        UINavigationController *navCon2 = [[UINavigationController alloc] initWithRootViewController:addCon];
         
-        [self setViewControllers:@[navCon1, navCon2]];
+        ARFavoritesViewController *favCon = [[ARFavoritesViewController alloc] init];
+        UINavigationController *navCon3 = [[UINavigationController alloc] initWithRootViewController:favCon];
+        
+        ARAboutViewcontroller *aboutCon = [[ARAboutViewcontroller alloc] init];
+        UINavigationController *navCon4 = [[UINavigationController alloc] initWithRootViewController:aboutCon];
+        
+        [self setViewControllers:@[navCon1, navCon2, navCon3, navCon4]];
 
         
     }
