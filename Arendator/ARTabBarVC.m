@@ -16,13 +16,14 @@
 
 static ARTabBarVC *instanceTabBarVC = nil;
 
-+ (ARTabBarVC *)  sharedInstance {
++ (ARTabBarVC *)sharedInstance {
 	static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instanceTabBarVC = [[ARTabBarVC alloc] init];
     });
     return instanceTabBarVC;
 }
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,10 +34,11 @@ static ARTabBarVC *instanceTabBarVC = nil;
     return self;
 }
 
-- (void)viewDidLoad
-{
+
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
+    
 }
 
 - (void)didReceiveMemoryWarning

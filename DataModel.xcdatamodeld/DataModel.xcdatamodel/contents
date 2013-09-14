@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Search" representedClassName="Search" syncable="YES">
+        <attribute name="allowedChildren" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="allowedPets" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="cityId" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="metroIdStr" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="optBalcony" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="optFridge" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="optFurniture" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="optKitchenFurniture" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="optPhone" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="optTV" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="optWashMachine" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="priceFrom" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="priceTo" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="roomFrom" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="roomTo" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="uid" attributeType="String" syncable="YES"/>
+        <relationship name="serachResults" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SearchResult" inverseName="search" inverseEntity="SearchResult" syncable="YES"/>
+    </entity>
+    <entity name="SearchResult" representedClassName="SearchResult" syncable="YES">
+        <attribute name="time" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" attributeType="String" syncable="YES"/>
+        <relationship name="search" maxCount="1" deletionRule="Nullify" destinationEntity="Search" inverseName="serachResults" inverseEntity="Search" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Search" positionX="-3438" positionY="-4752" width="128" height="298"/>
+        <element name="SearchResult" positionX="-3215" positionY="-4752" width="128" height="103"/>
+    </elements>
+</model>
