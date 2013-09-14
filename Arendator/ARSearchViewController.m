@@ -16,6 +16,7 @@
 #import "ARMetroStations.h"
 #import "ARBlockingView.h"
 #import "ARSearchResultsViewController.h"
+#import "ARCIANFetcher.h"
 
 @implementation ARSearchViewController {
     Search *_search;
@@ -144,16 +145,21 @@
     newEntity = NO;
     [DataModel save];
     
-//    [[[UIAlertView alloc] initWithTitle:@"???" message:@"NOT IMPL" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-//    [someone DOSEARCH:_search]; //ЮРА
+    [[ARCIANFetcher sharedInstance] performSearch:_search onPage:0 progress:^(float progress, kSearchStatus status) {
+        NSLog(@"progress");
+    } result:^(BOOL finished, NSArray *searchResults) {
+        NSLog(@"finished");        
+    } failure:^(NSError *error) {
+        NSLog(@"failure %@", error.localizedDescription);
+    }];
     
+/*    [SearchResult randomTestInstanceForSearch:_search];
     [SearchResult randomTestInstanceForSearch:_search];
     [SearchResult randomTestInstanceForSearch:_search];
-    [SearchResult randomTestInstanceForSearch:_search];
-    [DataModel save];
+    [DataModel save]; */
     
     [ARBlockingView showWithTitle:NSLocalizedString(@"pleaseWait", @"")];
-    [self performSelector:@selector(hideTMP) withObject:nil afterDelay:3];
+//    [self performSelector:@selector(hideTMP) withObject:nil afterDelay:3];
 }
 
 
