@@ -1,6 +1,9 @@
 "tabBarSearch" = "Поиск квартир";
 "titleSearch" = "Поиск квартир";
 "titleMetro" = "Станции метро";
+"titleRoomCount" = "Количество комнат";
+"titlePrice" = "Цена аренды";
+"titleSearchResults" = "Результаты поиска";
 
 "tabBarAbout" = "О программе…";
 "titleAbout" = "О программе…";
@@ -8,7 +11,7 @@
 "itemTitle" = "Название";
 "itemMetro" = "Станции метро";
 "itemPrice" = "Цена аренды";
-"itemRooms" = "Количество комнат";
+"itemRooms" = "Кол-во комнат";
 
 "itemNewSearch" = "Новый поиск";
 "btnSearch" = "Искать";
@@ -20,10 +23,23 @@
 "yes" = "Да";
 "no" = "Нет";
 
-"roomDoesNotMatter" = "Не важно";
-"roomFromFMT" = "от %i";
-"roomToFMT" = "до %";
-"roomFromToFMT" = "от %i до %i";
+"pleaseWait" = "Пожалуйста, подождите…";
+
+"lblFrom" = "От:";
+"lblTo" = "До:";
+"btnDoesNotMatter" = "Не важно";
+
+"rangeDoesNotMatter" = "Не важно";
+"rangeFromFMT" = "от %i";
+"rangeToFMT" = "до %i";
+"rangeFromToFMT" = "%i - %i";
+
+"priceExactFMT" = "%@ т.р.";
+"priceFromFMT" = "от %@ т.р.";
+"priceToFMT" = "до %@ т.р.";
+"priceFromToFMT" = "%@ - %@ т.р.";
+
+"resultCountXFlatsFMT" = " (найдено: %i)";
 
 "btnPrevResultsFMT" = "Предыдущие результытаты: %i";
 

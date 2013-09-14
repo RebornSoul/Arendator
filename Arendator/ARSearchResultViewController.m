@@ -8,6 +8,26 @@
 
 #import "ARSearchResultViewController.h"
 
-@implementation ARSearchResultViewController
+@implementation ARSearchResultViewController {
+    SearchResult *_searchResult;
+}
+
+- (id)initWithSearchResult:(SearchResult *)searchResult {
+    self = [super init];
+    
+    _searchResult = searchResult;
+    
+    return self;
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.title = _searchResult.street;
+    
+    self.tableView.hidden = YES;
+}
+
 
 @end

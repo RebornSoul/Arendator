@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-#define dataModel [DataModel getInstance]
-
 @interface DataModel : NSObject {
     
 @protected

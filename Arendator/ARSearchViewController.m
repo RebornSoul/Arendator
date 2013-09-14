@@ -11,6 +11,11 @@
 #import "DataModel+Helper.h"
 #import "DataModel.h"
 #import "ARMetroStationSelector.h"
+#import "ARRoomCountSelector.h"
+#import "ARPriceSelector.h"
+#import "ARMetroStations.h"
+#import "ARBlockingView.h"
+#import "ARSearchResultsViewController.h"
 
 @implementation ARSearchViewController {
     Search *_search;
@@ -40,19 +45,26 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    if (_search.serachResults.count != 0) {
-        self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 54)];
-        int gap = 8;
+    if (_search.searchResults.count != 0) {
+        self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 58)];
+        int gap = 15;
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        btn.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
-        btn.frame = CGRectMake(gap, gap, self.tableView.tableHeaderView.frame.size.width - 2 * gap, self.tableView.tableHeaderView.frame.size.height - 2 * gap);
-        [btn setTitle:[NSString stringWithFormat:NSLocalizedString(@"btnPrevResultsFMT", @""), _search.serachResults.count] forState:UIControlStateNormal];
+        btn.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.1];
+        btn.frame = CGRectMake(gap, gap, self.tableView.tableHeaderView.frame.size.width - 2 * gap, self.tableView.tableHeaderView.frame.size.height - gap * 1.2);
+        [btn setTitle:[NSString stringWithFormat:NSLocalizedString(@"btnPrevResultsFMT", @""), _search.searchResults.count] forState:UIControlStateNormal];
         [self.tableView.tableHeaderView addSubview:btn];
         self.tableView.tableHeaderView.backgroundColor = [UIColor clearColor];
+        [btn addTarget:self action:@selector(onPrevResultsClick:) forControlEvents:UIControlEventTouchUpInside];
     } else
         self.tableView.tableHeaderView = nil;
     
     [self reloadData];
+}
+
+
+- (void)onPrevResultsClick:(UIButton *)sender {
+    ARSearchResultsViewController *controler = [[ARSearchResultsViewController alloc] initWithSearch:_search];
+    [self.navigationController pushViewController:controler animated:YES];
 }
 
 
@@ -63,7 +75,7 @@
     [result insertSegmentWithTitle:NSLocalizedString(@"yes", @"") atIndex:0 animated:NO];
     [result setSelectedSegmentIndex:!value ? 2 : [value boolValue] ? 0 : 1];
     [result addTarget:self action:@selector(onSCValueChanged:) forControlEvents:UIControlEventValueChanged];
-    result.frame = CGRectMake(0, 0, 100, 26);
+    result.frame = CGRectMake(0, 0, 100, 28);
     return result;
 }
 
@@ -97,6 +109,7 @@
     titleTF.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.1];
     titleTF.textAlignment = NSTextAlignmentRight;
     titleTF.text = search.title;
+    titleTF.delegate = self;
     
     sc_allowedChildren = [self scForValue:_search.allowedChildren];
     sc_allowedPets = [self scForValue:_search.allowedPets];
@@ -114,14 +127,40 @@
 }
 
 
-- (void)onSearchClick:(UIBarButtonItem *)sender {
-    canceled = NO;
-    [DataModel save];
-    
-    [[[UIAlertView alloc] initWithTitle:@"???" message:@"NOT IMPL" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-//    [someone DOSEARCH:_search]; //ЮРА
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    _search.title = textField.text;
 }
 
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    _search.title = textField.text;    
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
+- (void)onSearchClick:(UIBarButtonItem *)sender {
+    canceled = NO;
+    newEntity = NO;
+    [DataModel save];
+    
+//    [[[UIAlertView alloc] initWithTitle:@"???" message:@"NOT IMPL" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+//    [someone DOSEARCH:_search]; //ЮРА
+    
+    [SearchResult randomTestInstanceForSearch:_search];
+    [SearchResult randomTestInstanceForSearch:_search];
+    [SearchResult randomTestInstanceForSearch:_search];
+    [DataModel save];
+    
+    [ARBlockingView showWithTitle:NSLocalizedString(@"pleaseWait", @"")];
+    [self performSelector:@selector(hideTMP) withObject:nil afterDelay:3];
+}
+
+
+- (void)hideTMP {
+    [ARBlockingView hide];
+    [self reloadData];
+}
 
 #define SECT_MAIN 0
 #define SECT_MORE 1
@@ -143,6 +182,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == SECT_MAIN)
         switch (indexPath.row) {
             case ITEM_METRO: {
@@ -150,15 +190,27 @@
                 [self.navigationController pushViewController:selector animated:YES];
                 break;
             }
+            case ITEM_PRICE: {
+                ARPriceSelector *selector = [[ARPriceSelector alloc] initWithSearch:_search];
+                [self.navigationController pushViewController:selector animated:YES];
+                break;
+            }
+            case ITEM_ROOMS: {
+                ARRoomCountSelector *selector = [[ARRoomCountSelector alloc] initWithSearch:_search];
+                [self.navigationController pushViewController:selector animated:YES];
+            }
         }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *ruid = @"";
+    NSString *ruid = [NSString stringWithFormat:@"%i", indexPath.section];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ruid];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ruid];
+        UITableViewCellStyle style = UITableViewCellStyleValue1;
+        if (indexPath.section == SECT_MAIN && indexPath.row == ITEM_METRO)
+            style = UITableViewCellStyleSubtitle;
+        cell = [[UITableViewCell alloc] initWithStyle:style reuseIdentifier:ruid];
         cell.backgroundColor = [UIColor clearColor];
     }
     [cell prepareForReuse];
@@ -173,12 +225,17 @@
         case ITEM_METRO:
             cell.textLabel.text = NSLocalizedString(@"itemMetro", @"");
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.detailTextLabel.text = [ARMetroStations humanReadableSationsStringFormIdString:_search.metroIdStr];
             break;
         case ITEM_PRICE:
             cell.textLabel.text = NSLocalizedString(@"itemPrice", @"");
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.detailTextLabel.text = _search.humanReadablePriceRange;
             break;
         case ITEM_ROOMS:
             cell.textLabel.text = NSLocalizedString(@"itemRooms", @"");
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.detailTextLabel.text = _search.humanReadableRoomRange;
             break;
     } else {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;

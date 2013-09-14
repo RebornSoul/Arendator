@@ -12,6 +12,7 @@
 @interface SearchResult (Helper)
 
 + (SearchResult *)newInstanceForSearch:(Search *)parent;
++ (SearchResult *)randomTestInstanceForSearch:(Search *)parent;
 
 @end
 
@@ -22,6 +23,14 @@
 
 - (Boolean)metroStationChecked:(NSInteger)stationId;
 - (void)checkMetroStation:(NSInteger)stationId check:(Boolean)value;
+
+@property (nonatomic, readonly) NSString *humanReadablePriceRange;
+@property (nonatomic, readonly) NSString *humanReadableRoomRange;
+
+@property (nonatomic, readonly) NSString *humanReadablePriceForm;
+@property (nonatomic, readonly) NSString *humanReadablePriceTo;
+
+@property (nonatomic, readonly) NSString *roomsAsString;
 
 @end
 

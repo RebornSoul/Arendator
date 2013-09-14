@@ -7,7 +7,10 @@
 //
 
 #import "ARBaseViewController.h"
+#import "SearchResult.h"
 
 @interface ARSearchResultViewController : ARBaseViewController
+
+- (id)initWithSearchResult:(SearchResult *)searchResult;
 
 @end

@@ -31,14 +31,14 @@
 @property (nonatomic, retain) NSDate * time;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * uid;
-@property (nonatomic, retain) NSSet *serachResults;
+@property (nonatomic, retain) NSSet *searchResults;
 @end
 
 @interface Search (CoreDataGeneratedAccessors)
 
-- (void)addSerachResultsObject:(SearchResult *)value;
-- (void)removeSerachResultsObject:(SearchResult *)value;
-- (void)addSerachResults:(NSSet *)values;
-- (void)removeSerachResults:(NSSet *)values;
+- (void)addSearchResultsObject:(SearchResult *)value;
+- (void)removeSearchResultsObject:(SearchResult *)value;
+- (void)addSearchResults:(NSSet *)values;
+- (void)removeSearchResults:(NSSet *)values;
 
 @end
