@@ -7,6 +7,7 @@
 //
 
 #import "ARSearchViewController.h"
+#import "ARBaseViewController.h"
 
 @implementation ARSearchViewController {
     UITableView *tableView;

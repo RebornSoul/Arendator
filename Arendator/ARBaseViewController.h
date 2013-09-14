@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ARBaseViewController : NSObject
+@interface ARBaseViewController : UIViewController
 
 @end
