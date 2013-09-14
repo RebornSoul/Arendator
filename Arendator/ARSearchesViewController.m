@@ -10,6 +10,61 @@
 #import "ARSearchViewController.h"
 #import "DataModel.h"
 #import "Search.h"
+#import <QuartzCore/QuartzCore.h>
+
+#define blueColor [UIColor colorWithRed:0 green:122/255. blue:1 alpha:1]
+
+@interface ARSearchTableViewCell : UITableViewCell 
+
+@property (nonatomic, readonly) UILabel *leftLabel;
+
+@end
+
+
+@implementation ARSearchTableViewCell
+
+- (id)initWithReuseIdentifier:(NSString *)ruid {
+    self = [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ruid];
+    self.backgroundColor = [UIColor clearColor];
+    
+    self.detailTextLabel.font = [self.detailTextLabel.font fontWithSize:12];
+    
+    _leftLabel = [[UILabel alloc] init];
+    _leftLabel.backgroundColor = blueColor;
+    _leftLabel.textColor = [UIColor whiteColor];
+    _leftLabel.highlightedTextColor = [UIColor colorWithWhite:0.8 alpha:1];
+    _leftLabel.font = [UIFont systemFontOfSize:16];
+    _leftLabel.textAlignment = NSTextAlignmentCenter;
+    _leftLabel.minimumScaleFactor = 0.5;
+    [self.textLabel.superview addSubview:_leftLabel];
+    
+    return self;
+}
+
+
+- (void)setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:highlighted];
+    _leftLabel.highlighted = highlighted;
+}
+
+
+#define countWidth 32
+- (void)layoutSubviews {
+    _leftLabel.backgroundColor = self.highlighted ? [[UIColor grayColor] colorWithAlphaComponent:0.5] : blueColor;
+    [super layoutSubviews];
+    int leftGap = self.textLabel.frame.origin.x;
+    
+    int newLeft = leftGap + countWidth + 7;
+    self.textLabel.frame = CGRectMake(newLeft, self.textLabel.frame.origin.y, self.textLabel.superview.frame.size.width - newLeft, self.textLabel.frame.size.height);
+    self.detailTextLabel.frame = CGRectMake(newLeft, self.detailTextLabel.frame.origin.y, self.detailTextLabel.superview.frame.size.width - newLeft, self.detailTextLabel.frame.size.height);
+    
+    _leftLabel.frame = CGRectMake(leftGap, 6, countWidth, countWidth);
+    _leftLabel.layer.cornerRadius = countWidth / 2;
+}
+
+@end
+
+
 
 @implementation ARSearchesViewController {
     NSMutableArray *oldSearches;
@@ -57,10 +112,10 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *ruid = @"";
+    NSString *ruid = [NSString stringWithFormat:@"%i", indexPath.section];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ruid];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ruid];
+        cell = indexPath.section == SECT_NEW ? [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ruid] : [[ARSearchTableViewCell alloc] initWithReuseIdentifier:ruid];
         cell.backgroundColor = [UIColor clearColor];
     }
     [cell prepareForReuse];
@@ -71,13 +126,13 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.imageView.image = [UIImage imageNamed:@"btSearch"];
     } else {
+        ARSearchTableViewCell *cell2 = (ARSearchTableViewCell *)cell;
         Search *search = oldSearches[indexPath.row];
-        cell.textLabel.text = search.title;
-        if (search.searchResults.count > 0)
-            cell.textLabel.text = [cell.textLabel.text stringByAppendingFormat:NSLocalizedString(@"resultCountXFlatsFMT", @""), search.searchResults.count];
-        cell.detailTextLabel.text = [NSDateFormatter localizedStringFromDate:search.time dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterShortStyle];
+        cell2.textLabel.text = search.title.length == 0 ? NSLocalizedString(@"noName", @"") : search.title;
+        cell2.leftLabel.text = [NSString stringWithFormat:@"%i", search.searchResults.count];
+        cell2.detailTextLabel.text = [NSDateFormatter localizedStringFromDate:search.time dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterShortStyle];
     }
-
+    
     return cell;
 }
 
