@@ -10,6 +10,8 @@
 		03E544D717E4378400E8F81B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E544D617E4378400E8F81B /* CoreData.framework */; };
 		03E544DA17E437DE00E8F81B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03E544D817E437DE00E8F81B /* DataModel.xcdatamodeld */; };
 		03E544DD17E437F000E8F81B /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E544DC17E437F000E8F81B /* DataModel.m */; };
+		03E544E217E43D5A00E8F81B /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E544E117E43D5A00E8F81B /* SearchResult.m */; };
+		03E544E517E43D5A00E8F81B /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E544E417E43D5A00E8F81B /* Search.m */; };
 		23452C7C12A74830A7D8F91E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1680E96B5B447A898FDFF2 /* libPods.a */; };
 		712F128217E37F4000EA2363 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712F128117E37F4000EA2363 /* Foundation.framework */; };
 		712F128417E37F4000EA2363 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712F128317E37F4000EA2363 /* CoreGraphics.framework */; };
@@ -41,6 +43,10 @@
 		03E544D917E437DE00E8F81B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		03E544DB17E437F000E8F81B /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
 		03E544DC17E437F000E8F81B /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
+		03E544E017E43D5A00E8F81B /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = ManagedClasses/SearchResult.h; sourceTree = "<group>"; };
+		03E544E117E43D5A00E8F81B /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = ManagedClasses/SearchResult.m; sourceTree = "<group>"; };
+		03E544E317E43D5A00E8F81B /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search.h; path = ManagedClasses/Search.h; sourceTree = "<group>"; };
+		03E544E417E43D5A00E8F81B /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search.m; path = ManagedClasses/Search.m; sourceTree = "<group>"; };
 		62300BE0BFDB45FBA72777F6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		712F127E17E37F4000EA2363 /* Arendator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arendator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		712F128117E37F4000EA2363 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -92,12 +98,24 @@
 		03E544DE17E43BC800E8F81B /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				03E544DF17E43D4700E8F81B /* ManagedClasses */,
 				03E544D817E437DE00E8F81B /* DataModel.xcdatamodeld */,
 				03E544DB17E437F000E8F81B /* DataModel.h */,
 				03E544DC17E437F000E8F81B /* DataModel.m */,
 			);
 			name = DataModel;
 			path = Arendator;
+			sourceTree = "<group>";
+		};
+		03E544DF17E43D4700E8F81B /* ManagedClasses */ = {
+			isa = PBXGroup;
+			children = (
+				03E544E317E43D5A00E8F81B /* Search.h */,
+				03E544E417E43D5A00E8F81B /* Search.m */,
+				03E544E017E43D5A00E8F81B /* SearchResult.h */,
+				03E544E117E43D5A00E8F81B /* SearchResult.m */,
+			);
+			name = ManagedClasses;
 			sourceTree = "<group>";
 		};
 		712F127517E37F4000EA2363 = {
@@ -311,11 +329,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03E544E217E43D5A00E8F81B /* SearchResult.m in Sources */,
 				712F128E17E37F4000EA2363 /* main.m in Sources */,
 				03E544DD17E437F000E8F81B /* DataModel.m in Sources */,
 				03E544DA17E437DE00E8F81B /* DataModel.xcdatamodeld in Sources */,
 				712F129217E37F4000EA2363 /* ARAppDelegate.m in Sources */,
 				712F12BB17E3806F00EA2363 /* ARTabBarVC.m in Sources */,
+				03E544E517E43D5A00E8F81B /* Search.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
