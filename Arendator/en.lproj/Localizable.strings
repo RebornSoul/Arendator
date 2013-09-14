@@ -5,8 +5,9 @@
 "titlePrice" = "Цена аренды";
 "titleSearchResults" = "Результаты поиска";
 
-"msgErroTitle" = "Ошибка";
+"msgErrorTitle" = "Ошибка";
 "msgDownloadErrorFMT" = "Произошла ошибка: %@";
+"msgErrorNoResults" = "По вашему запросу ничего не найдено, попробуйте изменить условия поиска.";
 "btnOK" = "OK";
 
 "tabBarAbout" = "О программе…";
