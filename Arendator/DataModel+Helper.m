@@ -18,6 +18,14 @@ static NSString *generateGUID() {
     return uuidString;
 }
 
+
+static NSString *formatBabki(NSNumber *value) {
+    float val = roundf(value.integerValue / 500) / 2;
+    NSString *result = [NSString stringWithFormat:@"%.1f", val];
+    return [[result stringByReplacingOccurrencesOfString:@".0" withString:@""] stringByReplacingOccurrencesOfString:@",0" withString:@""];
+}
+
+
 @implementation SearchResult (Helper)
 
 + (SearchResult *)newInstanceForSearch:(Search *)parent {
@@ -29,6 +37,10 @@ static NSString *generateGUID() {
     return result;
 }
 
+
+- (NSString *)humanReadablePrice {
+    return [NSString stringWithFormat:NSLocalizedString(self.priceType.intValue == 0 ? @"pricePerDay" : @"pricePerMonth", @""), [NSString stringWithFormat:NSLocalizedString(@"priceExactFMT", @""), formatBabki(self.price)]];
+}
 
 + (SearchResult *)randomTestInstanceForSearch:(Search *)parent {
     SearchResult *result = [SearchResult newInstanceForSearch:parent];
@@ -111,13 +123,6 @@ static NSString *generateGUID() {
     if (!!self.priceTo)
         return [NSString stringWithFormat:NSLocalizedString(@"priceToFMT", @""), formatBabki(self.priceTo)];
     return @"???";
-}
-
-
-static NSString *formatBabki(NSNumber *value) {
-    float val = roundf(value.integerValue / 500) / 2;
-    NSString *result = [NSString stringWithFormat:@"%.1f", val];
-    return [[result stringByReplacingOccurrencesOfString:@".0" withString:@""] stringByReplacingOccurrencesOfString:@",0" withString:@""];
 }
 
 
