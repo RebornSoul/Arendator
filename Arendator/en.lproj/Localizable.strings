@@ -5,6 +5,10 @@
 "titlePrice" = "Цена аренды";
 "titleSearchResults" = "Результаты поиска";
 
+"msgErroTitle" = "Ошибка";
+"msgDownloadErrorFMT" = "Произошла ошибка: %@";
+"btnOK" = "OK";
+
 "tabBarAbout" = "О программе…";
 "titleAbout" = "О программе…";
 

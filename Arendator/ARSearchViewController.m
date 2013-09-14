@@ -151,11 +151,21 @@
     [_search clearSearchResults];
     
     [[ARCIANFetcher sharedInstance] performSearch:_search onPage:0 progress:^(float progress, kSearchStatus status) {
-        NSLog(@"progress");
+        NSLog(@"------------- > progress");
     } result:^(BOOL finished, NSArray *searchResults) {
-        NSLog(@"finished");        
+        NSLog(@"------------- > finished");
+        [ARBlockingView hide];
+        [self updateHeader];
     } failure:^(NSError *error) {
-        NSLog(@"failure %@", error.localizedDescription);
+        [ARBlockingView hide];
+        [self updateHeader];
+        NSLog(@"------------- > failure %@", error.localizedDescription);
+        
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"msgErroTitle", @"")
+                                   message:[NSString stringWithFormat:NSLocalizedString(@"msgDownloadErrorFMT", @""), error.localizedDescription]
+                                  delegate:nil
+                         cancelButtonTitle:NSLocalizedString(@"btnOK", @"")
+                          otherButtonTitles:nil] show];
     }];
     
 /*    [SearchResult randomTestInstanceForSearch:_search];
@@ -164,7 +174,7 @@
     [DataModel save]; */
     
     [ARBlockingView showWithTitle:NSLocalizedString(@"pleaseWait", @"")];
-    [self performSelector:@selector(hideTMP) withObject:nil afterDelay:3];
+//    [self performSelector:@selector(hideTMP) withObject:nil afterDelay:3];    
 }
 
 
