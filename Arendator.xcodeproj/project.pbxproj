@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		034FE2D817E4592E001D1226 /* landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 034FE2D717E4592E001D1226 /* landscape.png */; };
 		034FE2DB17E4593A001D1226 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 034FE2D917E4593A001D1226 /* Localizable.strings */; };
-		034FE2DE17E45A64001D1226 /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 034FE2DD17E45A64001D1226 /* Search.m */; };
-		034FE2E117E45A64001D1226 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 034FE2E017E45A64001D1226 /* SearchResult.m */; };
 		0362468017E4748900CCCE34 /* ARSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0362467F17E4748900CCCE34 /* ARSearchResultsViewController.m */; };
 		0362468317E4749B00CCCE34 /* ARSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0362468217E4749B00CCCE34 /* ARSearchResultViewController.m */; };
 		0362468517E4771100CCCE34 /* tbAbout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0362468417E4771100CCCE34 /* tbAbout@2x.png */; };
 		0362468B17E4775100CCCE34 /* ARAboutViewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0362468A17E4775100CCCE34 /* ARAboutViewcontroller.m */; };
 		0362468E17E47DAA00CCCE34 /* ARMetroStationSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 0362468D17E47DAA00CCCE34 /* ARMetroStationSelector.m */; };
+		0362469117E487A200CCCE34 /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 0362469017E487A200CCCE34 /* Search.m */; };
+		0362469417E487A200CCCE34 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0362469317E487A200CCCE34 /* SearchResult.m */; };
 		03E5450017E448BA00E8F81B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03E544FE17E448BA00E8F81B /* DataModel.xcdatamodeld */; };
 		03E5450517E448C900E8F81B /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5450217E448C900E8F81B /* DataModel.m */; };
 		03E5450617E448C900E8F81B /* DataModel+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5450417E448C900E8F81B /* DataModel+Helper.m */; };
@@ -57,10 +57,6 @@
 /* Begin PBXFileReference section */
 		034FE2D717E4592E001D1226 /* landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = landscape.png; path = Arendator/Images/landscape.png; sourceTree = "<group>"; };
 		034FE2DA17E4593A001D1226 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		034FE2DC17E45A64001D1226 /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search.h; path = Arendator/ManagedClasses/Search.h; sourceTree = "<group>"; };
-		034FE2DD17E45A64001D1226 /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search.m; path = Arendator/ManagedClasses/Search.m; sourceTree = "<group>"; };
-		034FE2DF17E45A64001D1226 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Arendator/ManagedClasses/SearchResult.h; sourceTree = "<group>"; };
-		034FE2E017E45A64001D1226 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Arendator/ManagedClasses/SearchResult.m; sourceTree = "<group>"; };
 		0362467E17E4748900CCCE34 /* ARSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSearchResultsViewController.h; sourceTree = "<group>"; };
 		0362467F17E4748900CCCE34 /* ARSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSearchResultsViewController.m; sourceTree = "<group>"; };
 		0362468117E4749B00CCCE34 /* ARSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSearchResultViewController.h; sourceTree = "<group>"; };
@@ -70,6 +66,10 @@
 		0362468A17E4775100CCCE34 /* ARAboutViewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAboutViewcontroller.m; sourceTree = "<group>"; };
 		0362468C17E47DAA00CCCE34 /* ARMetroStationSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMetroStationSelector.h; sourceTree = "<group>"; };
 		0362468D17E47DAA00CCCE34 /* ARMetroStationSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMetroStationSelector.m; sourceTree = "<group>"; };
+		0362468F17E487A200CCCE34 /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search.h; path = Arendator/ManagedClasses/Search.h; sourceTree = "<group>"; };
+		0362469017E487A200CCCE34 /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search.m; path = Arendator/ManagedClasses/Search.m; sourceTree = "<group>"; };
+		0362469217E487A200CCCE34 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Arendator/ManagedClasses/SearchResult.h; sourceTree = "<group>"; };
+		0362469317E487A200CCCE34 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Arendator/ManagedClasses/SearchResult.m; sourceTree = "<group>"; };
 		03E544FF17E448BA00E8F81B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		03E5450117E448C900E8F81B /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataModel.h; path = Arendator/DataModel.h; sourceTree = "<group>"; };
 		03E5450217E448C900E8F81B /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataModel.m; path = Arendator/DataModel.m; sourceTree = "<group>"; };
@@ -156,10 +156,10 @@
 		03E5450717E448CC00E8F81B /* ManagedClasses */ = {
 			isa = PBXGroup;
 			children = (
-				034FE2DF17E45A64001D1226 /* SearchResult.h */,
-				034FE2E017E45A64001D1226 /* SearchResult.m */,
-				034FE2DC17E45A64001D1226 /* Search.h */,
-				034FE2DD17E45A64001D1226 /* Search.m */,
+				0362469217E487A200CCCE34 /* SearchResult.h */,
+				0362469317E487A200CCCE34 /* SearchResult.m */,
+				0362468F17E487A200CCCE34 /* Search.h */,
+				0362469017E487A200CCCE34 /* Search.m */,
 			);
 			name = ManagedClasses;
 			sourceTree = "<group>";
@@ -434,19 +434,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				034FE2E117E45A64001D1226 /* SearchResult.m in Sources */,
 				712F128E17E37F4000EA2363 /* main.m in Sources */,
 				03E5451317E448EA00E8F81B /* ARSearchesViewController.m in Sources */,
 				0362468E17E47DAA00CCCE34 /* ARMetroStationSelector.m in Sources */,
 				03E5450017E448BA00E8F81B /* DataModel.xcdatamodeld in Sources */,
 				71CF7D7817E43E5300048063 /* ARCIANFetcher.m in Sources */,
+				0362469417E487A200CCCE34 /* SearchResult.m in Sources */,
 				712F129217E37F4000EA2363 /* ARAppDelegate.m in Sources */,
-				034FE2DE17E45A64001D1226 /* Search.m in Sources */,
 				03E5451D17E44B3A00E8F81B /* ARMetroStations.m in Sources */,
 				03E5451417E448EA00E8F81B /* ARSearchViewController.m in Sources */,
 				03E5450617E448C900E8F81B /* DataModel+Helper.m in Sources */,
 				0362468317E4749B00CCCE34 /* ARSearchResultViewController.m in Sources */,
 				0362468017E4748900CCCE34 /* ARSearchResultsViewController.m in Sources */,
+				0362469117E487A200CCCE34 /* Search.m in Sources */,
 				712F12BB17E3806F00EA2363 /* ARTabBarVC.m in Sources */,
 				03E5450517E448C900E8F81B /* DataModel.m in Sources */,
 				03E5452417E44E1300E8F81B /* ARBaseViewController.m in Sources */,

@@ -20,6 +20,11 @@
 "yes" = "Да";
 "no" = "Нет";
 
+"roomDoesNotMatter" = "Не важно";
+"roomFromFMT" = "от %i";
+"roomToFMT" = "до %";
+"roomFromToFMT" = "от %i до %i";
+
 "btnPrevResultsFMT" = "Предыдущие результытаты: %i";
 
 "ITEM_allowedChildren" = "Можно с детьми";
