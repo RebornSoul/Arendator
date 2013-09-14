@@ -26,13 +26,18 @@ static ARCIANFetcher *instanceFetcher = nil;
 - (void)fetchDataFromURL:(NSURL*)url result:(void (^)(BOOL finished, NSData *data))successBlock
                             onFailure:(void (^)(NSError *error))failureBlock
 {
-    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:defaultTimeInterval];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:defaultTimeInterval];
     [request setHTTPMethod:@"GET"];
     AFHTTPRequestOperation *afRequest = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     __weak AFHTTPRequestOperation *wafRequest = afRequest;
     [afRequest setSuccessCallbackQueue:^{
         if (successBlock) {
             successBlock(wafRequest.isFinished, wafRequest.responseData);
+        }
+    }];
+    [afRequest setFailureCallbackQueue:^{
+        if (failureBlock) {
+            failureBlock(wafRequest.error);
         }
     }];
     [afRequest start];

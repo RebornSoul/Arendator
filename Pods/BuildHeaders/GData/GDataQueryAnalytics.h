@@ -1,1 +1,0 @@
-../../GData/Source/Clients/Analytics/GDataQueryAnalytics.h
