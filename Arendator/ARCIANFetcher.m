@@ -27,7 +27,7 @@ static ARCIANFetcher *instanceFetcher = nil;
                             onFailure:(void (^)(NSError *error))failureBlock
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:defaultTimeInterval];
-    [request setHTTPMethod:@"GET"];
+//    [request setHTTPMethod:@"GET"];
     AFHTTPRequestOperation *afRequest = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     __weak AFHTTPRequestOperation *wafRequest = afRequest;
     [afRequest setSuccessCallbackQueue:^{
