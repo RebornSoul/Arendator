@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		23452C7C12A74830A7D8F91E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1680E96B5B447A898FDFF2 /* libPods.a */; };
+		710DA74E17E44E2000D59298 /* GDataXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 710DA74D17E44E2000D59298 /* GDataXMLParser.m */; };
+		710DA75117E44E5800D59298 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 710DA74F17E44E5800D59298 /* GDataXMLNode.m */; };
+		710DA75517E4521500D59298 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 710DA75417E4521500D59298 /* libxml2.dylib */; };
+		710DA75717E4522B00D59298 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 710DA75617E4522B00D59298 /* libz.dylib */; };
 		712F128217E37F4000EA2363 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712F128117E37F4000EA2363 /* Foundation.framework */; };
 		712F128417E37F4000EA2363 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712F128317E37F4000EA2363 /* CoreGraphics.framework */; };
 		712F128617E37F4000EA2363 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712F128517E37F4000EA2363 /* UIKit.framework */; };
@@ -37,6 +41,12 @@
 
 /* Begin PBXFileReference section */
 		62300BE0BFDB45FBA72777F6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		710DA74C17E44E2000D59298 /* GDataXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLParser.h; sourceTree = "<group>"; };
+		710DA74D17E44E2000D59298 /* GDataXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLParser.m; sourceTree = "<group>"; };
+		710DA74F17E44E5800D59298 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		710DA75017E44E5800D59298 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		710DA75417E4521500D59298 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		710DA75617E4522B00D59298 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		712F127E17E37F4000EA2363 /* Arendator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arendator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		712F128117E37F4000EA2363 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		712F128317E37F4000EA2363 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -66,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				710DA75717E4522B00D59298 /* libz.dylib in Frameworks */,
+				710DA75517E4521500D59298 /* libxml2.dylib in Frameworks */,
 				71737D8817E4457B0047B1C4 /* SystemConfiguration.framework in Frameworks */,
 				712F128417E37F4000EA2363 /* CoreGraphics.framework in Frameworks */,
 				712F128617E37F4000EA2363 /* UIKit.framework in Frameworks */,
@@ -110,6 +122,8 @@
 		712F128017E37F4000EA2363 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				710DA75617E4522B00D59298 /* libz.dylib */,
+				710DA75417E4521500D59298 /* libxml2.dylib */,
 				71737D8717E4457B0047B1C4 /* SystemConfiguration.framework */,
 				712F128117E37F4000EA2363 /* Foundation.framework */,
 				712F128317E37F4000EA2363 /* CoreGraphics.framework */,
@@ -123,6 +137,10 @@
 		712F128717E37F4000EA2363 /* Arendator */ = {
 			isa = PBXGroup;
 			children = (
+				710DA75017E44E5800D59298 /* GDataXMLNode.h */,
+				710DA74F17E44E5800D59298 /* GDataXMLNode.m */,
+				710DA74C17E44E2000D59298 /* GDataXMLParser.h */,
+				710DA74D17E44E2000D59298 /* GDataXMLParser.m */,
 				712F129017E37F4000EA2363 /* ARAppDelegate.h */,
 				712F129117E37F4000EA2363 /* ARAppDelegate.m */,
 				712F12B917E3806F00EA2363 /* ARTabBarVC.h */,
@@ -302,7 +320,9 @@
 				712F128E17E37F4000EA2363 /* main.m in Sources */,
 				71CF7D7817E43E5300048063 /* ARCIANFetcher.m in Sources */,
 				712F129217E37F4000EA2363 /* ARAppDelegate.m in Sources */,
+				710DA74E17E44E2000D59298 /* GDataXMLParser.m in Sources */,
 				712F12BB17E3806F00EA2363 /* ARTabBarVC.m in Sources */,
+				710DA75117E44E5800D59298 /* GDataXMLNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
