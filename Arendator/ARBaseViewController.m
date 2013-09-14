@@ -59,14 +59,13 @@
     [super viewWillAppear:animated];
     
     _tableView.frame = CGRectMake(0, 64, 320, self.view.frame.size.height - 112);
-    
 }
 
 
 - (void)animateLandscape {
     int duration = 120;
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        _landscape.transform = CGAffineTransformMakeTranslation(-_landscape.image.size.width + 320, 0);
+        _landscape.transform = CGAffineTransformMakeTranslation(320 - _landscape.image.size.width, 0);
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
             _landscape.transform = CGAffineTransformIdentity;

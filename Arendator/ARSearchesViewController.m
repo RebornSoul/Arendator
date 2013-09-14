@@ -30,12 +30,13 @@
     self.detailTextLabel.font = [self.detailTextLabel.font fontWithSize:12];
     
     _leftLabel = [[UILabel alloc] init];
-    _leftLabel.backgroundColor = blueColor;
-    _leftLabel.textColor = [UIColor whiteColor];
-    _leftLabel.highlightedTextColor = [UIColor colorWithWhite:0.8 alpha:1];
+    _leftLabel.backgroundColor = [UIColor clearColor];
+    _leftLabel.textColor = blueColor;
+    _leftLabel.highlightedTextColor = blueColor;
     _leftLabel.font = [UIFont systemFontOfSize:16];
     _leftLabel.textAlignment = NSTextAlignmentCenter;
     _leftLabel.minimumScaleFactor = 0.5;
+    _leftLabel.layer.borderWidth = 1;    
     [self.textLabel.superview addSubview:_leftLabel];
     
     return self;
@@ -50,7 +51,9 @@
 
 #define countWidth 32
 - (void)layoutSubviews {
-    _leftLabel.backgroundColor = self.highlighted ? [[UIColor grayColor] colorWithAlphaComponent:0.5] : blueColor;
+    _leftLabel.backgroundColor = [UIColor clearColor];
+    _leftLabel.layer.borderColor = blueColor.CGColor;
+    
     [super layoutSubviews];
     int leftGap = self.textLabel.frame.origin.x;
     
