@@ -1,1 +1,0 @@
-../../GData/Source/Clients/Finance/GDataEntryFinanceTransaction.h

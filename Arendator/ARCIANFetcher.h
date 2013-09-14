@@ -7,10 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GDataXMLNode.h"
 
 @interface ARCIANFetcher : NSObject
-@property (nonatomic, strong) GDataXMLDocument *xmlDocument;
 
 + (ARCIANFetcher *) sharedInstance;
 
