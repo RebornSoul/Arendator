@@ -23,7 +23,15 @@
     
     stations = [ARMetroStations stationsForCity:[_search.cityId intValue]];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"btnClear", @"") style:UIBarButtonItemStylePlain target:self action:@selector(onClearClick:)];
+    
     return self;
+}
+
+
+- (void)onClearClick:(UIBarButtonItem *)sender {
+    _search.metroIdStr = @"";
+    [self reloadData];
 }
 
 
@@ -53,6 +61,7 @@
     NSDictionary *station = stations[indexPath.row];
     cell.textLabel.text = station[@"name"];
     cell.accessoryType = [_search metroStationChecked:[station[@"id"] integerValue]] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    cell.imageView.image = [ARMetroStations imageForStationWithId:[station[@"id"] integerValue]];
     
     return cell;
 }

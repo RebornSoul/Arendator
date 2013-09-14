@@ -30,6 +30,8 @@
 
 "pleaseWait" = "Пожалуйста, подождите…";
 
+"btnClear" = "Очистить";
+
 "lblFrom" = "От:";
 "lblTo" = "До:";
 "btnDoesNotMatter" = "Не важно";

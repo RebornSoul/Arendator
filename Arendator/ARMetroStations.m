@@ -30,6 +30,18 @@ static NSArray *_data = nil;
 }
 
 
++ (UIImage *)imageForStationWithId:(NSInteger)stationId {
+    [ARMetroStations stationsForCity:0];
+    for (NSDictionary *station in _data)
+        if ([[NSString stringWithFormat:@"%i", stationId] isEqualToString:station[@"id"]]) {
+            NSNumber *line = [station[@"branch_ids"] lastObject];
+            NSString *imgName = [NSString stringWithFormat:@"metroLine[%i]", line.intValue];
+            return [UIImage imageNamed:imgName];
+        }
+    return nil;
+}
+
+
 + (NSInteger)metroStationIdByText:(NSString *)text {
     [ARMetroStations stationsForCity:0];
     for (NSDictionary *station in _data) {

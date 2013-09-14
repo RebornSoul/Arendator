@@ -14,5 +14,6 @@
 + (NSInteger)metroStationIdByText:(NSString *)text;
 
 + (NSString *)humanReadableSationsStringFormIdString:(NSString *)ids;
++ (UIImage *)imageForStationWithId:(NSInteger)stationId;
 
 @end
