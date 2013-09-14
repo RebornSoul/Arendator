@@ -19,6 +19,8 @@
 		034F282C61554CCA8A63C44C /* GDataThreadingElements.h in Headers */ = {isa = PBXBuildFile; fileRef = C89A187B0167428E9A6F7998 /* GDataThreadingElements.h */; };
 		0358E4B3CC03418AAE37612D /* GDataFinanceTransactionData.m in Sources */ = {isa = PBXBuildFile; fileRef = EB79256E80A44E9F9AB32602 /* GDataFinanceTransactionData.m */; };
 		03A9A3CD9C1F46B29A37B36F /* GDataACLScope.h in Headers */ = {isa = PBXBuildFile; fileRef = 75FFDF2BC1E24B9D93E06EE0 /* GDataACLScope.h */; };
+		03E5452017E44D4D00E8F81B /* GTMHTTPFetchHistory.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E5451E17E44D4D00E8F81B /* GTMHTTPFetchHistory.h */; };
+		03E5452117E44D4D00E8F81B /* GTMHTTPFetchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5451F17E44D4D00E8F81B /* GTMHTTPFetchHistory.m */; };
 		043B9C23121A4982AEB66D8C /* GDataReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F7FBDA1ABDB4A938319A484 /* GDataReminder.m */; };
 		046D0B7E8B4D43D980F1B535 /* GDataQueryGoogleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F3693D06324BACA20D2EDA /* GDataQueryGoogleBase.m */; };
 		059B0B03F41B4CD583FE2953 /* GDataContactJot.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C1A00F96624195913FB439 /* GDataContactJot.m */; };
@@ -841,6 +843,8 @@
 		03482BBCB89644E5984BAB36 /* SBJsonWriter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = Classes/SBJsonWriter.m; sourceTree = "<group>"; };
 		03655ECA301C4EBBA5F7FCDD /* GDataSitemapMobile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDataSitemapMobile.h; path = Source/Clients/WebmasterTools/GDataSitemapMobile.h; sourceTree = "<group>"; };
 		036BA9D73AC84C06B8FC6A2B /* GDataFeedEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDataFeedEvent.h; path = Source/Clients/Calendar/GDataFeedEvent.h; sourceTree = "<group>"; };
+		03E5451E17E44D4D00E8F81B /* GTMHTTPFetchHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMHTTPFetchHistory.h; path = Source/GTMHTTPFetchHistory.h; sourceTree = "<group>"; };
+		03E5451F17E44D4D00E8F81B /* GTMHTTPFetchHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMHTTPFetchHistory.m; path = Source/GTMHTTPFetchHistory.m; sourceTree = "<group>"; };
 		03F06BAA473144B9A71D08E2 /* GDataAuthenticationFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDataAuthenticationFetcher.h; path = Source/Networking/GDataAuthenticationFetcher.h; sourceTree = "<group>"; };
 		04D4DE67A7B8448A91AB5CA3 /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFPropertyListRequestOperation.m; path = AFNetworking/AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
 		04EAF8DC57434AC6B5974174 /* GDataFeedGoogleBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDataFeedGoogleBase.m; path = Source/Clients/GoogleBase/GDataFeedGoogleBase.m; sourceTree = "<group>"; };
@@ -2351,6 +2355,8 @@
 		82CFFBF5A0FB41AAB88AC2B2 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
+				03E5451E17E44D4D00E8F81B /* GTMHTTPFetchHistory.h */,
+				03E5451F17E44D4D00E8F81B /* GTMHTTPFetchHistory.m */,
 				D88F876DD588424B92DDC907 /* GTMGatherInputStream.h */,
 				44CA294F13F845C48DE36AC4 /* GTMGatherInputStream.m */,
 				BCC93164511D4DD982E2435C /* GTMHTTPFetcher.h */,
@@ -2920,6 +2926,7 @@
 				C6DBE52ED2B341F99F088B41 /* AFJSONRequestOperation.h in Headers */,
 				F6F5BE8273AF422EB1B44B9B /* AFNetworkActivityIndicatorManager.h in Headers */,
 				D3A72313FE2E4C3EA45751AE /* AFNetworking.h in Headers */,
+				03E5452017E44D4D00E8F81B /* GTMHTTPFetchHistory.h in Headers */,
 				2502A4BA4ED6404CA36A41B1 /* AFPropertyListRequestOperation.h in Headers */,
 				32C415E6E33B498A9EF2EDAE /* AFURLConnectionOperation.h in Headers */,
 				A7917B031ED84E90A31487B4 /* AFXMLRequestOperation.h in Headers */,
@@ -3431,6 +3438,7 @@
 				CFECDD6F6F214D1A89019235 /* AFXMLRequestOperation.m in Sources */,
 				D32C14C486A640998C7931FD /* UIImageView+AFNetworking.m in Sources */,
 				65312CFDA93C4F8EB71D3976 /* Pods-AFNetworking-dummy.m in Sources */,
+				03E5452117E44D4D00E8F81B /* GTMHTTPFetchHistory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

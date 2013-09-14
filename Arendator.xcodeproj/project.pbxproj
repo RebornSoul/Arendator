@@ -15,6 +15,9 @@
 		03E5451317E448EA00E8F81B /* ARSearchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5451017E448EA00E8F81B /* ARSearchesViewController.m */; };
 		03E5451417E448EA00E8F81B /* ARSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5451217E448EA00E8F81B /* ARSearchViewController.m */; };
 		03E5451717E4490400E8F81B /* tbSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E5451617E4490400E8F81B /* tbSearch@2x.png */; };
+		03E5451A17E44B2500E8F81B /* spb_metro.json in Resources */ = {isa = PBXBuildFile; fileRef = 03E5451917E44B2500E8F81B /* spb_metro.json */; };
+		03E5451D17E44B3A00E8F81B /* ARMetroStations.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5451C17E44B3A00E8F81B /* ARMetroStations.m */; };
+		03E5452417E44E1300E8F81B /* ARBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5452317E44E1300E8F81B /* ARBaseViewController.m */; };
 		23452C7C12A74830A7D8F91E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1680E96B5B447A898FDFF2 /* libPods.a */; };
 		712F128217E37F4000EA2363 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712F128117E37F4000EA2363 /* Foundation.framework */; };
 		712F128417E37F4000EA2363 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712F128317E37F4000EA2363 /* CoreGraphics.framework */; };
@@ -58,6 +61,11 @@
 		03E5451117E448EA00E8F81B /* ARSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSearchViewController.h; sourceTree = "<group>"; };
 		03E5451217E448EA00E8F81B /* ARSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSearchViewController.m; sourceTree = "<group>"; };
 		03E5451617E4490400E8F81B /* tbSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tbSearch@2x.png"; path = "Arendator/Images/tbSearch@2x.png"; sourceTree = "<group>"; };
+		03E5451917E44B2500E8F81B /* spb_metro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = spb_metro.json; path = Arendator/Data/spb_metro.json; sourceTree = "<group>"; };
+		03E5451B17E44B3A00E8F81B /* ARMetroStations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARMetroStations.h; path = Arendator/ARMetroStations.h; sourceTree = "<group>"; };
+		03E5451C17E44B3A00E8F81B /* ARMetroStations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARMetroStations.m; path = Arendator/ARMetroStations.m; sourceTree = "<group>"; };
+		03E5452217E44E1300E8F81B /* ARBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARBaseViewController.h; sourceTree = "<group>"; };
+		03E5452317E44E1300E8F81B /* ARBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARBaseViewController.m; sourceTree = "<group>"; };
 		62300BE0BFDB45FBA72777F6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		712F127E17E37F4000EA2363 /* Arendator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arendator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		712F128117E37F4000EA2363 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -118,6 +126,8 @@
 				03E5450317E448C900E8F81B /* DataModel+Helper.h */,
 				03E5450417E448C900E8F81B /* DataModel+Helper.m */,
 				03E544FE17E448BA00E8F81B /* DataModel.xcdatamodeld */,
+				03E5451B17E44B3A00E8F81B /* ARMetroStations.h */,
+				03E5451C17E44B3A00E8F81B /* ARMetroStations.m */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -142,6 +152,8 @@
 				03E5451017E448EA00E8F81B /* ARSearchesViewController.m */,
 				03E5451117E448EA00E8F81B /* ARSearchViewController.h */,
 				03E5451217E448EA00E8F81B /* ARSearchViewController.m */,
+				03E5452217E44E1300E8F81B /* ARBaseViewController.h */,
+				03E5452317E44E1300E8F81B /* ARBaseViewController.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -154,9 +166,18 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		03E5451817E44A7800E8F81B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				03E5451917E44B2500E8F81B /* spb_metro.json */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		712F127517E37F4000EA2363 = {
 			isa = PBXGroup;
 			children = (
+				03E5451817E44A7800E8F81B /* Data */,
 				03E5451517E448F700E8F81B /* Images */,
 				03E544FD17E448B000E8F81B /* DataModel */,
 				712F128717E37F4000EA2363 /* Arendator */,
@@ -315,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03E5451717E4490400E8F81B /* tbSearch@2x.png in Resources */,
+				03E5451A17E44B2500E8F81B /* spb_metro.json in Resources */,
 				712F129D17E37F4000EA2363 /* Images.xcassets in Resources */,
 				712F128C17E37F4000EA2363 /* InfoPlist.strings in Resources */,
 			);
@@ -375,10 +397,12 @@
 				03E5450017E448BA00E8F81B /* DataModel.xcdatamodeld in Sources */,
 				71CF7D7817E43E5300048063 /* ARCIANFetcher.m in Sources */,
 				712F129217E37F4000EA2363 /* ARAppDelegate.m in Sources */,
+				03E5451D17E44B3A00E8F81B /* ARMetroStations.m in Sources */,
 				03E5451417E448EA00E8F81B /* ARSearchViewController.m in Sources */,
 				03E5450617E448C900E8F81B /* DataModel+Helper.m in Sources */,
 				712F12BB17E3806F00EA2363 /* ARTabBarVC.m in Sources */,
 				03E5450517E448C900E8F81B /* DataModel.m in Sources */,
+				03E5452417E44E1300E8F81B /* ARBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
