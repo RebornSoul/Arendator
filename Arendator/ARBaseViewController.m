@@ -1,25 +1,16 @@
 //
-//  ARSearchViewController.m
+//  ARBaseViewController.m
 //  Arendator
 //
 //  Created by Grig Uskov on 14/9/13.
 //  Copyright (c) 2013 Yury Nechaev. All rights reserved.
 //
 
-#import "ARSearchViewController.h"
 #import "ARBaseViewController.h"
 
-@implementation ARSearchViewController {
+@implementation ARBaseViewController {
     UITableView *tableView;
-}
-
-- (id)init {
-    self = [super init];
-    self.title = NSLocalizedString(@"titleSearch", @"");
-    
-    self.tabBarItem.image = [UIImage imageNamed:@"tbSearch"];
-    
-    return self;
+    UIImageView *landscape;
 }
 
 
@@ -28,6 +19,9 @@
     
     tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:tableView];
+    
+    _landscape = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"landscape"]];
+    [self.view addSubview:_landscape];
 }
 
 @end

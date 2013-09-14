@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ARBaseViewController.h"
 
-@interface ARSearchViewController : UIViewController
+@interface ARSearchViewController : ARBaseViewController
 
 @end
