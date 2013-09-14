@@ -12,8 +12,21 @@
 
 @implementation SearchResult
 
-@dynamic title;
 @dynamic uid;
+@dynamic metroId;
+@dynamic street;
+@dynamic house;
+@dynamic flor;
+@dynamic florTotal;
+@dynamic price;
+@dynamic priceType;
+@dynamic requireDeposit;
+@dynamic requireExtraMonth;
+@dynamic id;
+@dynamic info;
+@dynamic phones;
+@dynamic options;
+@dynamic rooms;
 @dynamic search;
 
 @end

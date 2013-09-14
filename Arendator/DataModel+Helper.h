@@ -20,12 +20,8 @@
 
 + (Search *)newInstance;
 
+- (Boolean)metroStationChecked:(NSInteger)stationId;
+- (void)checkMetroStation:(NSInteger)stationId check:(Boolean)value;
+
 @end
 
-
-static NSString *generateGUID() {
-    CFUUIDRef uuidObj = CFUUIDCreate(nil);
-    NSString *uuidString = (__bridge NSString*)CFUUIDCreateString(nil, uuidObj);
-    CFRelease(uuidObj);
-    return uuidString;
-}

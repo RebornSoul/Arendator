@@ -11,5 +11,6 @@
 @interface ARMetroStations : NSObject
 
 + (NSArray *)stationsForCity:(NSInteger)cityId;
++ (NSInteger)metroStationIdByText:(NSString *)text;
 
 @end

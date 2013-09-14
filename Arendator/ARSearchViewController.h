@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ARBaseViewController.h"
+#import "Search.h"
 
 @interface ARSearchViewController : ARBaseViewController
+
+- (id)initWithSearch:(Search *)search;
 
 @end

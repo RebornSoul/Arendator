@@ -1,2 +1,38 @@
+"tabBarSearch" = "Поиск квартир";
 "titleSearch" = "Поиск квартир";
+"titleMetro" = "Станции метро";
 
+"tabBarAbout" = "О программе…";
+"titleAbout" = "О программе…";
+
+"itemTitle" = "Название";
+"itemMetro" = "Станции метро";
+"itemPrice" = "Цена аренды";
+"itemRooms" = "Количество комнат";
+
+"itemNewSearch" = "Новый поиск";
+"btnSearch" = "Искать";
+
+"sectionPreviousSearches" = "Предыдущие результытаты";
+"sectionMoreOptions" = "Дополнительные параметры";
+
+"doesnotmatter" = "…";
+"yes" = "Да";
+"no" = "Нет";
+
+"roomDoesNotMatter" = "Не важно";
+"roomFromFMT" = "от %i";
+"roomToFMT" = "до %";
+"roomFromToFMT" = "от %i до %i";
+
+"btnPrevResultsFMT" = "Предыдущие результытаты: %i";
+
+"ITEM_allowedChildren" = "Можно с детьми";
+"ITEM_allowedPets" = "Можно с животными";
+"ITEM_optBalcony" = "Балкон";
+"ITEM_optFridge" = "Холодильник";
+"ITEM_optFurniture" = "Мебель";
+"ITEM_optKitchenFurniture" = "Кухонная мебель";
+"ITEM_optPhone" = "Телефон";
+"ITEM_optTV" = "Телевизор";
+"ITEM_optWashMachine" = "Холодильник";

@@ -28,6 +28,7 @@
 @dynamic roomFrom;
 @dynamic roomTo;
 @dynamic time;
+@dynamic title;
 @dynamic uid;
 @dynamic serachResults;
 

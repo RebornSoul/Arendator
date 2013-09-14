@@ -28,4 +28,13 @@
     return [NSArray arrayWithArray:result];
 }
 
+
++ (NSInteger)metroStationIdByText:(NSString *)text {
+    for (NSDictionary *station in [ARMetroStations stationsForCity:0]) {
+        NSString *name = [@"м." stringByAppendingString:text];
+        if ([text isEqualToString:name]) return [station[@"id"] integerValue];
+    }
+    return -1;
+}
+
 @end

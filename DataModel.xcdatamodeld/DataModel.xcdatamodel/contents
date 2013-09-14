@@ -17,16 +17,30 @@
         <attribute name="roomFrom" optional="YES" attributeType="Integer 16" syncable="YES"/>
         <attribute name="roomTo" optional="YES" attributeType="Integer 16" syncable="YES"/>
         <attribute name="time" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" attributeType="String" syncable="YES"/>
         <relationship name="serachResults" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SearchResult" inverseName="search" inverseEntity="SearchResult" syncable="YES"/>
     </entity>
     <entity name="SearchResult" representedClassName="SearchResult" syncable="YES">
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="flor" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="florTotal" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="house" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="metroId" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="options" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phones" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" attributeType="Integer 64" syncable="YES"/>
+        <attribute name="priceType" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="requireDeposit" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="requireExtraMonth" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="rooms" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" attributeType="String" syncable="YES"/>
         <relationship name="search" maxCount="1" deletionRule="Nullify" destinationEntity="Search" inverseName="serachResults" inverseEntity="Search" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Search" positionX="-3438" positionY="-4752" width="128" height="313"/>
-        <element name="SearchResult" positionX="-3215" positionY="-4752" width="128" height="88"/>
+        <element name="Search" positionX="-3438" positionY="-4752" width="128" height="328"/>
+        <element name="SearchResult" positionX="-3215" positionY="-4743" width="128" height="283"/>
     </elements>
 </model>

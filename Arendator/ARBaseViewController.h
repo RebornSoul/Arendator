@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ARBaseViewController : UIViewController
+@interface ARBaseViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+
+}
 
 @property (nonatomic, readonly) UIImageView *landscape;
+@property (nonatomic, readonly) UITableView *tableView;
+
+- (void)reloadData;
 
 @end
