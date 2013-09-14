@@ -7,11 +7,11 @@
 //
 
 #import "SearchResult.h"
+#import "Search.h"
 
 
 @implementation SearchResult
 
-@dynamic time;
 @dynamic title;
 @dynamic uid;
 @dynamic search;

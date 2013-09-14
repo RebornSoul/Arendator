@@ -28,6 +28,7 @@
 @property (nonatomic, retain) NSNumber * priceTo;
 @property (nonatomic, retain) NSNumber * roomFrom;
 @property (nonatomic, retain) NSNumber * roomTo;
+@property (nonatomic, retain) NSDate * time;
 @property (nonatomic, retain) NSString * uid;
 @property (nonatomic, retain) NSSet *serachResults;
 @end

@@ -10,4 +10,6 @@
 
 @interface ARBaseViewController : UIViewController
 
+@property (nonatomic, readonly) UIImageView *landscape;
+
 @end

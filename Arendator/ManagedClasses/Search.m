@@ -27,6 +27,7 @@
 @dynamic priceTo;
 @dynamic roomFrom;
 @dynamic roomTo;
+@dynamic time;
 @dynamic uid;
 @dynamic serachResults;
 

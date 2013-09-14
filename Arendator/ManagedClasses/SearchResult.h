@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Search;
 
 @interface SearchResult : NSManagedObject
 
-@property (nonatomic, retain) NSDate * time;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * uid;
-@property (nonatomic, retain) NSManagedObject *search;
+@property (nonatomic, retain) Search *search;
 
 @end
