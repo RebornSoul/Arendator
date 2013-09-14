@@ -14,10 +14,11 @@
 		0362468517E4771100CCCE34 /* tbAbout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0362468417E4771100CCCE34 /* tbAbout@2x.png */; };
 		0362468B17E4775100CCCE34 /* ARAboutViewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0362468A17E4775100CCCE34 /* ARAboutViewcontroller.m */; };
 		0362468E17E47DAA00CCCE34 /* ARMetroStationSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 0362468D17E47DAA00CCCE34 /* ARMetroStationSelector.m */; };
-		03BCCC9817E48E6000CA02CF /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 03BCCC9717E48E6000CA02CF /* Search.m */; };
-		03BCCC9B17E48E6100CA02CF /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 03BCCC9A17E48E6100CA02CF /* SearchResult.m */; };
 		03BCCC9E17E491FE00CA02CF /* ARPriceSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 03BCCC9D17E491FE00CA02CF /* ARPriceSelector.m */; };
 		03BCCCA117E4920A00CA02CF /* ARRoomCountSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 03BCCCA017E4920A00CA02CF /* ARRoomCountSelector.m */; };
+		03BCCCAA17E4A8D700CA02CF /* ARBlockingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03BCCCA917E4A8D700CA02CF /* ARBlockingView.m */; };
+		03BCCCAD17E4AF2600CA02CF /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 03BCCCAC17E4AF2600CA02CF /* Search.m */; };
+		03BCCCB017E4AF2600CA02CF /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 03BCCCAF17E4AF2600CA02CF /* SearchResult.m */; };
 		03E5450017E448BA00E8F81B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03E544FE17E448BA00E8F81B /* DataModel.xcdatamodeld */; };
 		03E5450517E448C900E8F81B /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5450217E448C900E8F81B /* DataModel.m */; };
 		03E5450617E448C900E8F81B /* DataModel+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5450417E448C900E8F81B /* DataModel+Helper.m */; };
@@ -72,14 +73,16 @@
 		0362468A17E4775100CCCE34 /* ARAboutViewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAboutViewcontroller.m; sourceTree = "<group>"; };
 		0362468C17E47DAA00CCCE34 /* ARMetroStationSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMetroStationSelector.h; sourceTree = "<group>"; };
 		0362468D17E47DAA00CCCE34 /* ARMetroStationSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMetroStationSelector.m; sourceTree = "<group>"; };
-		03BCCC9617E48E6000CA02CF /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search.h; path = Arendator/ManagedClasses/Search.h; sourceTree = "<group>"; };
-		03BCCC9717E48E6000CA02CF /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search.m; path = Arendator/ManagedClasses/Search.m; sourceTree = "<group>"; };
-		03BCCC9917E48E6100CA02CF /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Arendator/ManagedClasses/SearchResult.h; sourceTree = "<group>"; };
-		03BCCC9A17E48E6100CA02CF /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Arendator/ManagedClasses/SearchResult.m; sourceTree = "<group>"; };
 		03BCCC9C17E491FE00CA02CF /* ARPriceSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARPriceSelector.h; sourceTree = "<group>"; };
 		03BCCC9D17E491FE00CA02CF /* ARPriceSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPriceSelector.m; sourceTree = "<group>"; };
 		03BCCC9F17E4920A00CA02CF /* ARRoomCountSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARRoomCountSelector.h; sourceTree = "<group>"; };
 		03BCCCA017E4920A00CA02CF /* ARRoomCountSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARRoomCountSelector.m; sourceTree = "<group>"; };
+		03BCCCA817E4A8D700CA02CF /* ARBlockingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARBlockingView.h; sourceTree = "<group>"; };
+		03BCCCA917E4A8D700CA02CF /* ARBlockingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARBlockingView.m; sourceTree = "<group>"; };
+		03BCCCAB17E4AF2600CA02CF /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search.h; path = Arendator/ManagedClasses/Search.h; sourceTree = "<group>"; };
+		03BCCCAC17E4AF2600CA02CF /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search.m; path = Arendator/ManagedClasses/Search.m; sourceTree = "<group>"; };
+		03BCCCAE17E4AF2600CA02CF /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Arendator/ManagedClasses/SearchResult.h; sourceTree = "<group>"; };
+		03BCCCAF17E4AF2600CA02CF /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Arendator/ManagedClasses/SearchResult.m; sourceTree = "<group>"; };
 		03E544FF17E448BA00E8F81B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		03E5450117E448C900E8F81B /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataModel.h; path = Arendator/DataModel.h; sourceTree = "<group>"; };
 		03E5450217E448C900E8F81B /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataModel.m; path = Arendator/DataModel.m; sourceTree = "<group>"; };
@@ -174,10 +177,10 @@
 		03E5450717E448CC00E8F81B /* ManagedClasses */ = {
 			isa = PBXGroup;
 			children = (
-				03BCCC9917E48E6100CA02CF /* SearchResult.h */,
-				03BCCC9A17E48E6100CA02CF /* SearchResult.m */,
-				03BCCC9617E48E6000CA02CF /* Search.h */,
-				03BCCC9717E48E6000CA02CF /* Search.m */,
+				03BCCCAE17E4AF2600CA02CF /* SearchResult.h */,
+				03BCCCAF17E4AF2600CA02CF /* SearchResult.m */,
+				03BCCCAB17E4AF2600CA02CF /* Search.h */,
+				03BCCCAC17E4AF2600CA02CF /* Search.m */,
 			);
 			name = ManagedClasses;
 			sourceTree = "<group>";
@@ -205,6 +208,8 @@
 				03BCCC9D17E491FE00CA02CF /* ARPriceSelector.m */,
 				03BCCC9F17E4920A00CA02CF /* ARRoomCountSelector.h */,
 				03BCCCA017E4920A00CA02CF /* ARRoomCountSelector.m */,
+				03BCCCA817E4A8D700CA02CF /* ARBlockingView.h */,
+				03BCCCA917E4A8D700CA02CF /* ARBlockingView.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -474,23 +479,24 @@
 				03BCCCA117E4920A00CA02CF /* ARRoomCountSelector.m in Sources */,
 				7106A6BA17E48A0A002469FC /* TFHppleElement.m in Sources */,
 				712F128E17E37F4000EA2363 /* main.m in Sources */,
+				03BCCCAD17E4AF2600CA02CF /* Search.m in Sources */,
 				7106A6BB17E48A0A002469FC /* XPathQuery.m in Sources */,
 				03E5451317E448EA00E8F81B /* ARSearchesViewController.m in Sources */,
 				0362468E17E47DAA00CCCE34 /* ARMetroStationSelector.m in Sources */,
 				03E5450017E448BA00E8F81B /* DataModel.xcdatamodeld in Sources */,
 				71CF7D7817E43E5300048063 /* ARCIANFetcher.m in Sources */,
+				03BCCCAA17E4A8D700CA02CF /* ARBlockingView.m in Sources */,
 				712F129217E37F4000EA2363 /* ARAppDelegate.m in Sources */,
 				03E5451D17E44B3A00E8F81B /* ARMetroStations.m in Sources */,
 				03BCCC9E17E491FE00CA02CF /* ARPriceSelector.m in Sources */,
 				03E5451417E448EA00E8F81B /* ARSearchViewController.m in Sources */,
-				03BCCC9B17E48E6100CA02CF /* SearchResult.m in Sources */,
 				03E5450617E448C900E8F81B /* DataModel+Helper.m in Sources */,
 				0362468317E4749B00CCCE34 /* ARSearchResultViewController.m in Sources */,
 				0362468017E4748900CCCE34 /* ARSearchResultsViewController.m in Sources */,
 				7106A6B917E48A0A002469FC /* TFHpple.m in Sources */,
+				03BCCCB017E4AF2600CA02CF /* SearchResult.m in Sources */,
 				712F12BB17E3806F00EA2363 /* ARTabBarVC.m in Sources */,
 				03E5450517E448C900E8F81B /* DataModel.m in Sources */,
-				03BCCC9817E48E6000CA02CF /* Search.m in Sources */,
 				03E5452417E44E1300E8F81B /* ARBaseViewController.m in Sources */,
 				0362468B17E4775100CCCE34 /* ARAboutViewcontroller.m in Sources */,
 			);

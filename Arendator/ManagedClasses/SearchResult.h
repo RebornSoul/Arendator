@@ -13,6 +13,7 @@
 
 @interface SearchResult : NSManagedObject
 
+@property (nonatomic, retain) NSString * distanceFromMetro;
 @property (nonatomic, retain) NSNumber * flor;
 @property (nonatomic, retain) NSNumber * florTotal;
 @property (nonatomic, retain) NSString * house;
@@ -28,7 +29,6 @@
 @property (nonatomic, retain) NSNumber * rooms;
 @property (nonatomic, retain) NSString * street;
 @property (nonatomic, retain) NSString * uid;
-@property (nonatomic, retain) NSString * distanceFromMetro;
 @property (nonatomic, retain) Search *search;
 
 @end

@@ -56,7 +56,6 @@ static NSArray *_data = nil;
         if (name)
             [result addObject:name];
     }
-    NSLog(@"%@", result);
     return [result componentsJoinedByString:@", "];
 }
 

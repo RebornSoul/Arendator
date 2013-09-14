@@ -22,6 +22,8 @@
 "yes" = "Да";
 "no" = "Нет";
 
+"pleaseWait" = "Пожалуйста, подождите…";
+
 "lblFrom" = "От:";
 "lblTo" = "До:";
 "btnDoesNotMatter" = "Не важно";
@@ -29,12 +31,12 @@
 "rangeDoesNotMatter" = "Не важно";
 "rangeFromFMT" = "от %i";
 "rangeToFMT" = "до %i";
-"rangeFromToFMT" = "от %i до %i";
+"rangeFromToFMT" = "%i - %i";
 
 "priceExactFMT" = "%@ т.р.";
 "priceFromFMT" = "от %@ т.р.";
 "priceToFMT" = "до %@ т.р.";
-"priceFromToFMT" = "от %@ до %@ т.р.";
+"priceFromToFMT" = "%@ - %@ т.р.";
 
 "resultCountXFlatsFMT" = " (%i квартир)";
 

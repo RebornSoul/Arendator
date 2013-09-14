@@ -14,6 +14,7 @@
 #import "ARRoomCountSelector.h"
 #import "ARPriceSelector.h"
 #import "ARMetroStations.h"
+#import "ARBlockingView.h"
 
 @implementation ARSearchViewController {
     Search *_search;
@@ -43,13 +44,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    if (_search.serachResults.count != 0) {
+    if (_search.searchResults.count != 0) {
         self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 54)];
         int gap = 8;
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         btn.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
         btn.frame = CGRectMake(gap, gap, self.tableView.tableHeaderView.frame.size.width - 2 * gap, self.tableView.tableHeaderView.frame.size.height - 2 * gap);
-        [btn setTitle:[NSString stringWithFormat:NSLocalizedString(@"btnPrevResultsFMT", @""), _search.serachResults.count] forState:UIControlStateNormal];
+        [btn setTitle:[NSString stringWithFormat:NSLocalizedString(@"btnPrevResultsFMT", @""), _search.searchResults.count] forState:UIControlStateNormal];
         [self.tableView.tableHeaderView addSubview:btn];
         self.tableView.tableHeaderView.backgroundColor = [UIColor clearColor];
     } else
@@ -96,6 +97,13 @@
     if (!_search)
         _search = [Search newInstance];
     
+    if (!newEntity && _search.searchResults.count == 0) {
+        [SearchResult randomTestInstanceForSearch:_search];
+        [SearchResult randomTestInstanceForSearch:_search];
+        [SearchResult randomTestInstanceForSearch:_search];
+        [DataModel save];
+    }
+    
     titleTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 200, 25)];
     titleTF.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.1];
     titleTF.textAlignment = NSTextAlignmentRight;
@@ -132,10 +140,13 @@
 
 - (void)onSearchClick:(UIBarButtonItem *)sender {
     canceled = NO;
+    newEntity = NO;
     [DataModel save];
     
-    [[[UIAlertView alloc] initWithTitle:@"???" message:@"NOT IMPL" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+//    [[[UIAlertView alloc] initWithTitle:@"???" message:@"NOT IMPL" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 //    [someone DOSEARCH:_search]; //ЮРА
+    
+    [ARBlockingView showWithTitle:NSLocalizedString(@"pleaseWait", @"")];
 }
 
 

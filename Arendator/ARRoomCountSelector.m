@@ -57,6 +57,7 @@
             [sc_from setSelectedSegmentIndex:sender.selectedSegmentIndex];
         } 
     }
+    [DataModel save];
 }
 
 
@@ -108,9 +109,7 @@
     btn.tag = 1;
     [btn addTarget:self action:@selector(onButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
-    
-/*
- */
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {

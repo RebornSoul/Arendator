@@ -12,6 +12,7 @@
 @interface SearchResult (Helper)
 
 + (SearchResult *)newInstanceForSearch:(Search *)parent;
++ (SearchResult *)randomTestInstanceForSearch:(Search *)parent;
 
 @end
 
@@ -25,6 +26,9 @@
 
 @property (nonatomic, readonly) NSString *humanReadablePriceRange;
 @property (nonatomic, readonly) NSString *humanReadableRoomRange;
+
+@property (nonatomic, readonly) NSString *humanReadablePriceForm;
+@property (nonatomic, readonly) NSString *humanReadablePriceTo;
 
 @end
 

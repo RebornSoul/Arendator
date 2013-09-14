@@ -29,6 +29,30 @@ static NSString *generateGUID() {
     return result;
 }
 
+
++ (SearchResult *)randomTestInstanceForSearch:(Search *)parent {
+    SearchResult *result = [SearchResult newInstanceForSearch:parent];
+    
+    result.distanceFromMetro = @"5 минут пешком";
+    result.flor = [NSNumber numberWithInt:1 + arc4random() % 9];
+    result.florTotal = [NSNumber numberWithInt:result.flor.intValue + 2];
+    result.house = @"д. 4";
+    result.id = @"1234534";
+    result.info = @"A lot of text here...";
+    result.metroId = [NSNumber numberWithInt:1 + arc4random() % 30];
+    result.options = @"телефон,телевизор";
+    result.phones = @"+7 911 123-45-67,+7 911 555-66-77";
+    result.price = [NSNumber numberWithInt:10000 + arc4random() % 40000];
+    result.priceType = @1;
+    result.requireDeposit = @YES;
+    result.requireExtraMonth = @YES;
+    result.rooms = [NSNumber numberWithInt:1 + arc4random() % 4];
+    result.street = @"Энгельса";
+    
+    return result;
+}
+
+
 @end
 
 
@@ -100,6 +124,16 @@ static NSString *formatBabki(NSNumber *value) {
     if (!!self.roomTo)
         return [NSString stringWithFormat:NSLocalizedString(@"rangeToFMT", @""), self.roomTo.integerValue];
     return @"???";
+}
+
+
+- (NSString *)humanReadablePriceForm {
+    return [NSString stringWithFormat:NSLocalizedString(@"priceExactFMT", @""), [NSString stringWithFormat:@"%.1f", roundf(self.priceFrom.integerValue / 500) / 2]];
+}
+
+
+- (NSString *)humanReadablePriceTo {
+    return [NSString stringWithFormat:NSLocalizedString(@"priceExactFMT", @""), [NSString stringWithFormat:@"%.1f", roundf(self.priceTo.integerValue / 500) / 2]];
 }
 
 @end

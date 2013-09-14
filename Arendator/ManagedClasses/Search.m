@@ -30,6 +30,6 @@
 @dynamic time;
 @dynamic title;
 @dynamic uid;
-@dynamic serachResults;
+@dynamic searchResults;
 
 @end

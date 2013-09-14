@@ -12,6 +12,7 @@
 
 @implementation SearchResult
 
+@dynamic distanceFromMetro;
 @dynamic flor;
 @dynamic florTotal;
 @dynamic house;
@@ -27,7 +28,6 @@
 @dynamic rooms;
 @dynamic street;
 @dynamic uid;
-@dynamic distanceFromMetro;
 @dynamic search;
 
 @end
