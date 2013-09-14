@@ -37,6 +37,7 @@
 		712F12BB17E3806F00EA2363 /* ARTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 712F12BA17E3806F00EA2363 /* ARTabBarVC.m */; };
 		71737D8817E4457B0047B1C4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71737D8717E4457B0047B1C4 /* SystemConfiguration.framework */; };
 		71CF7D7817E43E5300048063 /* ARCIANFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CF7D7717E43E5300048063 /* ARCIANFetcher.m */; };
+		71DE254417E45A5200DF20F9 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DE254317E45A5200DF20F9 /* libxml2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		71737D8717E4457B0047B1C4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		71CF7D7617E43E5300048063 /* ARCIANFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCIANFetcher.h; sourceTree = "<group>"; };
 		71CF7D7717E43E5300048063 /* ARCIANFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARCIANFetcher.m; sourceTree = "<group>"; };
+		71DE254317E45A5200DF20F9 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		FE1680E96B5B447A898FDFF2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71DE254417E45A5200DF20F9 /* libxml2.dylib in Frameworks */,
 				710DA76017E4551C00D59298 /* MobileCoreServices.framework in Frameworks */,
 				71737D8817E4457B0047B1C4 /* SystemConfiguration.framework in Frameworks */,
 				712F128417E37F4000EA2363 /* CoreGraphics.framework in Frameworks */,
@@ -221,6 +224,7 @@
 		712F128017E37F4000EA2363 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				71DE254317E45A5200DF20F9 /* libxml2.dylib */,
 				710DA75F17E4551C00D59298 /* MobileCoreServices.framework */,
 				71737D8717E4457B0047B1C4 /* SystemConfiguration.framework */,
 				712F128117E37F4000EA2363 /* Foundation.framework */,

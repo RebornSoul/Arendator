@@ -9,9 +9,24 @@
 #import "GDataXMLParser.h"
 #include "GDataXMLNode.h"
 
+@interface GDataXMLParser ()
+@property (nonatomic, strong) NSString *currentXPath;
+@property (nonatomic, strong) NSSet *currentKeys;
+
+@end
+
 @implementation GDataXMLParser
 
 @synthesize parseFormatter, xmlData, rssConnection;
+
+- (id) initWithXPath:(NSString*)xPath valueKeys:(NSSet*)keys {
+    self = [super init];
+    if (self) {
+        self.currentXPath = xPath;
+        self.currentKeys = keys;
+    }
+    return self;
+}
 
 - (void)downloadAndParse:(NSURL *)url {
     
@@ -19,9 +34,7 @@
     self.parseFormatter = [[NSDateFormatter alloc] init];
     [parseFormatter setDateStyle:NSDateFormatterLongStyle];
     [parseFormatter setTimeStyle:NSDateFormatterNoStyle];
-    // necessary because iTunes RSS feed is not localized, so if the device region has been set to other than US
-    // the date formatter must be set to US locale in order to parse the dates
-    [parseFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:[[NSLocale currentLocale] valueForKey:NSLocaleLanguageCode]]];
+//    [parseFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:[[NSLocale currentLocale] valueForKey:NSLocaleLanguageCode]]];
     self.xmlData = [NSMutableData data];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     NSURLRequest *theRequest = [NSURLRequest requestWithURL:url];
@@ -62,63 +75,35 @@
 // Constants for the XML element names that will be considered during the parse. 
 // Declaring these as static constants reduces the number of objects created during the run
 // and is less prone to programmer error.
-static NSString *kXPath_Item = @"//cat";
-static NSString *kObj_Metro = @"title";
-static NSString *kObj_Room = @"category";
-static NSString *kObj_Rooms = @"artist";
-static NSString *kObj_Com = @"album";
+static NSString *kXPath_Item = @"/html/body[@id='doc']/table[@id='tbody']/tbody/tr/td/table/tbody/tr/td/div[1]/fieldset/table[@class='cat']/tbody/tr/td[@class='cat']";
+static NSString *kObj_Format = @"dl2m_%@_%@"; // td cell id format
+static NSString *kObj_Metro = @"metro";
+static NSString *kObj_Room = @"room";
+static NSString *kObj_Rooms = @"rooms";
+static NSString *kObj_Com = @"com";
 static NSString *kObj_Floor = @"releasedate";
-static NSString *kObj_dopSved = @"";
-static NSString *kObj_Contacts = @"";
-static NSString *kObj_Comment = @"";
+static NSString *kObj_dopSved = @"dopsved";
+static NSString *kObj_Contacts = @"contacts";
+static NSString *kObj_Comment = @"comment";
 
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-//    [self performSelectorOnMainThread:@selector(downloadEnded) withObject:nil waitUntilDone:NO];
-//    NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
-//    // Looks just like Touch XML!    
-//    GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:xmlData options:0 error:nil];
-//    NSArray *items = [doc nodesForXPath:kXPath_Item error:nil];
-//    for (GDataXMLElement *item in items) {
-//        Song * song = [[Song alloc] init];
-//        NSArray *titles = [item elementsForName:kName_Title];
-//        for(GDataXMLElement *title in titles) {
-//            song.title = title.stringValue;
-//            break;
-//        }
-//        NSArray *categories = [item elementsForName:kName_Category];
-//        for(GDataXMLElement *category in categories) {
-//            song.category = category.stringValue;
-//            break;
-//        }
-//        NSArray *artists = [item elementsForName:kName_Artist];
-//        for(GDataXMLElement *artist in artists) {
-//            song.artist = artist.stringValue;
-//            break;
-//        }
-//        NSArray *albums = [item elementsForName:kName_Album];
-//        for(GDataXMLElement *album in albums) {
-//            song.album = album.stringValue;
-//            break;
-//        }
-//        NSArray *releaseDates = [item elementsForName:kName_ReleaseDate];
-//        for(GDataXMLElement *releaseDate in releaseDates) {
-//            NSString *releaseDateStr = releaseDate.stringValue;
-//            song.releaseDate = [parseFormatter dateFromString:releaseDateStr];
-//            break;
-//        }
-//        [self performSelectorOnMainThread:@selector(parsedSong:) withObject:song waitUntilDone:NO];
-//        // performSelectorOnMainThread: will retain the object until the selector has been performed
-//        // so we can release our reference
-//        [song release];
-//    }
-//    [doc release];
-//    NSTimeInterval duration = [NSDate timeIntervalSinceReferenceDate] - start;
-//    [self performSelectorOnMainThread:@selector(addToParseDuration:) withObject:[NSNumber numberWithDouble:duration] waitUntilDone:NO];
-//    [self performSelectorOnMainThread:@selector(parseEnded) withObject:nil waitUntilDone:NO];
-//    self.xmlData = nil;
-//    // Set the condition which ends the run loop.
-//    done = YES; 
+    NSError *error = nil;
+    GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:xmlData options:0 error:&error];
+    if (error) {
+        NSLog(@"Parse error: %@", error.localizedDescription);
+    }
+    NSArray *items = [doc nodesForXPath:kXPath_Item error:nil];
+    for (GDataXMLElement *item in items) {
+        NSLog(@"Item: %@", item);
+        NSArray *metroTitles = [item elementsForName:[NSString stringWithFormat:kObj_Format,kObj_Metro]];
+        for(GDataXMLElement *title in metroTitles) {
+            NSLog(@"Metro: %@", title.stringValue);
+            break;
+        }
+    }
+    self.xmlData = nil;
+    done = YES;
 }
 
 @end

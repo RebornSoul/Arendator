@@ -22,5 +22,6 @@
 @property (nonatomic, retain) NSURLConnection *rssConnection;
 
 - (void)downloadAndParse:(NSURL *)url;
+- (id) initWithXPath:(NSString*)xPath valueKeys:(NSSet*)keys;
 
 @end
