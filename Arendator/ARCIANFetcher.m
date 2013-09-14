@@ -106,11 +106,13 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
     if (progressBlock) progressBlock(0.25, kSearchStatusDataLoading);
     [httpClient getPath:baseSuffix parameters:requestParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (progressBlock) progressBlock(0.5, kSearchStatusDataParsing);
-        NSString* newStr = [[NSString alloc] initWithData:responseObject
+        NSData *recievedData = ((NSData*)responseObject);
+        NSString* newStr = [[NSString alloc] initWithData:recievedData
                                                  encoding:NSWindowsCP1251StringEncoding];
-        NSData* deliveredData = [newStr dataUsingEncoding:NSUTF16StringEncoding];
-        NSLog(@"Recieved response object: %@", deliveredData);
-        
+//        NSData* encodedData = [newStr dataUsingEncoding:NSUTF16StringEncoding];
+//        NSLog(@"Class name: %@", NSStringFromClass([responseObject class]));
+//        NSLog(@"Recieved response object: %@", newStr);
+        if (successBlock) successBlock(YES, nil);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (failureBlock) failureBlock(error);
