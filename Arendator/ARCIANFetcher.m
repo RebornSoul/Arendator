@@ -109,9 +109,41 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
         NSData *recievedData = ((NSData*)responseObject);
         NSString* newStr = [[NSString alloc] initWithData:recievedData
                                                  encoding:NSWindowsCP1251StringEncoding];
-//        NSData* encodedData = [newStr dataUsingEncoding:NSUTF16StringEncoding];
-//        NSLog(@"Class name: %@", NSStringFromClass([responseObject class]));
-//        NSLog(@"Recieved response object: %@", newStr);
+        NSData* encodedData = [newStr dataUsingEncoding:NSUTF16StringEncoding];
+        TFHpple *tutorialsParser = [TFHpple hppleWithHTMLData:encodedData];
+        NSString *tutorialsXpathQueryString = @"//td[@class='cat']";
+        NSArray *tutorialsNodes = [tutorialsParser searchWithXPathQuery:tutorialsXpathQueryString];
+        
+        // 4
+        NSLog(@"Nodes: %i", tutorialsNodes.count);
+        for (TFHppleElement *element in tutorialsNodes) {
+            //        NSLog(@"Element: %@", element);
+            for (TFHppleElement *elementChild in element.children) {
+                //            NSLog(@"Content: %@", element);
+                for (TFHppleElement *elementChildChild in elementChild.children) {
+                    NSString *content = elementChildChild.content;
+                    if (content.length) {
+                        NSLog(@"Child tag: %@",elementChildChild.tagName);
+                        NSLog(@"Child content: %@", elementChildChild.content);
+                        NSLog(@"Child parameters: %@", elementChildChild.attributes);
+                    } else {
+                        for (TFHppleElement *elementChild2 in elementChildChild.children) {
+                            NSString *innerContent = elementChild2.content;
+                            if (innerContent.length ){
+                                NSLog(@"Inner tag: %@",elementChildChild.tagName);
+                                NSLog(@"Inner content: %@", elementChild2.content);
+                                NSLog(@"Inner parameters: %@", elementChildChild.attributes);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        
+        
+        
+        
         if (successBlock) successBlock(YES, nil);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -167,34 +199,6 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
     
     
     // //table[@class='cat']/tbody/tr[@id='tr_9790941']/td
-    NSString *tutorialsXpathQueryString = @"//td[@class='cat']";
-    NSArray *tutorialsNodes = [tutorialsParser searchWithXPathQuery:tutorialsXpathQueryString];
-    
-    // 4
-    NSLog(@"Nodes: %i", tutorialsNodes.count);
-    for (TFHppleElement *element in tutorialsNodes) {
-        //        NSLog(@"Element: %@", element);
-        for (TFHppleElement *elementChild in element.children) {
-            //            NSLog(@"Content: %@", element);
-            for (TFHppleElement *elementChildChild in elementChild.children) {
-                NSString *content = elementChildChild.content;
-                if (content.length) {
-                    NSLog(@"Child tag: %@",elementChildChild.tagName);
-                    NSLog(@"Child content: %@", elementChildChild.content);
-                    NSLog(@"Child parameters: %@", elementChildChild.attributes);
-                } else {
-                    for (TFHppleElement *elementChild2 in elementChildChild.children) {
-                        NSString *innerContent = elementChild2.content;
-                        if (innerContent.length ){
-                            NSLog(@"Inner tag: %@",elementChildChild.tagName);
-                            NSLog(@"Inner content: %@", elementChild2.content);
-                            NSLog(@"Inner parameters: %@", elementChildChild.attributes);
-                        }
-                    }
-                }
-            }
-        }
     }
-}
 
 @end
