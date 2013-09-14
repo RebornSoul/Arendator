@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>E1785B51-3EEA-4C59-995C-82F520DE3245</string>
+	<string>75E03BBC-C3C1-47A3-8A3F-BCAD29F4A747</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Arendator</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>7CA1C6F5-81D1-4DAD-AE6F-3E6B7E1B6AFF</key>
+		<key>6B73C0D4-328E-4CCE-BA7C-219D295E948D</key>
 		<string>https://github.com/RebornSoul/Arendator.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Arendator.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>7CA1C6F5-81D1-4DAD-AE6F-3E6B7E1B6AFF</key>
+		<key>6B73C0D4-328E-4CCE-BA7C-219D295E948D</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>7CA1C6F5-81D1-4DAD-AE6F-3E6B7E1B6AFF</string>
+	<string>6B73C0D4-328E-4CCE-BA7C-219D295E948D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>7CA1C6F5-81D1-4DAD-AE6F-3E6B7E1B6AFF</string>
+			<string>6B73C0D4-328E-4CCE-BA7C-219D295E948D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Arendator</string>
 		</dict>
