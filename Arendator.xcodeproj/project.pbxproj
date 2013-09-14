@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03E5450017E448BA00E8F81B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03E544FE17E448BA00E8F81B /* DataModel.xcdatamodeld */; };
+		03E5450517E448C900E8F81B /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5450217E448C900E8F81B /* DataModel.m */; };
+		03E5450617E448C900E8F81B /* DataModel+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5450417E448C900E8F81B /* DataModel+Helper.m */; };
+		03E5450C17E448DA00E8F81B /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5450917E448DA00E8F81B /* Search.m */; };
+		03E5450D17E448DA00E8F81B /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5450B17E448DA00E8F81B /* SearchResult.m */; };
+		03E5451317E448EA00E8F81B /* ARSearchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5451017E448EA00E8F81B /* ARSearchesViewController.m */; };
+		03E5451417E448EA00E8F81B /* ARSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5451217E448EA00E8F81B /* ARSearchViewController.m */; };
+		03E5451717E4490400E8F81B /* tbSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E5451617E4490400E8F81B /* tbSearch@2x.png */; };
 		23452C7C12A74830A7D8F91E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1680E96B5B447A898FDFF2 /* libPods.a */; };
 		712F128217E37F4000EA2363 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712F128117E37F4000EA2363 /* Foundation.framework */; };
 		712F128417E37F4000EA2363 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712F128317E37F4000EA2363 /* CoreGraphics.framework */; };
@@ -36,6 +44,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03E544FF17E448BA00E8F81B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		03E5450117E448C900E8F81B /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataModel.h; path = Arendator/DataModel.h; sourceTree = "<group>"; };
+		03E5450217E448C900E8F81B /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataModel.m; path = Arendator/DataModel.m; sourceTree = "<group>"; };
+		03E5450317E448C900E8F81B /* DataModel+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DataModel+Helper.h"; path = "Arendator/DataModel+Helper.h"; sourceTree = "<group>"; };
+		03E5450417E448C900E8F81B /* DataModel+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DataModel+Helper.m"; path = "Arendator/DataModel+Helper.m"; sourceTree = "<group>"; };
+		03E5450817E448DA00E8F81B /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search.h; path = Arendator/ManagedClasses/Search.h; sourceTree = "<group>"; };
+		03E5450917E448DA00E8F81B /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search.m; path = Arendator/ManagedClasses/Search.m; sourceTree = "<group>"; };
+		03E5450A17E448DA00E8F81B /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Arendator/ManagedClasses/SearchResult.h; sourceTree = "<group>"; };
+		03E5450B17E448DA00E8F81B /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Arendator/ManagedClasses/SearchResult.m; sourceTree = "<group>"; };
+		03E5450F17E448EA00E8F81B /* ARSearchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSearchesViewController.h; sourceTree = "<group>"; };
+		03E5451017E448EA00E8F81B /* ARSearchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSearchesViewController.m; sourceTree = "<group>"; };
+		03E5451117E448EA00E8F81B /* ARSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSearchViewController.h; sourceTree = "<group>"; };
+		03E5451217E448EA00E8F81B /* ARSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSearchViewController.m; sourceTree = "<group>"; };
+		03E5451617E4490400E8F81B /* tbSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tbSearch@2x.png"; path = "Arendator/Images/tbSearch@2x.png"; sourceTree = "<group>"; };
 		62300BE0BFDB45FBA72777F6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		712F127E17E37F4000EA2363 /* Arendator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arendator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		712F128117E37F4000EA2363 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -87,9 +109,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03E544FD17E448B000E8F81B /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				03E5450717E448CC00E8F81B /* ManagedClasses */,
+				03E5450117E448C900E8F81B /* DataModel.h */,
+				03E5450217E448C900E8F81B /* DataModel.m */,
+				03E5450317E448C900E8F81B /* DataModel+Helper.h */,
+				03E5450417E448C900E8F81B /* DataModel+Helper.m */,
+				03E544FE17E448BA00E8F81B /* DataModel.xcdatamodeld */,
+			);
+			name = DataModel;
+			sourceTree = "<group>";
+		};
+		03E5450717E448CC00E8F81B /* ManagedClasses */ = {
+			isa = PBXGroup;
+			children = (
+				03E5450817E448DA00E8F81B /* Search.h */,
+				03E5450917E448DA00E8F81B /* Search.m */,
+				03E5450A17E448DA00E8F81B /* SearchResult.h */,
+				03E5450B17E448DA00E8F81B /* SearchResult.m */,
+			);
+			name = ManagedClasses;
+			sourceTree = "<group>";
+		};
+		03E5450E17E448E000E8F81B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				712F12B917E3806F00EA2363 /* ARTabBarVC.h */,
+				712F12BA17E3806F00EA2363 /* ARTabBarVC.m */,
+				03E5450F17E448EA00E8F81B /* ARSearchesViewController.h */,
+				03E5451017E448EA00E8F81B /* ARSearchesViewController.m */,
+				03E5451117E448EA00E8F81B /* ARSearchViewController.h */,
+				03E5451217E448EA00E8F81B /* ARSearchViewController.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		03E5451517E448F700E8F81B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				03E5451617E4490400E8F81B /* tbSearch@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		712F127517E37F4000EA2363 = {
 			isa = PBXGroup;
 			children = (
+				03E5451517E448F700E8F81B /* Images */,
+				03E544FD17E448B000E8F81B /* DataModel */,
 				712F128717E37F4000EA2363 /* Arendator */,
 				712F12A917E37F4000EA2363 /* ArendatorTests */,
 				712F128017E37F4000EA2363 /* Frameworks */,
@@ -123,10 +192,9 @@
 		712F128717E37F4000EA2363 /* Arendator */ = {
 			isa = PBXGroup;
 			children = (
+				03E5450E17E448E000E8F81B /* UI */,
 				712F129017E37F4000EA2363 /* ARAppDelegate.h */,
 				712F129117E37F4000EA2363 /* ARAppDelegate.m */,
-				712F12B917E3806F00EA2363 /* ARTabBarVC.h */,
-				712F12BA17E3806F00EA2363 /* ARTabBarVC.m */,
 				712F129C17E37F4000EA2363 /* Images.xcassets */,
 				712F128817E37F4000EA2363 /* Supporting Files */,
 				71CF7D7617E43E5300048063 /* ARCIANFetcher.h */,
@@ -246,6 +314,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03E5451717E4490400E8F81B /* tbSearch@2x.png in Resources */,
 				712F129D17E37F4000EA2363 /* Images.xcassets in Resources */,
 				712F128C17E37F4000EA2363 /* InfoPlist.strings in Resources */,
 			);
@@ -299,10 +368,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03E5450D17E448DA00E8F81B /* SearchResult.m in Sources */,
 				712F128E17E37F4000EA2363 /* main.m in Sources */,
+				03E5450C17E448DA00E8F81B /* Search.m in Sources */,
+				03E5451317E448EA00E8F81B /* ARSearchesViewController.m in Sources */,
+				03E5450017E448BA00E8F81B /* DataModel.xcdatamodeld in Sources */,
 				71CF7D7817E43E5300048063 /* ARCIANFetcher.m in Sources */,
 				712F129217E37F4000EA2363 /* ARAppDelegate.m in Sources */,
+				03E5451417E448EA00E8F81B /* ARSearchViewController.m in Sources */,
+				03E5450617E448C900E8F81B /* DataModel+Helper.m in Sources */,
 				712F12BB17E3806F00EA2363 /* ARTabBarVC.m in Sources */,
+				03E5450517E448C900E8F81B /* DataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +595,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		03E544FE17E448BA00E8F81B /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				03E544FF17E448BA00E8F81B /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 03E544FF17E448BA00E8F81B /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 712F127617E37F4000EA2363 /* Project object */;
 }
