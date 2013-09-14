@@ -14,6 +14,8 @@
 + (SearchResult *)newInstanceForSearch:(Search *)parent;
 + (SearchResult *)randomTestInstanceForSearch:(Search *)parent;
 
+@property (nonatomic, readonly) NSString *humanReadablePrice;
+
 @end
 
 

@@ -14,13 +14,11 @@
 "msgErrorNoResults" = "По вашему запросу ничего не найдено, попробуйте изменить условия поиска.";
 "btnOK" = "OK";
 
-
-"titleAbout" = "О программе…";
-
 "itemTitle" = "Название";
 "itemMetro" = "Станции метро";
 "itemPrice" = "Цена аренды";
 "itemRooms" = "Кол-во комнат";
+"listItemRoomsFMT" = "%i комн.";
 
 "itemNewSearch" = "Новый поиск";
 "btnSearch" = "Искать";
@@ -31,6 +29,9 @@
 "doesnotmatter" = "…";
 "yes" = "Да";
 "no" = "Нет";
+
+"pricePerMonth" = "%@/мес";
+"pricePerDay" = "%@/день";
 
 "pleaseWait" = "Пожалуйста, подождите…";
 
@@ -63,3 +64,5 @@
 "ITEM_optPhone" = "Телефон";
 "ITEM_optTV" = "Телевизор";
 "ITEM_optWashMachine" = "Холодильник";
+
+"listItemFlorFMT" = "Этаж %i из %i";

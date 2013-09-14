@@ -12,6 +12,7 @@
 
 + (NSArray *)stationsForCity:(NSInteger)cityId;
 + (NSInteger)metroStationIdByText:(NSString *)text;
++ (NSString *)stationNameById:(NSInteger)stationId;
 
 + (NSString *)humanReadableSationsStringFormIdString:(NSString *)ids;
 + (UIImage *)imageForStationWithId:(NSInteger)stationId;
