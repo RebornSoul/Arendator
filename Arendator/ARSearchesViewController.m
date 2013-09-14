@@ -72,6 +72,8 @@
     } else {
         Search *search = oldSearches[indexPath.row];
         cell.textLabel.text = search.title;
+        if (search.serachResults.count > 0)
+            cell.textLabel.text = [cell.textLabel.text stringByAppendingFormat:NSLocalizedString(@"resultCountXFlatsFMT", @""), search.serachResults.count];
         cell.detailTextLabel.text = [NSDateFormatter localizedStringFromDate:search.time dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterShortStyle];
     }
 

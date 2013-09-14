@@ -23,5 +23,8 @@
 - (Boolean)metroStationChecked:(NSInteger)stationId;
 - (void)checkMetroStation:(NSInteger)stationId check:(Boolean)value;
 
+@property (nonatomic, readonly) NSString *humanReadablePriceRange;
+@property (nonatomic, readonly) NSString *humanReadableRoomRange;
+
 @end
 

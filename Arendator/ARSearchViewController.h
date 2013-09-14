@@ -10,7 +10,7 @@
 #import "ARBaseViewController.h"
 #import "Search.h"
 
-@interface ARSearchViewController : ARBaseViewController
+@interface ARSearchViewController : ARBaseViewController <UITextFieldDelegate>
 
 - (id)initWithSearch:(Search *)search;
 

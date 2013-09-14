@@ -20,10 +20,12 @@
 "yes" = "Да";
 "no" = "Нет";
 
-"roomDoesNotMatter" = "Не важно";
-"roomFromFMT" = "от %i";
-"roomToFMT" = "до %";
-"roomFromToFMT" = "от %i до %i";
+"rangeDoesNotMatter" = "Не важно";
+"rangeFromFMT" = "от %i";
+"rangeToFMT" = "до %";
+"rangeFromToFMT" = "от %i до %i";
+
+"resultCountXFlatsFMT" = " (%i квартир)";
 
 "btnPrevResultsFMT" = "Предыдущие результытаты: %i";
 

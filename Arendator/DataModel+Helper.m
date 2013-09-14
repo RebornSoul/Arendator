@@ -64,4 +64,19 @@ static NSString *generateGUID() {
 }
 
 
+/*
+"rangeDoesNotMatter" = "Не важно";
+"rangeFromFMT" = "от %i";
+"rangeToFMT" = "до %";
+"rangeFromToFMT" = "от %i до %i";
+ */
+- (NSString *)humanReadablePriceRange {
+    return @"?";
+}
+
+
+- (NSString *)humanReadableRoomRange {
+    return @"?";
+}
+
 @end

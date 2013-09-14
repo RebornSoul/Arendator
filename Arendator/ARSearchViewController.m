@@ -11,6 +11,7 @@
 #import "DataModel+Helper.h"
 #import "DataModel.h"
 #import "ARMetroStationSelector.h"
+#import "ARMetroStations.h"
 
 @implementation ARSearchViewController {
     Search *_search;
@@ -63,7 +64,7 @@
     [result insertSegmentWithTitle:NSLocalizedString(@"yes", @"") atIndex:0 animated:NO];
     [result setSelectedSegmentIndex:!value ? 2 : [value boolValue] ? 0 : 1];
     [result addTarget:self action:@selector(onSCValueChanged:) forControlEvents:UIControlEventValueChanged];
-    result.frame = CGRectMake(0, 0, 100, 26);
+    result.frame = CGRectMake(0, 0, 100, 28);
     return result;
 }
 
@@ -97,6 +98,7 @@
     titleTF.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.1];
     titleTF.textAlignment = NSTextAlignmentRight;
     titleTF.text = search.title;
+    titleTF.delegate = self;
     
     sc_allowedChildren = [self scForValue:_search.allowedChildren];
     sc_allowedPets = [self scForValue:_search.allowedPets];
@@ -111,6 +113,11 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"btnSearch", @"") style:UIBarButtonItemStyleDone target:self action:@selector(onSearchClick:)];
     
     return self;
+}
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    _search.title = textField.text;
 }
 
 
@@ -173,9 +180,12 @@
         case ITEM_METRO:
             cell.textLabel.text = NSLocalizedString(@"itemMetro", @"");
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.detailTextLabel.text = [ARMetroStations humanReadableSationsStringFormIdString:_search.metroIdStr];
             break;
         case ITEM_PRICE:
             cell.textLabel.text = NSLocalizedString(@"itemPrice", @"");
+            if (!_search.priceFrom && !_search.priceTo)
+                cell.detailTextLabel.text = 
             break;
         case ITEM_ROOMS:
             cell.textLabel.text = NSLocalizedString(@"itemRooms", @"");
