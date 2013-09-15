@@ -119,6 +119,19 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
     return instanceFetcher;
 }
 
+
+static NSString *strBetween(NSString *src, NSString *from, NSString *to) {
+    NSRange range = [src rangeOfString:from];
+    if (range.length != 0) {
+        src = [src substringFromIndex:range.location + range.length];
+        range = [src rangeOfString:to];
+        if (range.length != 0)
+            return [src substringToIndex:range.location];
+    }
+    return nil;
+}
+
+
 - (void)performSearch:(Search *)search
              progress:(void (^)(float progress, kSearchStatus status))progressBlock
                result:(void (^)(BOOL finished, NSArray *searchResults))successBlock
@@ -167,6 +180,28 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
                                 sresult.rooms = [NSNumber numberWithInt:0];
                             }
                         }
+                        if (upperCounter == 4 && midCounter == 11) { // Метро
+                            NSString *rawStr = elementChildChild.raw;
+                            rawStr = strBetween(rawStr, @"metro[0]=", @"\"");
+                            sresult.metroId = !!rawStr ? [NSNumber numberWithInt:rawStr.integerValue] : @-1;
+                        }
+                        if (upperCounter == 4 && midCounter == 4) { // Улица
+                            NSString *rawStr = elementChildChild.raw;
+                            rawStr = strBetween(rawStr, @">", @"<");
+                            rawStr = [rawStr stringByReplacingOccurrencesOfString:@"улица" withString:@"ул."];
+                            rawStr = [rawStr stringByReplacingOccurrencesOfString:@"проспект" withString:@"пр."];
+                            rawStr = [rawStr stringByReplacingOccurrencesOfString:@"площадь" withString:@"пл."];
+                            rawStr = [rawStr stringByReplacingOccurrencesOfString:@"набережная" withString:@"наб."];
+                            sresult.street = rawStr;
+                        }
+                        if (upperCounter == 4 && midCounter == 6) { // Дом
+                            NSString *rawStr = elementChildChild.raw;
+                            rawStr = strBetween(rawStr, @">", @"<");
+                            sresult.house = rawStr;
+                        }
+                        
+//                        18/0 телефон
+//                        20/5 id
                         if (upperCounter == 8 && midCounter == 0) { // Кух. Мебель
                             
                         }

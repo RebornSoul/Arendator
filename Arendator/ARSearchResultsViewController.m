@@ -36,12 +36,17 @@
     
     self.detailTextLabel.font = [self.detailTextLabel.font fontWithSize:12];
     
+    self.textLabel.font = [UIFont systemFontOfSize:16];
+    self.textLabel.minimumScaleFactor = 0.5;
+    self.textLabel.adjustsFontSizeToFitWidth = YES;
+    
     _priceLabel = [[UILabel alloc] init];
     _priceLabel.textColor = blueColor;
     _priceLabel.highlightedTextColor = self.textLabel.highlightedTextColor;
     _priceLabel.font = [UIFont boldSystemFontOfSize:24];
     _priceLabel.textAlignment = NSTextAlignmentCenter;
     _priceLabel.minimumScaleFactor = 0.5;
+    _priceLabel.adjustsFontSizeToFitWidth = YES;
     [self.textLabel.superview addSubview:_priceLabel];
     
     _priceLabel2 = [[UILabel alloc] init];
@@ -161,7 +166,7 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     SearchResult *result = results[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@, %@", result.street, result.house];
+    cell.textLabel.text = result.humanReadableAddress;
     cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"listItemFlorFMT", @""), result.flor.intValue, result.florTotal.intValue];
     if (result.options)
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@. %@", cell.detailTextLabel.text, result.options];
