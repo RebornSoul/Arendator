@@ -204,8 +204,16 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
                             sresult.florTotal = [NSNumber numberWithInteger:[[components lastObject] integerValue]];
                         }
                         if (upperCounter == 16 && (midCounter == 0 || midCounter == 2 || midCounter == 4 || midCounter == 6 || midCounter == 8 || midCounter == 10 || midCounter == 12 || midCounter == 14)) { // Опции
-                            if (elementChildChild.content.length)
+                            NSLog(@"Option: %@", elementChildChild.content);
+                            NSString *optionContent = elementChildChild.content;
+                            optionContent = [optionContent stringByReplacingOccurrencesOfString:@" " withString:@""];
+                            optionContent = [optionContent stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                            optionContent = [optionContent stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+                            optionContent = [optionContent stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                            if (optionContent.length)
+                                if (!sresult.options) sresult.options = [NSString new];
                                 sresult.options = [sresult.options stringByAppendingString:[NSString stringWithFormat:@"%@,",elementChildChild.content]];
+                            NSLog(@"Now: %@", sresult.options);
                         }
                         if (upperCounter == 20 && midCounter == 8) { // Описание
                             if (elementChildChild.content.length) {
