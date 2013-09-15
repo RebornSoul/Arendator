@@ -35,13 +35,6 @@
 }
 
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    if (canceled && newEntity) {
-        [DataModel deleteObject:_search];
-    }
-}
-
 
 - (void)updateHeader {
     if (_search.searchResults.count != 0) {
@@ -107,8 +100,10 @@
     canceled = YES;
     _search = search;
     newEntity = !!!_search;
-    if (!_search)
+    if (!_search) {
         _search = [Search newInstance];
+        [DataModel save];
+    }
     
     titleTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 200, 25)];
     titleTF.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.1];

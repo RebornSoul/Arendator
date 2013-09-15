@@ -238,8 +238,9 @@ static NSString *strBetween(NSString *src, NSString *from, NSString *to) {
                                 sresult.priceType = [NSNumber numberWithInt:0];
                             }
                         }
-                        if (upperCounter == 12 && midCounter == 0) { // Процент комиссии
-                            
+                        if (upperCounter == 4 && midCounter == 9) { // До метро
+                            if (!!elementChildChild.content)
+                                sresult.distanceFromMetro = elementChildChild.content;
                         }
                         if (upperCounter == 14 && midCounter == 0) { // Этаж х/у
                             NSArray *components = [elementChildChild.content componentsSeparatedByString:@"/"];

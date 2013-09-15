@@ -169,7 +169,7 @@
     cell.textLabel.text = result.humanReadableAddress;
     cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"listItemFlorFMT", @""), result.flor.intValue, result.florTotal.intValue];
     if (result.options)
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@. %@", cell.detailTextLabel.text, result.options];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@. %@", cell.detailTextLabel.text, [result.options stringByReplacingOccurrencesOfString:@"," withString:@", "]];
     cell.metroLabel.text = [ARMetroStations stationNameById:result.metroId.intValue];
     if (result.distanceFromMetro)
         cell.metroLabel.text = [NSString stringWithFormat:@"%@, %@", cell.metroLabel.text, result.distanceFromMetro];
