@@ -32,6 +32,7 @@
         <attribute name="options" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phones" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" attributeType="Integer 64" syncable="YES"/>
+        <attribute name="priceCurrency" attributeType="Integer 16" syncable="YES"/>
         <attribute name="priceType" attributeType="Integer 16" syncable="YES"/>
         <attribute name="requireDeposit" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="requireExtraMonth" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
@@ -42,6 +43,6 @@
     </entity>
     <elements>
         <element name="Search" positionX="-3438" positionY="-4752" width="128" height="328"/>
-        <element name="SearchResult" positionX="-3215" positionY="-4752" width="128" height="298"/>
+        <element name="SearchResult" positionX="-3215" positionY="-4752" width="128" height="313"/>
     </elements>
 </model>
