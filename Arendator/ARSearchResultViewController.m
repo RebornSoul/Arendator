@@ -60,7 +60,11 @@
         wself.mapView.myLocationEnabled = YES;
         marker.map = wself.mapView;
         wself.mapView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
+        wself.mapView.alpha = 0;
         [wself.view addSubview:self.mapView];
+        [UIView animateWithDuration:0.3 animations:^{
+            wself.mapView.alpha = 1;
+        }];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"ERROR: %@", error.localizedDescription);
     }];
@@ -73,7 +77,7 @@
     textView = [[UITextView alloc] initWithFrame:CGRectMake(5, 64, 310, self.view.frame.size.height - 48 - 64 - mapHeight)];
     textView.editable = NO;
     textView.font = [UIFont systemFontOfSize:15];
-    textView.text = [NSString stringWithFormat:@"%@, %@, %@\n%@\n%@\nм. %@\n--------------------------------------------------\n%@",
+    textView.text = [NSString stringWithFormat:@"%@, %@, %@\n%@\n%@\nм. %@\n%@",
                      _searchResult.humanReadablePrice,
                      [NSString stringWithFormat:NSLocalizedString(@"listItemRoomsFMT", @""), _searchResult.rooms.intValue],
                      [NSString stringWithFormat:NSLocalizedString(@"listItemFlorFMT", @""), _searchResult.flor.intValue, _searchResult.florTotal.intValue],
