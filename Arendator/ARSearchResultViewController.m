@@ -10,6 +10,8 @@
 #import "DataModel+Helper.h"
 #import "ARMetroStations.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "AFHTTPClient.h"
+#import "SBJson.h"
 
 @interface ARSearchResultViewController ()
 @property (nonatomic, strong) GMSMapView *mapView;
@@ -34,20 +36,33 @@
     
 #define mapHeight ([UIScreen mainScreen].bounds.size.height / 3)
     CGRect mapFrame = CGRectMake(0, self.view.frame.size.height - mapHeight - 48, 320, mapHeight);
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
-                                                            longitude:151.20
-                                                                 zoom:6];
-    self.mapView = [GMSMapView mapWithFrame:mapFrame camera:camera];
-    self.mapView.myLocationEnabled = YES;
-    
-    // Creates a marker in the center of the map.
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
-    marker.snippet = @"Australia";
-    marker.map = self.mapView;
-    self.mapView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
-    [self.view addSubview:self.mapView];
-    
+
+    AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"http://maps.googleapis.com/maps/api/geocode"]];
+    __weak ARSearchResultViewController *wself = self;
+    [client getPath:@"json" parameters:[self parametersContructedFromAddress:_searchResult.humanReadableAddress] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSData *recievedData = ((NSData*)responseObject);
+        SBJsonParser *parser = [SBJsonParser new];
+        id parsedData = [parser objectWithData:recievedData];
+        id results = [parsedData objectForKey:@"results"];
+        NSDictionary *results2 = results[0][@"geometry"][@"location"];
+        NSLog(@"Results: %@", results2);
+        double lat = [[results2 valueForKey:@"lat"] doubleValue];
+        double lng = [[results2 objectForKey:@"lng"] doubleValue];
+        NSLog(@"LAT: %f LNG: %f", lat, lng);
+        GMSMarker *marker = [[GMSMarker alloc] init];
+        marker.position = CLLocationCoordinate2DMake(lat, lng);
+        marker.snippet = _searchResult.humanReadableAddress;
+        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat
+                                                                longitude:lng
+                                                                     zoom:15.0];
+        wself.mapView = [GMSMapView mapWithFrame:mapFrame camera:camera];
+        wself.mapView.myLocationEnabled = YES;
+        marker.map = wself.mapView;
+        wself.mapView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
+        [wself.view addSubview:self.mapView];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"ERROR: %@", error.localizedDescription);
+    }];
     NSString *metroStr = [ARMetroStations stationNameById:_searchResult.metroId.intValue];
     if (_searchResult.distanceFromMetro)
         metroStr = [NSString stringWithFormat:@"%@, %@", metroStr, _searchResult.distanceFromMetro];
@@ -64,6 +79,19 @@
                      !!_searchResult.info ? _searchResult.info : @""];
     textView.dataDetectorTypes = UIDataDetectorTypePhoneNumber | UIDataDetectorTypeLink  | UIDataDetectorTypeAddress;
     [self.view addSubview:textView];
+}
+
+- (NSDictionary*)parametersContructedFromAddress:(NSString*)address {
+    NSMutableDictionary *params = [NSMutableDictionary new];
+    NSString *escapedAddress = CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
+                                                                                         (__bridge CFStringRef)address,
+                                                                                         NULL,
+                                                                                         CFSTR("!*'();:@&=+$,/?%#[]\""),
+                                                                                         kCFStringEncodingUTF8));
+    NSLog(@"Escaped address: %@", escapedAddress);
+    [params setObject:address forKey:@"address"];
+    [params setObject:@"true" forKey:@"sensor"];
+    return params;
 }
 
 
