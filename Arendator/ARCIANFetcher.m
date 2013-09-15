@@ -9,12 +9,14 @@
 #import "ARCIANFetcher.h"
 #import "Search.h"
 #import "TFHpple.h"
+#import "DataModel+Helper.h"
 
 @implementation ARCIANFetcher
 
 static NSString *defaultRegion = @"10";
 static ARCIANFetcher *instanceFetcher = nil;
 
+static NSString *xpath			= @"//table[@class='cat']//tr";
 static NSString *baseURL		= @"http://www.cian.ru/";
 static NSString *baseSuffix		= @"cat.php";
 
@@ -110,13 +112,17 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
                                                  encoding:NSWindowsCP1251StringEncoding];
         NSData* encodedData = [newStr dataUsingEncoding:NSUTF16StringEncoding];
         TFHpple *tutorialsParser = [TFHpple hppleWithHTMLData:encodedData];
-        NSString *tutorialsXpathQueryString = @"//table[@class='cat']//tr";
+        NSString *tutorialsXpathQueryString = xpath;
         NSArray *tutorialsNodes = [tutorialsParser searchWithXPathQuery:tutorialsXpathQueryString];
         NSLog(@"Nodes: %i", [tutorialsNodes count]);
         BOOL firstElement = YES;
+        NSMutableArray *returnArray = [NSMutableArray new];
+        int grandCounter = 0;
         for (TFHppleElement *element in tutorialsNodes) {
             if (firstElement) firstElement = NO;
             else {
+                // Creating search result
+                SearchResult *sresult = [SearchResult newInstanceForSearch:search];
                 int upperCounter = 0;
                 for (TFHppleElement *elementChild in element.children) {
                     NSLog(@"~============================{ %i", upperCounter);
@@ -124,8 +130,40 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
                     upperCounter += 1;
                     int midCounter = 0;
                     for (TFHppleElement *elementChildChild in elementChild.children) {
-                        if (upperCounter == 10 && midCounter == 10) {
+                        if (upperCounter == 8 && midCounter == 0) { // Кух. Мебель
+                            
+                        }
+                        if (upperCounter == 10 && midCounter == 0) { // Цена
                             NSLog(@"Price: %@", elementChildChild.content);
+                            NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+                            [f setNumberStyle:NSNumberFormatterDecimalStyle];
+                            NSNumber * priceNumber = [f numberFromString:elementChildChild.content];
+                            sresult.price = priceNumber;
+                        }
+                        if (upperCounter == 14 && midCounter == 0) { // Этаж х/у
+                            NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+                            [f setNumberStyle:NSNumberFormatterDecimalStyle];
+                            NSArray *components = [elementChildChild.content componentsSeparatedByString:@"/"];
+							sresult.flor = [f numberFromString:[components firstObject]];
+                            sresult.florTotal = [f numberFromString:[components lastObject]];
+                        }
+                        if (upperCounter == 16 && midCounter == 0) { // 6/кух.мебели ? ЧЗХ
+                            
+                        }
+                        if (upperCounter == 16 && midCounter == 2) { // жил.мебель
+                            sresult.options = [sresult.options stringByAppendingString:[NSString stringWithFormat:@"%@,",elementChildChild.content]];
+                        }
+                        if (upperCounter == 16 && midCounter == 4) { // без телефона
+                            sresult.options = [sresult.options stringByAppendingString:[NSString stringWithFormat:@"%@,",elementChildChild.content]];
+                        }
+                        if (upperCounter == 16 && midCounter == 6) { // ТВ
+                            sresult.options = [sresult.options stringByAppendingString:[NSString stringWithFormat:@"%@,",elementChildChild.content]];
+                        }
+                        if (upperCounter == 16 && midCounter == 8) { // холодильник
+                            sresult.options = [sresult.options stringByAppendingString:[NSString stringWithFormat:@"%@,",elementChildChild.content]];
+                        }
+                        if (upperCounter == 16 && midCounter == 10) { //балкон
+                            sresult.options = [sresult.options stringByAppendingString:[NSString stringWithFormat:@"%@,",elementChildChild.content]];
                         }
                         NSLog(@"%i,%i: Content: %@", upperCounter,midCounter, elementChildChild.content);
                         midCounter += 1;
@@ -150,15 +188,12 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
                         }
                     }
                 }
+                grandCounter += 1;
+                [returnArray addObject:sresult];
             }
             NSLog(@"==============================================================");
         }
-
-        
-        
-        
-        
-        if (successBlock) successBlock(YES, nil);
+        if (successBlock) successBlock(YES, returnArray);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (failureBlock) failureBlock(error);

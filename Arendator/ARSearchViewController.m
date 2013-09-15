@@ -148,7 +148,7 @@
     newEntity = NO;
     [DataModel save];
     
-/*    [_search clearSearchResults];
+    [_search clearSearchResults];
     [[ARCIANFetcher sharedInstance] performSearch:_search onPage:0 progress:^(float progress, kSearchStatus status) {
         NSLog(@"------------- > progress");
     } result:^(BOOL finished, NSArray *searchResults) {
@@ -173,13 +173,13 @@
                                   delegate:nil
                          cancelButtonTitle:NSLocalizedString(@"btnOK", @"")
                           otherButtonTitles:nil] show];
-    }]; */
+    }];
 
     [ARBlockingView showWithTitle:NSLocalizedString(@"pleaseWait", @"")];
     
-    [SearchResult randomTestInstanceForSearch:_search];
-    [SearchResult randomTestInstanceForSearch:_search];
-    [SearchResult randomTestInstanceForSearch:_search];
+//    [SearchResult randomTestInstanceForSearch:_search];
+//    [SearchResult randomTestInstanceForSearch:_search];
+//    [SearchResult randomTestInstanceForSearch:_search];
     [DataModel save];
     [self performSelector:@selector(hideTMP) withObject:nil afterDelay:3];
 }
