@@ -170,8 +170,9 @@
         cell.metroLabel.text = [NSString stringWithFormat:@"%@, %@", cell.metroLabel.text, result.distanceFromMetro];
     cell.metroIcon.image = [ARMetroStations imageForStationWithId:result.metroId.intValue];
     
-    cell.priceLabel.text = [result.humanReadablePrice componentsSeparatedByString:@" "][0];
-    cell.priceLabel2.text = [result.humanReadablePrice componentsSeparatedByString:@" "][1];
+    NSString *price = result.humanReadablePrice;
+    cell.priceLabel.text = [price componentsSeparatedByString:@" "][0];
+    cell.priceLabel2.text = [price componentsSeparatedByString:@" "][1];
     cell.roomLabel.text = [NSString stringWithFormat:NSLocalizedString(@"listItemRoomsFMT", @""), result.rooms.intValue];
     
     return cell;
