@@ -54,8 +54,6 @@
 "priceToFMT" = "до %@ т.р.";
 "priceFromToFMT" = "%@ - %@ т.р.";
 
-"resultCountXFlatsFMT" = " (найдено: %i)";
-
 "btnPrevResultsFMT" = "Предыдущие результытаты: %i";
 
 "ITEM_allowedChildren" = "Можно с детьми";
