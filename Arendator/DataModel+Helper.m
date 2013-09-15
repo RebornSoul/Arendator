@@ -22,7 +22,7 @@ static NSString *generateGUID() {
 static NSString *formatBabki(NSNumber *value) {
     float val = roundf(value.integerValue / 500) / 2;
     NSString *result = [NSString stringWithFormat:@"%.1f", val];
-    return [[result stringByReplacingOccurrencesOfString:@".0" withString:@""] stringByReplacingOccurrencesOfString:@",0" withString:@""];
+    return result;//[[result stringByReplacingOccurrencesOfString:@".0" withString:@""] stringByReplacingOccurrencesOfString:@",0" withString:@""];
 }
 
 
@@ -42,8 +42,10 @@ static NSString *formatBabki(NSNumber *value) {
 - (NSString *)humanReadablePrice {
     NSString *priceFMT = self.priceCurrency.intValue == 2 ? @"priceExactFMT1KRUB" : (self.priceCurrency.intValue == 0 ? @"priceExactFMT1USD" : @"priceExactFMT1EUR");
     NSString *price = self.priceCurrency.intValue == 2 ? formatBabki(self.price) : [NSString stringWithFormat:@"%i", self.price.integerValue];
-    return [NSString stringWithFormat:NSLocalizedString(self.priceType.intValue == 0 ? @"pricePerDay" : @"pricePerMonth", @""), [NSString stringWithFormat:NSLocalizedString(priceFMT, @""), price]];
+    NSString *priceTypeFMT = self.priceType.intValue == 0 ? @"pricePerMonth" : @"pricePerDay";
+    return [NSString stringWithFormat:NSLocalizedString(priceTypeFMT, @""), [NSString stringWithFormat:NSLocalizedString(priceFMT, @""), price]];
 }
+
 
 + (SearchResult *)randomTestInstanceForSearch:(Search *)parent {
     SearchResult *result = [SearchResult newInstanceForSearch:parent];
@@ -157,9 +159,8 @@ static NSString *formatBabki(NSNumber *value) {
 
 
 - (void)clearSearchResults {
-    for (SearchResult *result in self.searchResults) {
+    for (SearchResult *result in self.searchResults)
         [DataModel deleteObject:result];
-    }
     [DataModel save];
 }
 

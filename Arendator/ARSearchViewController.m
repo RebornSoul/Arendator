@@ -58,6 +58,7 @@
         self.tableView.tableHeaderView = nil;
 }
 
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self updateHeader];
@@ -148,16 +149,21 @@
     newEntity = NO;
     [DataModel save];
     
-    [_search clearSearchResults];
+    //[_search clearSearchResults];
+    __block NSSet *oldResults = [NSSet setWithSet:_search.searchResults];
+
     [[ARCIANFetcher sharedInstance] performSearch:_search progress:^(float progress, kSearchStatus status) {
         NSLog(@"------------- > progress");
     } result:^(BOOL finished, NSArray *searchResults) {
         NSLog(@"------------- > finished");
         [ARBlockingView hide];
         [self updateHeader];
-        if (_search.searchResults.count > 0)
+        if (_search.searchResults.count > oldResults.count) {
+            for (SearchResult *oldResult in oldResults)
+                [DataModel deleteObject:oldResult];
+            [DataModel save];
             [self onPrevResultsClick:nil];
-        else
+        } else
             [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"msgErrorTitle", @"")
                                        message:NSLocalizedString(@"msgErrorNoResults", @"")
                                       delegate:nil
@@ -180,8 +186,8 @@
 //    [SearchResult randomTestInstanceForSearch:_search];
 //    [SearchResult randomTestInstanceForSearch:_search];
 //    [SearchResult randomTestInstanceForSearch:_search];
-    [DataModel save];
-    [self performSelector:@selector(hideTMP) withObject:nil afterDelay:3];
+//    [DataModel save];
+//    [self performSelector:@selector(hideTMP) withObject:nil afterDelay:3];
 }
 
 
