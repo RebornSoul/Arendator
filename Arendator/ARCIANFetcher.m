@@ -192,6 +192,7 @@ static NSString *strBetween(NSString *src, NSString *from, NSString *to) {
                             rawStr = [rawStr stringByReplacingOccurrencesOfString:@"проспект" withString:@"пр."];
                             rawStr = [rawStr stringByReplacingOccurrencesOfString:@"площадь" withString:@"пл."];
                             rawStr = [rawStr stringByReplacingOccurrencesOfString:@"набережная" withString:@"наб."];
+                            rawStr = [rawStr stringByReplacingOccurrencesOfString:@"переулок" withString:@"пер."];
                             sresult.street = rawStr;
                         }
                         if (upperCounter == 4 && midCounter == 6) { // Дом
@@ -199,9 +200,16 @@ static NSString *strBetween(NSString *src, NSString *from, NSString *to) {
                             rawStr = strBetween(rawStr, @">", @"<");
                             sresult.house = rawStr;
                         }
-                        
-//                        18/0 телефон
-//                        20/5 id
+                        if (upperCounter == 18 && midCounter == 0) { // телефон
+                            NSString *rawStr = elementChildChild.raw;
+                            rawStr = strBetween(rawStr, @">", @"<");
+                            sresult.phones = !!rawStr ? [@"+7" stringByAppendingString:rawStr] : nil;
+                        }
+                        if (upperCounter == 20 && midCounter == 5) { // ID
+                            NSString *rawStr = elementChildChild.raw;
+                            rawStr = strBetween(strBetween(rawStr, @">", @"<"), @":", @"&");
+                            sresult.id = !!rawStr ? rawStr : nil;
+                        }
                         if (upperCounter == 8 && midCounter == 0) { // Кух. Мебель
                             
                         }
@@ -240,15 +248,11 @@ static NSString *strBetween(NSString *src, NSString *from, NSString *to) {
                         }
                         if (upperCounter == 16 && (midCounter == 0 || midCounter == 2 || midCounter == 4 || midCounter == 6 || midCounter == 8 || midCounter == 10 || midCounter == 12 || midCounter == 14)) { // Опции
                             NSLog(@"Option: %@", elementChildChild.content);
-                            NSString *optionContent = elementChildChild.content;
-                            optionContent = [optionContent stringByReplacingOccurrencesOfString:@" " withString:@""];
-                            optionContent = [optionContent stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-                            optionContent = [optionContent stringByReplacingOccurrencesOfString:@"\r" withString:@""];
-                            optionContent = [optionContent stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-                            if (optionContent.length)
-                                if (!sresult.options) sresult.options = [NSString new];
-                                sresult.options = [sresult.options stringByAppendingString:[NSString stringWithFormat:@"%@,",elementChildChild.content]];
-                            NSLog(@"Now: %@", sresult.options);
+                            NSString *optionContent = [elementChildChild.content stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                            if (optionContent.length > 0) {
+                                if (!sresult.options) sresult.options = @""; else sresult.options = [sresult.options stringByAppendingString:@","];
+                                sresult.options = [sresult.options stringByAppendingString:optionContent];
+                            }
                         }
                         if (upperCounter == 20 && midCounter == 8) { // Описание
                             if (elementChildChild.content.length) {

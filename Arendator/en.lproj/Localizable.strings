@@ -54,6 +54,8 @@
 "priceToFMT" = "до %@ т.р.";
 "priceFromToFMT" = "%@ - %@ т.р.";
 
+"noMetroStation" = "Станция метро не указана";
+
 "btnPrevResultsFMT" = "Предыдущие результытаты: %i";
 
 "ITEM_allowedChildren" = "Можно с детьми";
