@@ -144,12 +144,13 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [tableView beginUpdates];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-        [oldSearches removeObjectAtIndex:indexPath.row];
-        [tableView endUpdates];
         
         Search *search = oldSearches[indexPath.row];
         [DataModel deleteObject:search];
         [DataModel save];
+
+        [oldSearches removeObjectAtIndex:indexPath.row];
+        [tableView endUpdates];
         
         [self performSelector:@selector(reloadData) withObject:nil afterDelay:0.25];
     }
