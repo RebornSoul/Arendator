@@ -34,12 +34,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-#define mapHeight ([UIScreen mainScreen].bounds.size.height / 3)
+#define mapHeight ([UIScreen mainScreen].bounds.size.height / 2.7)
     CGRect mapFrame = CGRectMake(0, self.view.frame.size.height - mapHeight - 48, 320, mapHeight);
 
     AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"http://maps.googleapis.com/maps/api/geocode"]];
     __weak ARSearchResultViewController *wself = self;
-    [client getPath:@"json" parameters:[self parametersContructedFromAddress:_searchResult.humanReadableAddress] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSString *_address = [@"Санкт-Петербург" stringByAppendingString:_searchResult.humanReadableAddress];
+    [client getPath:@"json" parameters:[self parametersContructedFromAddress:_address] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSData *recievedData = ((NSData*)responseObject);
         SBJsonParser *parser = [SBJsonParser new];
         id parsedData = [parser objectWithData:recievedData];
@@ -54,7 +55,7 @@
         marker.snippet = _searchResult.humanReadableAddress;
         GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat
                                                                 longitude:lng
-                                                                     zoom:15.0];
+                                                                     zoom:16.0];
         wself.mapView = [GMSMapView mapWithFrame:mapFrame camera:camera];
         wself.mapView.myLocationEnabled = YES;
         marker.map = wself.mapView;
@@ -64,8 +65,11 @@
         NSLog(@"ERROR: %@", error.localizedDescription);
     }];
     NSString *metroStr = [ARMetroStations stationNameById:_searchResult.metroId.intValue];
-    if (_searchResult.distanceFromMetro)
-        metroStr = [NSString stringWithFormat:@"%@, %@", metroStr, _searchResult.distanceFromMetro];
+    if (!!metroStr) {
+        if (_searchResult.distanceFromMetro)
+            metroStr = [NSString stringWithFormat:@"%@, %@", metroStr, _searchResult.distanceFromMetro];
+    } else
+        metroStr = NSLocalizedString(@"noMetroStation", @"");
     textView = [[UITextView alloc] initWithFrame:CGRectMake(5, 64, 310, self.view.frame.size.height - 48 - 64 - mapHeight)];
     textView.editable = NO;
     textView.font = [UIFont systemFontOfSize:15];
