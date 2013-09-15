@@ -28,6 +28,16 @@ static NSString *currencyRUR	= @"р.";
 static NSString *currencyUSD	= @"$";
 static NSString *currencyEUR	= @"€";
 
+//Object types
+
+static NSString *objectRoom		= @"комната";
+static NSString *objectFlat1	= @"1-комн. квартира";
+static NSString *objectFlat2	= @"2-комн. квартира";
+static NSString *objectFlat3	= @"3-комн. квартира";
+static NSString *objectFlat4	= @"4-комн. квартира";
+static NSString *objectFlat5	= @"5-комн. квартира";
+static NSString *objectFlat6etc	= @"многокомн. квартира";
+
 // Time intervals
 
 static NSString *timeIntervalDay = @"в сутки";
@@ -142,9 +152,20 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
                     upperCounter += 1;
                     int midCounter = 0;
                     for (TFHppleElement *elementChildChild in elementChild.children) {
-                        if (upperCounter == 6 && midCounter == 0) {
-                            NSString *metro = [elementChildChild.attributes objectForKey:@"title"];
-                            if (metro) [ARMetroStations metroStationIdByText:metro];
+                        if (upperCounter == 6 && midCounter == 0) { // Тип квартиры
+                            NSString *obj = [elementChildChild.attributes objectForKey:@"title"];
+                            if (obj.length) {
+                                if ([obj rangeOfString:objectRoom].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:0];
+                                if ([obj rangeOfString:objectFlat1].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:1];
+                                if ([obj rangeOfString:objectFlat2].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:2];
+                                if ([obj rangeOfString:objectFlat3].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:3];
+                                if ([obj rangeOfString:objectFlat4].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:4];
+                                if ([obj rangeOfString:objectFlat5].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:5];
+                                if ([obj rangeOfString:objectFlat6etc].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:6];
+                                if (!sresult.rooms) sresult.rooms = [NSNumber numberWithInt:0];
+                            } else {
+                                sresult.rooms = [NSNumber numberWithInt:0];
+                            }
                         }
                         if (upperCounter == 8 && midCounter == 0) { // Кух. Мебель
                             
