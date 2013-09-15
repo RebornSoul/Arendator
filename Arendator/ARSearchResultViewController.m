@@ -43,7 +43,6 @@
     // Creates a marker in the center of the map.
     GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
-    marker.title = @"Sydney";
     marker.snippet = @"Australia";
     marker.map = self.mapView;
     self.mapView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
