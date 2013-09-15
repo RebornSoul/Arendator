@@ -10,6 +10,7 @@
 #import "Search.h"
 #import "TFHpple.h"
 #import "DataModel+Helper.h"
+#import "ARMetroStations.h"
 
 @implementation ARCIANFetcher
 
@@ -130,14 +131,15 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
                     upperCounter += 1;
                     int midCounter = 0;
                     for (TFHppleElement *elementChildChild in elementChild.children) {
+                        if (upperCounter == 6 && midCounter == 0) {
+                            NSString *metro = [elementChildChild.attributes objectForKey:@"title"];
+                            if (metro) [ARMetroStations metroStationIdByText:metro];
+                        }
                         if (upperCounter == 8 && midCounter == 0) { // Кух. Мебель
                             
                         }
                         if (upperCounter == 10 && midCounter == 0) { // Цена
                             NSLog(@"Price: %@", elementChildChild.content);
-//                            NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-//                            [f setNumberStyle:NSNumberFormatterDecimalStyle];
-//                            NSNumber * priceNumber = [f numberFromString:elementChildChild.content];
                             NSNumber *priceNumber = [NSNumber numberWithInteger:[elementChildChild.content integerValue]];
                             NSLog(@"Price number: %@", priceNumber.stringValue);
                             sresult.price = priceNumber;
@@ -160,6 +162,8 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
                             }
                         }
                         NSLog(@"%i,%i: Content: %@", upperCounter,midCounter, elementChildChild.content);
+                        NSLog(@"%i,%i: Attributes: %@", upperCounter, midCounter, elementChildChild.attributes);
+                        NSLog(@"%i,%i: Raw: %@", upperCounter, midCounter, elementChildChild.raw);
                         midCounter += 1;
                         int counter = 0;
                         for (TFHppleElement *subElement in elementChildChild.children) {
