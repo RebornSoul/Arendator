@@ -42,7 +42,7 @@ static NSString *formatBabki(NSNumber *value) {
 - (NSString *)humanReadablePrice {
     NSString *priceFMT = self.priceCurrency.intValue == 2 ? @"priceExactFMT1KRUB" : (self.priceCurrency.intValue == 0 ? @"priceExactFMT1USD" : @"priceExactFMT1EUR");
     NSString *price = self.priceCurrency.intValue == 2 ? formatBabki(self.price) : [NSString stringWithFormat:@"%i", self.price.integerValue];
-    return [NSString stringWithFormat:NSLocalizedString(self.priceType.intValue == 0 ? @"pricePerDay" : @"pricePerMonth", @""), [NSString stringWithFormat:priceFMT, price]];
+    return [NSString stringWithFormat:NSLocalizedString(self.priceType.intValue == 0 ? @"pricePerDay" : @"pricePerMonth", @""), [NSString stringWithFormat:NSLocalizedString(priceFMT, @""), price]];
 }
 
 + (SearchResult *)randomTestInstanceForSearch:(Search *)parent {
