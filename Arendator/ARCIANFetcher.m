@@ -14,6 +14,7 @@
 @implementation ARCIANFetcher
 
 static NSString *defaultRegion = @"10";
+static NSString *defaultCity = @"11622";
 static ARCIANFetcher *instanceFetcher = nil;
 
 static NSString *xpath			= @"//table[@class='cat']//tr";
@@ -97,13 +98,12 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
 }
 
 - (void)performSearch:(Search *)search
-               onPage:(NSInteger)page
              progress:(void (^)(float progress, kSearchStatus status))progressBlock
                result:(void (^)(BOOL finished, NSArray *searchResults))successBlock
               failure:(void (^)(NSError *error))failureBlock {
     if (progressBlock) progressBlock(0.05, kSearchStatusDataLoading);
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:baseURL]];
-    NSDictionary *requestParams = [self parametersContructedFromSearch:search onPage:page];
+    NSDictionary *requestParams = [self parametersContructedFromSearch:search];
     if (progressBlock) progressBlock(0.25, kSearchStatusDataLoading);
     [httpClient getPath:baseSuffix parameters:requestParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (progressBlock) progressBlock(0.5, kSearchStatusDataParsing);
@@ -135,10 +135,15 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
                         }
                         if (upperCounter == 10 && midCounter == 0) { // Цена
                             NSLog(@"Price: %@", elementChildChild.content);
-                            NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-                            [f setNumberStyle:NSNumberFormatterDecimalStyle];
-                            NSNumber * priceNumber = [f numberFromString:elementChildChild.content];
+//                            NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+//                            [f setNumberStyle:NSNumberFormatterDecimalStyle];
+//                            NSNumber * priceNumber = [f numberFromString:elementChildChild.content];
+                            NSNumber *priceNumber = [NSNumber numberWithInteger:[elementChildChild.content integerValue]];
+                            NSLog(@"Price number: %@", priceNumber.stringValue);
                             sresult.price = priceNumber;
+                        }
+                        if (upperCounter == 12 && midCounter == 0) { // Процент комиссии
+                            
                         }
                         if (upperCounter == 14 && midCounter == 0) { // Этаж х/у
                             NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
@@ -147,23 +152,14 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
 							sresult.flor = [f numberFromString:[components firstObject]];
                             sresult.florTotal = [f numberFromString:[components lastObject]];
                         }
-                        if (upperCounter == 16 && midCounter == 0) { // 6/кух.мебели ? ЧЗХ
-                            
+                        if (upperCounter == 16 && (midCounter == 0 || midCounter == 2 || midCounter == 4 || midCounter == 6 || midCounter == 8 || midCounter == 10 || midCounter == 12 || midCounter == 14)) { // Опции
+                            if (elementChildChild.content.length)
+                                sresult.options = [sresult.options stringByAppendingString:[NSString stringWithFormat:@"%@,",elementChildChild.content]];
                         }
-                        if (upperCounter == 16 && midCounter == 2) { // жил.мебель
-                            sresult.options = [sresult.options stringByAppendingString:[NSString stringWithFormat:@"%@,",elementChildChild.content]];
-                        }
-                        if (upperCounter == 16 && midCounter == 4) { // без телефона
-                            sresult.options = [sresult.options stringByAppendingString:[NSString stringWithFormat:@"%@,",elementChildChild.content]];
-                        }
-                        if (upperCounter == 16 && midCounter == 6) { // ТВ
-                            sresult.options = [sresult.options stringByAppendingString:[NSString stringWithFormat:@"%@,",elementChildChild.content]];
-                        }
-                        if (upperCounter == 16 && midCounter == 8) { // холодильник
-                            sresult.options = [sresult.options stringByAppendingString:[NSString stringWithFormat:@"%@,",elementChildChild.content]];
-                        }
-                        if (upperCounter == 16 && midCounter == 10) { //балкон
-                            sresult.options = [sresult.options stringByAppendingString:[NSString stringWithFormat:@"%@,",elementChildChild.content]];
+                        if (upperCounter == 20 && midCounter == 8) { // Описание
+                            if (elementChildChild.content.length) {
+                                sresult.info = elementChildChild.content;
+                            }
                         }
                         NSLog(@"%i,%i: Content: %@", upperCounter,midCounter, elementChildChild.content);
                         midCounter += 1;
@@ -175,7 +171,7 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
                             int lowerCounter = 0;
                             for (TFHppleElement *sub2Element in subElement.children) {
                                 NSLog(@"~========{ %i", lowerCounter);
-                                NSLog(@"Sub sub content: %@", sub2Element.content);
+                                NSLog(@"%i,%i,%i,%i: Sub sub content: %@", upperCounter,midCounter,counter,lowerCounter, sub2Element.content);
                                 lowerCounter += 1;
                                 for (TFHppleElement *sub3Element in sub2Element.children) {
                                     NSLog(@"Sub sub sub content: %@", sub3Element.content);
@@ -189,6 +185,9 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
                     }
                 }
                 grandCounter += 1;
+                // Убираем последнюю запятую
+                if ([[sresult.options substringFromIndex:sresult.options.length-1] isEqualToString:@","])
+                    sresult.options = [sresult.options substringToIndex:sresult.options.length-1];
                 [returnArray addObject:sresult];
             }
             NSLog(@"==============================================================");
@@ -201,11 +200,12 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
     }];
 }
 
-- (NSDictionary*)parametersContructedFromSearch:(Search*)search onPage:(NSInteger)page {
+- (NSDictionary*)parametersContructedFromSearch:(Search*)search {
     NSMutableDictionary *params = [NSMutableDictionary new];
     if (search.allowedChildren.boolValue) [params setObject:@"1" forKey:kidsKey];
     if (search.allowedPets.boolValue) [params setObject:@"1" forKey:petsKey];
 // TODO: replace this with valid city ids
+    [params setObject:defaultCity forKey:[NSString stringWithFormat:cityKey,0]];
     [params setObject:defaultRegion forKey:regionKey];
 //    if (search.cityId) [params setObject:search.cityId.stringValue forKey:regionKey];
     if (search.metroIdStr) {
@@ -228,12 +228,6 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
     if (search.priceTo) [params setObject:search.priceTo.stringValue forKey:maxPriceKey];
     NSLog(@"%@",params);
     return params;
-}
-
-- (void)fetchDataFromURL:(NSURL*)url result:(void (^)(BOOL finished, NSData *data))successBlock
-                            onFailure:(void (^)(NSError *error))failureBlock
-{
-    
 }
 
 @end

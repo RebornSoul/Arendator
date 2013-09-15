@@ -149,7 +149,7 @@
     [DataModel save];
     
     [_search clearSearchResults];
-    [[ARCIANFetcher sharedInstance] performSearch:_search onPage:0 progress:^(float progress, kSearchStatus status) {
+    [[ARCIANFetcher sharedInstance] performSearch:_search progress:^(float progress, kSearchStatus status) {
         NSLog(@"------------- > progress");
     } result:^(BOOL finished, NSArray *searchResults) {
         NSLog(@"------------- > finished");

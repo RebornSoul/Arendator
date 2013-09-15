@@ -23,7 +23,6 @@ typedef enum {
 
 + (ARCIANFetcher *) sharedInstance;
 - (void)performSearch:(Search *)search
-      onPage:(NSInteger)page
     progress:(void (^)(float progress, kSearchStatus status))progressBlock
       result:(void (^)(BOOL finished, NSArray *searchResults))successBlock
      failure:(void (^)(NSError *error))failureBlock;
