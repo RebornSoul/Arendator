@@ -26,6 +26,7 @@ static NSString *formatBabki(NSNumber *value) {
 }
 
 
+
 @implementation SearchResult (Helper)
 
 + (SearchResult *)newInstanceForSearch:(Search *)parent {
@@ -39,7 +40,9 @@ static NSString *formatBabki(NSNumber *value) {
 
 
 - (NSString *)humanReadablePrice {
-    return [NSString stringWithFormat:NSLocalizedString(self.priceType.intValue == 0 ? @"pricePerDay" : @"pricePerMonth", @""), [NSString stringWithFormat:NSLocalizedString(@"priceExactFMT", @""), formatBabki(self.price)]];
+    NSString *priceFMT = self.priceCurrency.intValue == 2 ? @"priceExactFMT1KRUB" : (self.priceCurrency.intValue == 0 ? @"priceExactFMT1USD" : @"priceExactFMT1EUR");
+    NSString *price = self.priceCurrency.intValue == 2 ? formatBabki(self.price) : [NSString stringWithFormat:@"%i", self.price.integerValue];
+    return [NSString stringWithFormat:NSLocalizedString(self.priceType.intValue == 0 ? @"pricePerDay" : @"pricePerMonth", @""), [NSString stringWithFormat:priceFMT, price]];
 }
 
 + (SearchResult *)randomTestInstanceForSearch:(Search *)parent {
@@ -115,7 +118,7 @@ static NSString *formatBabki(NSNumber *value) {
         return NSLocalizedString(@"rangeDoesNotMatter", @"");
     if (!!self.priceFrom && !!self.priceTo) {
         if (self.priceFrom.intValue == self.priceTo.intValue)
-            return [NSString stringWithFormat:NSLocalizedString(@"priceExactFMT", @""), formatBabki(self.priceFrom)];
+            return [NSString stringWithFormat:NSLocalizedString(@"priceExactFMT1KRUB", @""), formatBabki(self.priceFrom)];
         return [NSString stringWithFormat:NSLocalizedString(@"priceFromToFMT", @""), formatBabki(self.priceFrom), formatBabki(self.priceTo)];
     }
     if (!!self.priceFrom)
@@ -142,13 +145,14 @@ static NSString *formatBabki(NSNumber *value) {
 }
 
 
+
 - (NSString *)humanReadablePriceForm {
-    return [NSString stringWithFormat:NSLocalizedString(@"priceExactFMT", @""), [NSString stringWithFormat:@"%.1f", roundf(self.priceFrom.integerValue / 500) / 2]];
+    return [NSString stringWithFormat:NSLocalizedString(@"priceExactFMT1KRUB", @""), [NSString stringWithFormat:@"%.1f", roundf(self.priceFrom.integerValue / 500) / 2]];
 }
 
 
 - (NSString *)humanReadablePriceTo {
-    return [NSString stringWithFormat:NSLocalizedString(@"priceExactFMT", @""), [NSString stringWithFormat:@"%.1f", roundf(self.priceTo.integerValue / 500) / 2]];
+    return [NSString stringWithFormat:NSLocalizedString(@"priceExactFMT1KRUB", @""), [NSString stringWithFormat:@"%.1f", roundf(self.priceTo.integerValue / 500) / 2]];
 }
 
 

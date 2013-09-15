@@ -47,7 +47,9 @@
 "rangeToFMT" = "до %i";
 "rangeFromToFMT" = "%i - %i";
 
-"priceExactFMT" = "%@ т.р.";
+"priceExactFMT1EUR" = "%@ €";
+"priceExactFMT1USD" = "%@ $";
+"priceExactFMT1KRUB" = "%@ т.р.";
 "priceFromFMT" = "от %@ т.р.";
 "priceToFMT" = "до %@ т.р.";
 "priceFromToFMT" = "%@ - %@ т.р.";

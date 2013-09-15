@@ -29,8 +29,6 @@
 		03BCCC9E17E491FE00CA02CF /* ARPriceSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 03BCCC9D17E491FE00CA02CF /* ARPriceSelector.m */; };
 		03BCCCA117E4920A00CA02CF /* ARRoomCountSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 03BCCCA017E4920A00CA02CF /* ARRoomCountSelector.m */; };
 		03BCCCAA17E4A8D700CA02CF /* ARBlockingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03BCCCA917E4A8D700CA02CF /* ARBlockingView.m */; };
-		03BCCCAD17E4AF2600CA02CF /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 03BCCCAC17E4AF2600CA02CF /* Search.m */; };
-		03BCCCB017E4AF2600CA02CF /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 03BCCCAF17E4AF2600CA02CF /* SearchResult.m */; };
 		03E5450017E448BA00E8F81B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03E544FE17E448BA00E8F81B /* DataModel.xcdatamodeld */; };
 		03E5450517E448C900E8F81B /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5450217E448C900E8F81B /* DataModel.m */; };
 		03E5450617E448C900E8F81B /* DataModel+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5450417E448C900E8F81B /* DataModel+Helper.m */; };
@@ -40,6 +38,8 @@
 		03E5451A17E44B2500E8F81B /* spb_metro.json in Resources */ = {isa = PBXBuildFile; fileRef = 03E5451917E44B2500E8F81B /* spb_metro.json */; };
 		03E5451D17E44B3A00E8F81B /* ARMetroStations.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5451C17E44B3A00E8F81B /* ARMetroStations.m */; };
 		03E5452417E44E1300E8F81B /* ARBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5452317E44E1300E8F81B /* ARBaseViewController.m */; };
+		03EB53CC17E5A11A001854A5 /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EB53CB17E5A11A001854A5 /* Search.m */; };
+		03EB53CF17E5A11A001854A5 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EB53CE17E5A11A001854A5 /* SearchResult.m */; };
 		23452C7C12A74830A7D8F91E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1680E96B5B447A898FDFF2 /* libPods.a */; };
 		7106A6B917E48A0A002469FC /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 7106A6B417E48A0A002469FC /* TFHpple.m */; };
 		7106A6BA17E48A0A002469FC /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 7106A6B617E48A0A002469FC /* TFHppleElement.m */; };
@@ -105,10 +105,6 @@
 		03BCCCA017E4920A00CA02CF /* ARRoomCountSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARRoomCountSelector.m; sourceTree = "<group>"; };
 		03BCCCA817E4A8D700CA02CF /* ARBlockingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARBlockingView.h; sourceTree = "<group>"; };
 		03BCCCA917E4A8D700CA02CF /* ARBlockingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARBlockingView.m; sourceTree = "<group>"; };
-		03BCCCAB17E4AF2600CA02CF /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search.h; path = Arendator/ManagedClasses/Search.h; sourceTree = "<group>"; };
-		03BCCCAC17E4AF2600CA02CF /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search.m; path = Arendator/ManagedClasses/Search.m; sourceTree = "<group>"; };
-		03BCCCAE17E4AF2600CA02CF /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Arendator/ManagedClasses/SearchResult.h; sourceTree = "<group>"; };
-		03BCCCAF17E4AF2600CA02CF /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Arendator/ManagedClasses/SearchResult.m; sourceTree = "<group>"; };
 		03E544FF17E448BA00E8F81B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		03E5450117E448C900E8F81B /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataModel.h; path = Arendator/DataModel.h; sourceTree = "<group>"; };
 		03E5450217E448C900E8F81B /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataModel.m; path = Arendator/DataModel.m; sourceTree = "<group>"; };
@@ -124,6 +120,10 @@
 		03E5451C17E44B3A00E8F81B /* ARMetroStations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARMetroStations.m; path = Arendator/ARMetroStations.m; sourceTree = "<group>"; };
 		03E5452217E44E1300E8F81B /* ARBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARBaseViewController.h; sourceTree = "<group>"; };
 		03E5452317E44E1300E8F81B /* ARBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARBaseViewController.m; sourceTree = "<group>"; };
+		03EB53CA17E5A11A001854A5 /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search.h; path = Arendator/ManagedClasses/Search.h; sourceTree = "<group>"; };
+		03EB53CB17E5A11A001854A5 /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search.m; path = Arendator/ManagedClasses/Search.m; sourceTree = "<group>"; };
+		03EB53CD17E5A11A001854A5 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Arendator/ManagedClasses/SearchResult.h; sourceTree = "<group>"; };
+		03EB53CE17E5A11A001854A5 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Arendator/ManagedClasses/SearchResult.m; sourceTree = "<group>"; };
 		62300BE0BFDB45FBA72777F6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		7106A6B317E48A0A002469FC /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = Arendator/Parser/TFHpple.h; sourceTree = "<group>"; };
 		7106A6B417E48A0A002469FC /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = Arendator/Parser/TFHpple.m; sourceTree = "<group>"; };
@@ -203,10 +203,10 @@
 		03E5450717E448CC00E8F81B /* ManagedClasses */ = {
 			isa = PBXGroup;
 			children = (
-				03BCCCAE17E4AF2600CA02CF /* SearchResult.h */,
-				03BCCCAF17E4AF2600CA02CF /* SearchResult.m */,
-				03BCCCAB17E4AF2600CA02CF /* Search.h */,
-				03BCCCAC17E4AF2600CA02CF /* Search.m */,
+				03EB53CD17E5A11A001854A5 /* SearchResult.h */,
+				03EB53CE17E5A11A001854A5 /* SearchResult.m */,
+				03EB53CA17E5A11A001854A5 /* Search.h */,
+				03EB53CB17E5A11A001854A5 /* Search.m */,
 			);
 			name = ManagedClasses;
 			sourceTree = "<group>";
@@ -529,13 +529,14 @@
 				03BCCCA117E4920A00CA02CF /* ARRoomCountSelector.m in Sources */,
 				7106A6BA17E48A0A002469FC /* TFHppleElement.m in Sources */,
 				712F128E17E37F4000EA2363 /* main.m in Sources */,
-				03BCCCAD17E4AF2600CA02CF /* Search.m in Sources */,
 				7106A6BB17E48A0A002469FC /* XPathQuery.m in Sources */,
 				03E5451317E448EA00E8F81B /* ARSearchesViewController.m in Sources */,
 				0362468E17E47DAA00CCCE34 /* ARMetroStationSelector.m in Sources */,
 				032FD46F17E4D605005D1CD8 /* ARAddViewController.m in Sources */,
+				03EB53CC17E5A11A001854A5 /* Search.m in Sources */,
 				03E5450017E448BA00E8F81B /* DataModel.xcdatamodeld in Sources */,
 				71CF7D7817E43E5300048063 /* ARCIANFetcher.m in Sources */,
+				03EB53CF17E5A11A001854A5 /* SearchResult.m in Sources */,
 				03BCCCAA17E4A8D700CA02CF /* ARBlockingView.m in Sources */,
 				712F129217E37F4000EA2363 /* ARAppDelegate.m in Sources */,
 				032FD46C17E4D5F1005D1CD8 /* ARFavoritesViewController.m in Sources */,
@@ -546,7 +547,6 @@
 				0362468317E4749B00CCCE34 /* ARSearchResultViewController.m in Sources */,
 				0362468017E4748900CCCE34 /* ARSearchResultsViewController.m in Sources */,
 				7106A6B917E48A0A002469FC /* TFHpple.m in Sources */,
-				03BCCCB017E4AF2600CA02CF /* SearchResult.m in Sources */,
 				712F12BB17E3806F00EA2363 /* ARTabBarVC.m in Sources */,
 				03E5450517E448C900E8F81B /* DataModel.m in Sources */,
 				03E5452417E44E1300E8F81B /* ARBaseViewController.m in Sources */,
