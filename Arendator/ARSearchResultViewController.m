@@ -45,7 +45,7 @@
                      [_searchResult.phones stringByReplacingOccurrencesOfString:@"," withString:@", "],
                      [_searchResult.options stringByReplacingOccurrencesOfString:@"," withString:@", "],
                      metroStr,
-                     _searchResult.info];
+                     !!_searchResult.info ? _searchResult.info : @""];
     textView.dataDetectorTypes = UIDataDetectorTypePhoneNumber | UIDataDetectorTypeLink  | UIDataDetectorTypeAddress;
     [self.view addSubview:textView];
 }

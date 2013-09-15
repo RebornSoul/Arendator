@@ -246,6 +246,8 @@
             style = UITableViewCellStyleSubtitle;
         cell = [[UITableViewCell alloc] initWithStyle:style reuseIdentifier:ruid];
         cell.backgroundColor = [UIColor clearColor];
+        cell.detailTextLabel.minimumScaleFactor = 0.5;
+        cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
     }
     [cell prepareForReuse];
     
@@ -264,7 +266,7 @@
         case ITEM_PRICE:
             cell.textLabel.text = NSLocalizedString(@"itemPrice", @"");
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.detailTextLabel.text = _search.humanReadablePriceRange;
+            cell.detailTextLabel.text = [NSString  stringWithFormat:NSLocalizedString(@"pricePerMonth", @""), _search.humanReadablePriceRange];
             break;
         case ITEM_ROOMS:
             cell.textLabel.text = NSLocalizedString(@"itemRooms", @"");

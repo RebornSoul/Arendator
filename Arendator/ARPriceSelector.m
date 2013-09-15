@@ -76,10 +76,10 @@
     lblTo.text = NSLocalizedString(@"lblTo", @"");
     
     if (!!_search.priceFrom)
-        lblFrom.text = [NSString  stringWithFormat:@"%@ %@", lblFrom.text, _search.humanReadablePriceForm];
+        lblFrom.text = [NSString  stringWithFormat:NSLocalizedString(@"pricePerMonth", @""), [NSString stringWithFormat:@"%@ %@", lblFrom.text, _search.humanReadablePriceForm]];
     
     if (!!_search.priceTo)
-        lblTo.text = [NSString  stringWithFormat:@"%@ %@", lblTo.text, _search.humanReadablePriceTo];
+        lblTo.text = [NSString  stringWithFormat:NSLocalizedString(@"pricePerMonth", @""), [NSString stringWithFormat:@"%@ %@", lblTo.text, _search.humanReadablePriceTo]];
 }
 
 
