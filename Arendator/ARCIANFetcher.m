@@ -22,6 +22,16 @@ static NSString *xpath			= @"//table[@class='cat']//tr";
 static NSString *baseURL		= @"http://www.cian.ru/";
 static NSString *baseSuffix		= @"cat.php";
 
+// Currency
+
+static NSString *currencyRUR	= @"р.";
+static NSString *currencyUSD	= @"$";
+static NSString *currencyEUR	= @"€";
+
+// Time intervals
+
+static NSString *timeIntervalDay = @"в сутки";
+
 // Расположение
 /*
  1 - Москва
@@ -29,6 +39,7 @@ static NSString *baseSuffix		= @"cat.php";
  10 - Санкт-петербург
  11 - Ленинградская область
 */
+
 static NSString *regionKey		= @"region";			// Регион поиска
 static NSString *metroKey		= @"metro[%i]";			// Метро
 
@@ -140,9 +151,25 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
                         }
                         if (upperCounter == 10 && midCounter == 0) { // Цена
                             NSLog(@"Price: %@", elementChildChild.content);
-                            NSNumber *priceNumber = [NSNumber numberWithInteger:[elementChildChild.content integerValue]];
+                            NSString *priceString = elementChildChild.content;
+                            if ([priceString rangeOfString:currencyRUR].location != NSNotFound) sresult.priceCurrency = [NSNumber numberWithInt:2];
+                            if ([priceString rangeOfString:currencyEUR].location != NSNotFound) sresult.priceCurrency = [NSNumber numberWithInt:3];
+                            if ([priceString rangeOfString:currencyUSD].location != NSNotFound) sresult.priceCurrency = [NSNumber numberWithInt:1];
+                            priceString = [priceString stringByReplacingOccurrencesOfString:@" " withString:@""];
+                            priceString = [priceString stringByReplacingOccurrencesOfString:@"," withString:@""];
+                            NSLog(@"Price string: %@", priceString);
+                            NSNumber *priceNumber = [NSNumber numberWithInteger:[priceString integerValue]];
                             NSLog(@"Price number: %@", priceNumber.stringValue);
                             sresult.price = priceNumber;
+                        }
+                        if (upperCounter == 10 && midCounter == 2) { // в сутки
+                            if (elementChildChild.content.length) {
+                                if ([elementChildChild.content isEqualToString:timeIntervalDay]) {
+                                    sresult.priceType = [NSNumber numberWithInt:1];
+                                }
+                            } else {
+                                sresult.priceType = [NSNumber numberWithInt:0];
+                            }
                         }
                         if (upperCounter == 12 && midCounter == 0) { // Процент комиссии
                             
