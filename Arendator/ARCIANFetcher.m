@@ -146,11 +146,9 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
                             
                         }
                         if (upperCounter == 14 && midCounter == 0) { // Этаж х/у
-                            NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-                            [f setNumberStyle:NSNumberFormatterDecimalStyle];
                             NSArray *components = [elementChildChild.content componentsSeparatedByString:@"/"];
-							sresult.flor = [f numberFromString:[components firstObject]];
-                            sresult.florTotal = [f numberFromString:[components lastObject]];
+							sresult.flor = [NSNumber numberWithInteger:[[components firstObject] integerValue]];
+                            sresult.florTotal = [NSNumber numberWithInteger:[[components lastObject] integerValue]];
                         }
                         if (upperCounter == 16 && (midCounter == 0 || midCounter == 2 || midCounter == 4 || midCounter == 6 || midCounter == 8 || midCounter == 10 || midCounter == 12 || midCounter == 14)) { // Опции
                             if (elementChildChild.content.length)
@@ -186,8 +184,10 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
                 }
                 grandCounter += 1;
                 // Убираем последнюю запятую
-                if ([[sresult.options substringFromIndex:sresult.options.length-1] isEqualToString:@","])
-                    sresult.options = [sresult.options substringToIndex:sresult.options.length-1];
+                if (sresult.options.length) {
+                    if ([[sresult.options substringFromIndex:sresult.options.length-1] isEqualToString:@","])
+                        sresult.options = [sresult.options substringToIndex:sresult.options.length-1];
+                }
                 [returnArray addObject:sresult];
             }
             NSLog(@"==============================================================");
