@@ -30,7 +30,7 @@ static NSString *currencyEUR	= @"€";
 
 // Time intervals
 
-static NSString *timeIntervalDay = @"в сутки";
+static NSString *timeIntervalDay = @"в сутки";
 
 // Расположение
 /*
@@ -163,9 +163,12 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
                             sresult.price = priceNumber;
                         }
                         if (upperCounter == 10 && midCounter == 2) { // в сутки
+                            NSLog(@"Тип цены: %@", elementChildChild.content);
                             if (elementChildChild.content.length) {
                                 if ([elementChildChild.content isEqualToString:timeIntervalDay]) {
                                     sresult.priceType = [NSNumber numberWithInt:1];
+                                } else {
+                                    sresult.priceType = [NSNumber numberWithInt:0];
                                 }
                             } else {
                                 sresult.priceType = [NSNumber numberWithInt:0];
