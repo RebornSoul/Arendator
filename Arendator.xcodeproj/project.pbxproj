@@ -59,6 +59,16 @@
 		712F12B017E37F4000EA2363 /* ArendatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 712F12AF17E37F4000EA2363 /* ArendatorTests.m */; };
 		712F12BB17E3806F00EA2363 /* ARTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 712F12BA17E3806F00EA2363 /* ARTabBarVC.m */; };
 		71737D8817E4457B0047B1C4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71737D8717E4457B0047B1C4 /* SystemConfiguration.framework */; };
+		7182FA3917E5CD9800B33C00 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7182FA3817E5CD9800B33C00 /* AVFoundation.framework */; };
+		7182FA3B17E5CDA500B33C00 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7182FA3A17E5CDA500B33C00 /* CoreLocation.framework */; };
+		7182FA3D17E5CDB200B33C00 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7182FA3C17E5CDB200B33C00 /* CoreText.framework */; };
+		7182FA3F17E5CDBC00B33C00 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7182FA3E17E5CDBC00B33C00 /* GLKit.framework */; };
+		7182FA4117E5CDC600B33C00 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7182FA4017E5CDC600B33C00 /* ImageIO.framework */; };
+		7182FA4317E5CDD200B33C00 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7182FA4217E5CDD200B33C00 /* libc++.dylib */; };
+		7182FA4517E5CDDD00B33C00 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7182FA4417E5CDDD00B33C00 /* libicucore.dylib */; };
+		7182FA4717E5CE0800B33C00 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7182FA4617E5CE0800B33C00 /* libz.dylib */; };
+		7182FA4917E5CE4600B33C00 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7182FA4817E5CE4600B33C00 /* OpenGLES.framework */; };
+		7182FA4B17E5CE5000B33C00 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7182FA4A17E5CE5000B33C00 /* QuartzCore.framework */; };
 		71CF7D7817E43E5300048063 /* ARCIANFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CF7D7717E43E5300048063 /* ARCIANFetcher.m */; };
 		71DE254417E45A5200DF20F9 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DE254317E45A5200DF20F9 /* libxml2.dylib */; };
 /* End PBXBuildFile section */
@@ -151,6 +161,16 @@
 		712F12B917E3806F00EA2363 /* ARTabBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTabBarVC.h; sourceTree = "<group>"; };
 		712F12BA17E3806F00EA2363 /* ARTabBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTabBarVC.m; sourceTree = "<group>"; };
 		71737D8717E4457B0047B1C4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7182FA3817E5CD9800B33C00 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7182FA3A17E5CDA500B33C00 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7182FA3C17E5CDB200B33C00 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		7182FA3E17E5CDBC00B33C00 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		7182FA4017E5CDC600B33C00 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		7182FA4217E5CDD200B33C00 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		7182FA4417E5CDDD00B33C00 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		7182FA4617E5CE0800B33C00 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		7182FA4817E5CE4600B33C00 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		7182FA4A17E5CE5000B33C00 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		71CF7D7617E43E5300048063 /* ARCIANFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARCIANFetcher.h; path = Arendator/ARCIANFetcher.h; sourceTree = "<group>"; };
 		71CF7D7717E43E5300048063 /* ARCIANFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARCIANFetcher.m; path = Arendator/ARCIANFetcher.m; sourceTree = "<group>"; };
 		71DE254317E45A5200DF20F9 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -162,6 +182,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7182FA4B17E5CE5000B33C00 /* QuartzCore.framework in Frameworks */,
+				7182FA4917E5CE4600B33C00 /* OpenGLES.framework in Frameworks */,
+				7182FA4717E5CE0800B33C00 /* libz.dylib in Frameworks */,
+				7182FA4517E5CDDD00B33C00 /* libicucore.dylib in Frameworks */,
+				7182FA4317E5CDD200B33C00 /* libc++.dylib in Frameworks */,
+				7182FA4117E5CDC600B33C00 /* ImageIO.framework in Frameworks */,
+				7182FA3F17E5CDBC00B33C00 /* GLKit.framework in Frameworks */,
+				7182FA3D17E5CDB200B33C00 /* CoreText.framework in Frameworks */,
+				7182FA3B17E5CDA500B33C00 /* CoreLocation.framework in Frameworks */,
+				7182FA3917E5CD9800B33C00 /* AVFoundation.framework in Frameworks */,
 				71DE254417E45A5200DF20F9 /* libxml2.dylib in Frameworks */,
 				710DA76017E4551C00D59298 /* MobileCoreServices.framework in Frameworks */,
 				71737D8817E4457B0047B1C4 /* SystemConfiguration.framework in Frameworks */,
@@ -322,6 +352,16 @@
 		712F128017E37F4000EA2363 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7182FA4A17E5CE5000B33C00 /* QuartzCore.framework */,
+				7182FA4817E5CE4600B33C00 /* OpenGLES.framework */,
+				7182FA4617E5CE0800B33C00 /* libz.dylib */,
+				7182FA4417E5CDDD00B33C00 /* libicucore.dylib */,
+				7182FA4217E5CDD200B33C00 /* libc++.dylib */,
+				7182FA4017E5CDC600B33C00 /* ImageIO.framework */,
+				7182FA3E17E5CDBC00B33C00 /* GLKit.framework */,
+				7182FA3C17E5CDB200B33C00 /* CoreText.framework */,
+				7182FA3A17E5CDA500B33C00 /* CoreLocation.framework */,
+				7182FA3817E5CD9800B33C00 /* AVFoundation.framework */,
 				71DE254317E45A5200DF20F9 /* libxml2.dylib */,
 				710DA75F17E4551C00D59298 /* MobileCoreServices.framework */,
 				71737D8717E4457B0047B1C4 /* SystemConfiguration.framework */,

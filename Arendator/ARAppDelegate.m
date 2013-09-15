@@ -9,11 +9,13 @@
 #import "ARAppDelegate.h"
 #import "ARTabBarVC.h"
 #import "DataModel.h"
-
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface  ARAppDelegate ()
 @property (nonatomic, strong) UITabBarController *tabBarController;
 @end
+
+static NSString *googleApiKey = @"AIzaSyC2QnFXGejk4NtgLVclQ6PUVE48joyXhiY";
 
 @implementation ARAppDelegate
 
@@ -23,10 +25,9 @@
     self.tabBarController = [ARTabBarVC sharedInstance];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-//    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"ARModel"];
 	self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
-    // Override point for customization after application launch.
+    [GMSServices provideAPIKey:googleApiKey];
     return YES;
 }
 

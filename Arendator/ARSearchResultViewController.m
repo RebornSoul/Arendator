@@ -9,6 +9,11 @@
 #import "ARSearchResultViewController.h"
 #import "DataModel+Helper.h"
 #import "ARMetroStations.h"
+#import <GoogleMaps/GoogleMaps.h>
+
+@interface ARSearchResultViewController ()
+@property (nonatomic, strong) GMSMapView *mapView;
+@end
 
 @implementation ARSearchResultViewController {
     SearchResult *_searchResult;
@@ -28,9 +33,21 @@
     [super viewDidLoad];
     
 #define mapHeight ([UIScreen mainScreen].bounds.size.height / 3)
-    UIView *map = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - mapHeight - 48, 320, mapHeight)];
-    map.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
-    [self.view addSubview:map];
+    CGRect mapFrame = CGRectMake(0, self.view.frame.size.height - mapHeight - 48, 320, mapHeight);
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
+                                                            longitude:151.20
+                                                                 zoom:6];
+    self.mapView = [GMSMapView mapWithFrame:mapFrame camera:camera];
+    self.mapView.myLocationEnabled = YES;
+    
+    // Creates a marker in the center of the map.
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
+    marker.title = @"Sydney";
+    marker.snippet = @"Australia";
+    marker.map = self.mapView;
+    self.mapView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
+    [self.view addSubview:self.mapView];
     
     NSString *metroStr = [ARMetroStations stationNameById:_searchResult.metroId.intValue];
     if (_searchResult.distanceFromMetro)
@@ -54,7 +71,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.title = [NSString stringWithFormat:@"%@, %@", _searchResult.street, _searchResult.house];
+    self.title = _searchResult.humanReadableAddress;
     
     self.tableView.hidden = YES;
 }
