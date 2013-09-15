@@ -19,6 +19,11 @@
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
+		<key>Pods-Google-Maps-iOS-SDK.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>Pods-SBJson.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -47,12 +52,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>15325C5DF5224BE2804864FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>157EABDEFCDD49069B2757F4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>293E4214266347F59B24338C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>2B1FFEC205B441FEACE91DBC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>33B07125B0564F99BF40A055</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3E83BFB480214A1BB6E70B09</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,6 +107,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>7F6012DC910844C8B64C8321</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8585C94A21774BC1A4A821C8</key>
 		<dict>
 			<key>primary</key>
@@ -92,7 +122,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>976EF7592E3D4BED8B07555B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B287A10D077642F5B53C04D1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B5337FFC291E4DC988DCC2F0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E9BB80BCE005452DA451BA2E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

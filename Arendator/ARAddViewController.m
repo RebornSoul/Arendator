@@ -25,4 +25,14 @@
     self.tableView.hidden = YES;
 }
 
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(160 - 117, 100, 235, 235)];
+    iv.image = [UIImage imageNamed:@"imgComingSoon"];
+    [self.view addSubview:iv];
+}
+
+
 @end
