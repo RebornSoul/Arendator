@@ -124,6 +124,9 @@ static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Т�
                     upperCounter += 1;
                     int midCounter = 0;
                     for (TFHppleElement *elementChildChild in elementChild.children) {
+                        if (upperCounter == 10 && midCounter == 10) {
+                            NSLog(@"Price: %@", elementChildChild.content);
+                        }
                         NSLog(@"%i,%i: Content: %@", upperCounter,midCounter, elementChildChild.content);
                         midCounter += 1;
                         int counter = 0;
