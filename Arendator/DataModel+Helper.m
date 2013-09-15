@@ -22,12 +22,20 @@ static NSString *generateGUID() {
 static NSString *formatBabki(NSNumber *value) {
     float val = roundf(value.integerValue / 500) / 2;
     NSString *result = [NSString stringWithFormat:@"%.1f", val];
-    return result;//[[result stringByReplacingOccurrencesOfString:@".0" withString:@""] stringByReplacingOccurrencesOfString:@",0" withString:@""];
+    return [[result stringByReplacingOccurrencesOfString:@".0" withString:@""] stringByReplacingOccurrencesOfString:@",0" withString:@""];
 }
 
 
 
 @implementation SearchResult (Helper)
+
+- (NSString *)humanReadableAddress {
+    NSString *result = !!self.street ? self.street : @"";
+    if (self.house)
+        result = [result stringByAppendingFormat:@", %@", self.house];
+    return result;
+}
+
 
 + (SearchResult *)newInstanceForSearch:(Search *)parent {
     SearchResult *result = (SearchResult *)[DataModel createObjectOfClass:[SearchResult class]];

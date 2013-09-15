@@ -15,6 +15,7 @@
 + (SearchResult *)randomTestInstanceForSearch:(Search *)parent;
 
 @property (nonatomic, readonly) NSString *humanReadablePrice;
+@property (nonatomic, readonly) NSString *humanReadableAddress;
 
 @end
 
