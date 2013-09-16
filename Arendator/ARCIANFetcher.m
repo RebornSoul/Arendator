@@ -150,6 +150,8 @@ static NSString *strBetween(NSString *src, NSString *from, NSString *to) {
         NSString *tutorialsXpathQueryString = xpath;
         NSArray *tutorialsNodes = [tutorialsParser searchWithXPathQuery:tutorialsXpathQueryString];
         NSLog(@"Nodes: %i", [tutorialsNodes count]);
+        float progressStep = [NSNumber numberWithInteger:[tutorialsNodes count]-1].floatValue / 500.0;
+        float totalProgress = 0.5;
         BOOL firstElement = YES;
         NSMutableArray *returnArray = [NSMutableArray new];
         int grandCounter = 0;
@@ -294,7 +296,10 @@ static NSString *strBetween(NSString *src, NSString *from, NSString *to) {
                 [returnArray addObject:sresult];
             }
             NSLog(@"==============================================================");
+            totalProgress += progressStep;
+            if (progressBlock) progressBlock(totalProgress, kSearchStatusDataParsing);
         }
+        if (progressStep) progressBlock(1.0, kSearchStatusComplete);
         if (successBlock) successBlock(YES, returnArray);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

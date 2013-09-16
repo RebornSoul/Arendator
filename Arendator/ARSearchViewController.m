@@ -146,9 +146,12 @@
     
     //[_search clearSearchResults];
     __block NSSet *oldResults = [NSSet setWithSet:_search.searchResults];
-
     [[ARCIANFetcher sharedInstance] performSearch:_search progress:^(float progress, kSearchStatus status) {
         NSLog(@"------------- > progress");
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            ARBlockingView *bv = [ARBlockingView instance];
+//            [bv.progressView setProgress:progress animated:YES];
+//        });
     } result:^(BOOL finished, NSArray *searchResults) {
         NSLog(@"------------- > finished");
         [ARBlockingView hide];

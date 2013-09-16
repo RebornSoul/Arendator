@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <DACircularProgress/DACircularProgressView.h>
 
 @interface ARBlockingView : UIView
+
+@property (nonatomic, strong) DACircularProgressView *progressView;
+
++ (ARBlockingView *)instance;
 
 + (void)showWithTitle:(NSString *)title;
 + (void)setTitle:(NSString *)title;
