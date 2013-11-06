@@ -7,9 +7,9 @@
 //
 
 #import "DataModel+Helper.h"
-#import "DataModel.h"
 #import "Search.h"
 #import "SearchResult.h"
+#import <MagicalRecord/CoreData+MagicalRecord.h>
 
 static NSString *generateGUID() {
     CFUUIDRef uuidObj = CFUUIDCreate(nil);
@@ -38,7 +38,7 @@ static NSString *formatBabki(NSNumber *value) {
 
 
 + (SearchResult *)newInstanceForSearch:(Search *)parent {
-    SearchResult *result = (SearchResult *)[DataModel createObjectOfClass:[SearchResult class]];
+    SearchResult *result = [SearchResult createEntity];
     if (result) {
         result.uid = generateGUID();
         result.search = parent;
@@ -95,7 +95,7 @@ static NSString *formatBabki(NSNumber *value) {
 
 
 + (Search *)newInstance {
-    Search *result = (Search *)[DataModel createObjectOfClass:[Search class]];
+    Search *result = [Search createEntity];
     if (result) {
         result.uid = generateGUID();
         result.time = [NSDate date];
@@ -168,8 +168,9 @@ static NSString *formatBabki(NSNumber *value) {
 
 - (void)clearSearchResults {
     for (SearchResult *result in self.searchResults)
-        [DataModel deleteObject:result];
-    [DataModel save];
+    [result deleteEntity];
+    [MagicalRecord saveUsingCurrentThreadContextWithBlock:nil completion:^(BOOL success, NSError *error) {
+    }];
 }
 
 @end

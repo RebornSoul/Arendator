@@ -9,7 +9,6 @@
 #import "ARSearchViewController.h"
 #import "ARBaseViewController.h"
 #import "DataModel+Helper.h"
-#import "DataModel.h"
 #import "ARMetroStationSelector.h"
 #import "ARRoomCountSelector.h"
 #import "ARPriceSelector.h"
@@ -17,6 +16,8 @@
 #import "ARBlockingView.h"
 #import "ARSearchResultsViewController.h"
 #import "ARCIANFetcher.h"
+#import <MagicalRecord/CoreData+MagicalRecord.h>
+#import "ARNearMeLocator.h"
 
 @implementation ARSearchViewController {
     Search *_search;
@@ -102,7 +103,6 @@
     newEntity = !!!_search;
     if (!_search) {
         _search = [Search newInstance];
-        [DataModel save];
     }
     
     titleTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 200, 25)];
@@ -142,12 +142,14 @@
 - (void)onSearchClick:(UIBarButtonItem *)sender {
     canceled = NO;
     newEntity = NO;
-    [DataModel save];
     
     //[_search clearSearchResults];
     __block NSSet *oldResults = [NSSet setWithSet:_search.searchResults];
     [[ARCIANFetcher sharedInstance] performSearch:_search progress:^(float progress, kSearchStatus status) {
-        NSLog(@"------------- > progress");
+        NSLog(@"------------- > progress: %f", progress);
+            ARBlockingView *bv = [ARBlockingView instance];
+            [bv.progressView setProgress:progress animated:YES];
+
 //        dispatch_async(dispatch_get_main_queue(), ^{
 //            ARBlockingView *bv = [ARBlockingView instance];
 //            [bv.progressView setProgress:progress animated:YES];
@@ -158,8 +160,7 @@
         [self updateHeader];
         if (_search.searchResults.count > oldResults.count) {
             for (SearchResult *oldResult in oldResults)
-                [DataModel deleteObject:oldResult];
-            [DataModel save];
+            [oldResult deleteEntity];
             [self onPrevResultsClick:nil];
         } else
             [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"msgErrorTitle", @"")
@@ -197,10 +198,11 @@
 #define SECT_MAIN 0
 #define SECT_MORE 1
 
-#define ITEM_TITLE 0
-#define ITEM_METRO 1
-#define ITEM_PRICE 2
-#define ITEM_ROOMS 3
+#define ITEM_LOCATION 0
+#define ITEM_TITLE 1
+#define ITEM_METRO 2
+#define ITEM_PRICE 3
+#define ITEM_ROOMS 4
 
 #define ITEM_allowedChildren 0
 #define ITEM_allowedPets 1
@@ -217,6 +219,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == SECT_MAIN)
         switch (indexPath.row) {
+            case ITEM_LOCATION: {
+                ARNearMeLocator *selector = [[ARNearMeLocator alloc] initWithSearch:_search];
+                [self.navigationController pushViewController:selector animated:YES];
+                break;
+            }
             case ITEM_METRO: {
                 ARMetroStationSelector *selector = [[ARMetroStationSelector alloc] initWithSearch:_search];
                 [self.navigationController pushViewController:selector animated:YES];

@@ -8,8 +8,8 @@
 
 #import "ARAppDelegate.h"
 #import "ARTabBarVC.h"
-#import "DataModel.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import <MagicalRecord/CoreData+MagicalRecord.h>
 
 @interface  ARAppDelegate ()
 @property (nonatomic, strong) UITabBarController *tabBarController;
@@ -21,7 +21,8 @@ static NSString *googleApiKey = @"AIzaSyC2QnFXGejk4NtgLVclQ6PUVE48joyXhiY";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         
-    
+	[MagicalRecord setShouldDeleteStoreOnModelMismatch:YES];
+    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"DataModel"];
     self.tabBarController = [ARTabBarVC sharedInstance];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];

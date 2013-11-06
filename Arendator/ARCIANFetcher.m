@@ -110,6 +110,8 @@ static NSString *petsKey		= @"pets";				// Можно с животными 1
 static NSString *kidsKey		= @"kids";				// Можно с детьми 1
 static NSString *balkonKey 		= @"minibalkon"; 		// Без балкона -1, Только с балконом 1
 
+// Геолокация
+static NSString *distanceKey    = @"distance[%i]";		// Дистанция поиска. Значение параметра - 3 переменные: lat, lng, rad
 
 + (ARCIANFetcher *) sharedInstance {
 	static dispatch_once_t onceToken;
@@ -140,172 +142,187 @@ static NSString *strBetween(NSString *src, NSString *from, NSString *to) {
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:baseURL]];
     NSDictionary *requestParams = [self parametersContructedFromSearch:search];
     if (progressBlock) progressBlock(0.25, kSearchStatusDataLoading);
-    [httpClient getPath:baseSuffix parameters:requestParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (progressBlock) progressBlock(0.5, kSearchStatusDataParsing);
-        NSData *recievedData = ((NSData*)responseObject);
-        NSString* newStr = [[NSString alloc] initWithData:recievedData
-                                                 encoding:NSWindowsCP1251StringEncoding];
-        NSData* encodedData = [newStr dataUsingEncoding:NSUTF16StringEncoding];
-        TFHpple *tutorialsParser = [TFHpple hppleWithHTMLData:encodedData];
-        NSString *tutorialsXpathQueryString = xpath;
-        NSArray *tutorialsNodes = [tutorialsParser searchWithXPathQuery:tutorialsXpathQueryString];
-        NSLog(@"Nodes: %i", [tutorialsNodes count]);
-        float progressStep = [NSNumber numberWithInteger:[tutorialsNodes count]-1].floatValue / 500.0;
-        float totalProgress = 0.5;
-        BOOL firstElement = YES;
-        NSMutableArray *returnArray = [NSMutableArray new];
-        int grandCounter = 0;
-        for (TFHppleElement *element in tutorialsNodes) {
-            if (firstElement) firstElement = NO;
-            else {
-                // Creating search result
-                SearchResult *sresult = [SearchResult newInstanceForSearch:search];
-                int upperCounter = 0;
-                for (TFHppleElement *elementChild in element.children) {
-                    NSLog(@"~============================{ %i", upperCounter);
-                    NSLog(@"%i: Content: %@", upperCounter, element.content);
-                    upperCounter += 1;
-                    int midCounter = 0;
-                    for (TFHppleElement *elementChildChild in elementChild.children) {
-                        if (upperCounter == 6 && midCounter == 0) { // Тип квартиры
-                            NSString *obj = [elementChildChild.attributes objectForKey:@"title"];
-                            if (obj.length) {
-                                if ([obj rangeOfString:objectRoom].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:0];
-                                if ([obj rangeOfString:objectFlat1].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:1];
-                                if ([obj rangeOfString:objectFlat2].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:2];
-                                if ([obj rangeOfString:objectFlat3].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:3];
-                                if ([obj rangeOfString:objectFlat4].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:4];
-                                if ([obj rangeOfString:objectFlat5].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:5];
-                                if ([obj rangeOfString:objectFlat6etc].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:6];
-                                if (!sresult.rooms) sresult.rooms = [NSNumber numberWithInt:0];
-                            } else {
-                                sresult.rooms = [NSNumber numberWithInt:0];
-                            }
-                        }
-                        if (upperCounter == 4 && midCounter == 11) { // Метро
-                            NSString *rawStr = elementChildChild.raw;
-                            rawStr = strBetween(rawStr, @"metro[0]=", @"\"");
-                            sresult.metroId = !!rawStr ? [NSNumber numberWithInt:rawStr.integerValue] : @-1;
-                        }
-                        if (upperCounter == 4 && midCounter == 4) { // Улица
-                            NSString *rawStr = elementChildChild.raw;
-                            rawStr = strBetween(rawStr, @">", @"<");
-                            rawStr = [rawStr stringByReplacingOccurrencesOfString:@"улица" withString:@"ул."];
-                            rawStr = [rawStr stringByReplacingOccurrencesOfString:@"проспект" withString:@"пр."];
-                            rawStr = [rawStr stringByReplacingOccurrencesOfString:@"площадь" withString:@"пл."];
-                            rawStr = [rawStr stringByReplacingOccurrencesOfString:@"набережная" withString:@"наб."];
-                            rawStr = [rawStr stringByReplacingOccurrencesOfString:@"переулок" withString:@"пер."];
-                            sresult.street = rawStr;
-                        }
-                        if (upperCounter == 4 && midCounter == 6) { // Дом
-                            NSString *rawStr = elementChildChild.raw;
-                            rawStr = strBetween(rawStr, @">", @"<");
-                            sresult.house = rawStr;
-                        }
-                        if (upperCounter == 18 && midCounter == 0) { // телефон
-                            NSString *rawStr = elementChildChild.raw;
-                            rawStr = strBetween(rawStr, @">", @"<");
-                            sresult.phones = !!rawStr ? [@"+7" stringByAppendingString:rawStr] : nil;
-                        }
-                        if (upperCounter == 20 && midCounter == 5) { // ID
-                            NSString *rawStr = elementChildChild.raw;
-                            rawStr = strBetween(strBetween(rawStr, @">", @"<"), @":", @"&");
-                            sresult.id = !!rawStr ? rawStr : nil;
-                        }
-                        if (upperCounter == 8 && midCounter == 0) { // Кух. Мебель
-                            
-                        }
-                        if (upperCounter == 10 && midCounter == 0) { // Цена
-                            NSLog(@"Price: %@", elementChildChild.content);
-                            NSString *priceString = elementChildChild.content;
-                            if ([priceString rangeOfString:currencyRUR].location != NSNotFound) sresult.priceCurrency = [NSNumber numberWithInt:2];
-                            if ([priceString rangeOfString:currencyEUR].location != NSNotFound) sresult.priceCurrency = [NSNumber numberWithInt:3];
-                            if ([priceString rangeOfString:currencyUSD].location != NSNotFound) sresult.priceCurrency = [NSNumber numberWithInt:1];
-                            priceString = [priceString stringByReplacingOccurrencesOfString:@" " withString:@""];
-                            priceString = [priceString stringByReplacingOccurrencesOfString:@"," withString:@""];
-                            NSLog(@"Price string: %@", priceString);
-                            NSNumber *priceNumber = [NSNumber numberWithInteger:[priceString integerValue]];
-                            NSLog(@"Price number: %@", priceNumber.stringValue);
-                            sresult.price = priceNumber;
-                        }
-                        if (upperCounter == 10 && midCounter == 2) { // в сутки
-                            NSLog(@"Тип цены: %@", elementChildChild.content);
-                            if (elementChildChild.content.length) {
-                                if ([elementChildChild.content isEqualToString:timeIntervalDay]) {
-                                    sresult.priceType = [NSNumber numberWithInt:1];
-                                } else {
-                                    sresult.priceType = [NSNumber numberWithInt:0];
-                                }
-                            } else {
-                                sresult.priceType = [NSNumber numberWithInt:0];
-                            }
-                        }
-                        if (upperCounter == 4 && midCounter == 9) { // До метро
-                            if (!!elementChildChild.content)
-                                sresult.distanceFromMetro = elementChildChild.content;
-                        }
-                        if (upperCounter == 14 && midCounter == 0) { // Этаж х/у
-                            NSArray *components = [elementChildChild.content componentsSeparatedByString:@"/"];
-							sresult.flor = [NSNumber numberWithInteger:[[components firstObject] integerValue]];
-                            sresult.florTotal = [NSNumber numberWithInteger:[[components lastObject] integerValue]];
-                        }
-                        if (upperCounter == 16 && (midCounter == 0 || midCounter == 2 || midCounter == 4 || midCounter == 6 || midCounter == 8 || midCounter == 10 || midCounter == 12 || midCounter == 14)) { // Опции
-                            NSLog(@"Option: %@", elementChildChild.content);
-                            NSString *optionContent = [elementChildChild.content stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-                            if (optionContent.length > 0) {
-                                if (!sresult.options) sresult.options = @""; else sresult.options = [sresult.options stringByAppendingString:@","];
-                                sresult.options = [sresult.options stringByAppendingString:optionContent];
-                            }
-                        }
-                        if (upperCounter == 20 && midCounter == 8) { // Описание
-                            if (elementChildChild.content.length) {
-                                sresult.info = elementChildChild.content;
-                            }
-                        }
-                        NSLog(@"%i,%i: Content: %@", upperCounter,midCounter, elementChildChild.content);
-                        NSLog(@"%i,%i: Attributes: %@", upperCounter, midCounter, elementChildChild.attributes);
-                        NSLog(@"%i,%i: Raw: %@", upperCounter, midCounter, elementChildChild.raw);
-                        midCounter += 1;
-                        int counter = 0;
-                        for (TFHppleElement *subElement in elementChildChild.children) {
-                            NSLog(@"~=========={ %i }===========~", counter);
-                            NSLog(@"%i,%i,%i: Sub content: %@", upperCounter,midCounter,counter, elementChildChild.content);
-                            counter += 1;
-                            int lowerCounter = 0;
-                            for (TFHppleElement *sub2Element in subElement.children) {
-                                NSLog(@"~========{ %i", lowerCounter);
-                                NSLog(@"%i,%i,%i,%i: Sub sub content: %@", upperCounter,midCounter,counter,lowerCounter, sub2Element.content);
-                                lowerCounter += 1;
-                                for (TFHppleElement *sub3Element in sub2Element.children) {
-                                    NSLog(@"Sub sub sub content: %@", sub3Element.content);
-                                    for (TFHppleElement *sub4Element in sub3Element.children) {
-                                        NSLog(@"Sub sub sub sub content: %@", sub4Element.content);
-                                        
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                grandCounter += 1;
-                // Убираем последнюю запятую
-                if (sresult.options.length) {
-                    if ([[sresult.options substringFromIndex:sresult.options.length-1] isEqualToString:@","])
-                        sresult.options = [sresult.options substringToIndex:sresult.options.length-1];
-                }
-                [returnArray addObject:sresult];
-            }
-            NSLog(@"==============================================================");
-            totalProgress += progressStep;
-            if (progressBlock) progressBlock(totalProgress, kSearchStatusDataParsing);
-        }
-        if (progressStep) progressBlock(1.0, kSearchStatusComplete);
-        if (successBlock) successBlock(YES, returnArray);
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (failureBlock) failureBlock(error);
-        NSLog(@"[HTTPClient Error]: %@", error.localizedDescription);
-    }];
+    // async queue for bg work
+    // main queue for updating ui on main thread
+    dispatch_queue_t queue = dispatch_queue_create("com.sample", 0);
+    dispatch_queue_t main = dispatch_get_main_queue();
+    
+    //  do the long running work in bg async queue
+    // within that, call to update UI on main thread.
+    dispatch_async(queue,
+                   ^{
+                       [httpClient getPath:baseSuffix parameters:requestParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                           
+                           dispatch_async(main, ^{
+                               if (progressBlock) progressBlock(0.5, kSearchStatusDataParsing);
+                           });
+
+                           NSData *recievedData = ((NSData*)responseObject);
+                           NSString* newStr = [[NSString alloc] initWithData:recievedData
+                                                                    encoding:NSWindowsCP1251StringEncoding];
+                           NSData* encodedData = [newStr dataUsingEncoding:NSUTF16StringEncoding];
+                           TFHpple *tutorialsParser = [TFHpple hppleWithHTMLData:encodedData];
+                           NSString *tutorialsXpathQueryString = xpath;
+                           NSArray *tutorialsNodes = [tutorialsParser searchWithXPathQuery:tutorialsXpathQueryString];
+                           NSLog(@"Nodes: %i", [tutorialsNodes count]);
+                           float progressStep = [NSNumber numberWithInteger:[tutorialsNodes count]-1].floatValue / 5000.0;
+                           float totalProgress = 0.5;
+                           BOOL firstElement = YES;
+                           NSMutableArray *returnArray = [NSMutableArray new];
+                           int grandCounter = 0;
+                           for (TFHppleElement *element in tutorialsNodes) {
+                               if (firstElement) firstElement = NO;
+                               else {
+                                   // Creating search result
+                                   SearchResult *sresult = [SearchResult newInstanceForSearch:search];
+                                   int upperCounter = 0;
+                                   for (TFHppleElement *elementChild in element.children) {
+                                       NSLog(@"~============================{ %i", upperCounter);
+                                       NSLog(@"%i: Content: %@", upperCounter, element.content);
+                                       upperCounter += 1;
+                                       int midCounter = 0;
+                                       for (TFHppleElement *elementChildChild in elementChild.children) {
+                                           if (upperCounter == 6 && midCounter == 0) { // Тип квартиры
+                                               NSString *obj = [elementChildChild.attributes objectForKey:@"title"];
+                                               if (obj.length) {
+                                                   if ([obj rangeOfString:objectRoom].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:0];
+                                                   if ([obj rangeOfString:objectFlat1].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:1];
+                                                   if ([obj rangeOfString:objectFlat2].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:2];
+                                                   if ([obj rangeOfString:objectFlat3].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:3];
+                                                   if ([obj rangeOfString:objectFlat4].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:4];
+                                                   if ([obj rangeOfString:objectFlat5].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:5];
+                                                   if ([obj rangeOfString:objectFlat6etc].location != NSNotFound) sresult.rooms = [NSNumber numberWithInt:6];
+                                                   if (!sresult.rooms) sresult.rooms = [NSNumber numberWithInt:0];
+                                               } else {
+                                                   sresult.rooms = [NSNumber numberWithInt:0];
+                                               }
+                                           }
+                                           if (upperCounter == 4 && midCounter == 11) { // Метро
+                                               NSString *rawStr = elementChildChild.raw;
+                                               rawStr = strBetween(rawStr, @"metro[0]=", @"\"");
+                                               sresult.metroId = !!rawStr ? [NSNumber numberWithInt:rawStr.integerValue] : @-1;
+                                           }
+                                           if (upperCounter == 4 && midCounter == 4) { // Улица
+                                               NSString *rawStr = elementChildChild.raw;
+                                               rawStr = strBetween(rawStr, @">", @"<");
+                                               rawStr = [rawStr stringByReplacingOccurrencesOfString:@"улица" withString:@"ул."];
+                                               rawStr = [rawStr stringByReplacingOccurrencesOfString:@"проспект" withString:@"пр."];
+                                               rawStr = [rawStr stringByReplacingOccurrencesOfString:@"площадь" withString:@"пл."];
+                                               rawStr = [rawStr stringByReplacingOccurrencesOfString:@"набережная" withString:@"наб."];
+                                               rawStr = [rawStr stringByReplacingOccurrencesOfString:@"переулок" withString:@"пер."];
+                                               sresult.street = rawStr;
+                                           }
+                                           if (upperCounter == 4 && midCounter == 6) { // Дом
+                                               NSString *rawStr = elementChildChild.raw;
+                                               rawStr = strBetween(rawStr, @">", @"<");
+                                               sresult.house = rawStr;
+                                           }
+                                           if (upperCounter == 18 && midCounter == 0) { // телефон
+                                               NSString *rawStr = elementChildChild.raw;
+                                               rawStr = strBetween(rawStr, @">", @"<");
+                                               sresult.phones = !!rawStr ? [@"+7" stringByAppendingString:rawStr] : nil;
+                                           }
+                                           if (upperCounter == 20 && midCounter == 5) { // ID
+                                               NSString *rawStr = elementChildChild.raw;
+                                               rawStr = strBetween(strBetween(rawStr, @">", @"<"), @":", @"&");
+                                               sresult.id = !!rawStr ? rawStr : nil;
+                                           }
+                                           if (upperCounter == 8 && midCounter == 0) { // Кух. Мебель
+                                               
+                                           }
+                                           if (upperCounter == 10 && midCounter == 0) { // Цена
+                                               NSLog(@"Price: %@", elementChildChild.content);
+                                               NSString *priceString = elementChildChild.content;
+                                               if ([priceString rangeOfString:currencyRUR].location != NSNotFound) sresult.priceCurrency = [NSNumber numberWithInt:2];
+                                               if ([priceString rangeOfString:currencyEUR].location != NSNotFound) sresult.priceCurrency = [NSNumber numberWithInt:3];
+                                               if ([priceString rangeOfString:currencyUSD].location != NSNotFound) sresult.priceCurrency = [NSNumber numberWithInt:1];
+                                               priceString = [priceString stringByReplacingOccurrencesOfString:@" " withString:@""];
+                                               priceString = [priceString stringByReplacingOccurrencesOfString:@"," withString:@""];
+                                               NSLog(@"Price string: %@", priceString);
+                                               NSNumber *priceNumber = [NSNumber numberWithInteger:[priceString integerValue]];
+                                               NSLog(@"Price number: %@", priceNumber.stringValue);
+                                               sresult.price = priceNumber;
+                                           }
+                                           if (upperCounter == 10 && midCounter == 2) { // в сутки
+                                               NSLog(@"Тип цены: %@", elementChildChild.content);
+                                               if (elementChildChild.content.length) {
+                                                   if ([elementChildChild.content isEqualToString:timeIntervalDay]) {
+                                                       sresult.priceType = [NSNumber numberWithInt:1];
+                                                   } else {
+                                                       sresult.priceType = [NSNumber numberWithInt:0];
+                                                   }
+                                               } else {
+                                                   sresult.priceType = [NSNumber numberWithInt:0];
+                                               }
+                                           }
+                                           if (upperCounter == 4 && midCounter == 9) { // До метро
+                                               if (!!elementChildChild.content)
+                                                   sresult.distanceFromMetro = elementChildChild.content;
+                                           }
+                                           if (upperCounter == 14 && midCounter == 0) { // Этаж х/у
+                                               NSArray *components = [elementChildChild.content componentsSeparatedByString:@"/"];
+                                               sresult.flor = [NSNumber numberWithInteger:[[components firstObject] integerValue]];
+                                               sresult.florTotal = [NSNumber numberWithInteger:[[components lastObject] integerValue]];
+                                           }
+                                           if (upperCounter == 16 && (midCounter == 0 || midCounter == 2 || midCounter == 4 || midCounter == 6 || midCounter == 8 || midCounter == 10 || midCounter == 12 || midCounter == 14)) { // Опции
+                                               NSLog(@"Option: %@", elementChildChild.content);
+                                               NSString *optionContent = [elementChildChild.content stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                                               if (optionContent.length > 0) {
+                                                   if (!sresult.options) sresult.options = @""; else sresult.options = [sresult.options stringByAppendingString:@","];
+                                                   sresult.options = [sresult.options stringByAppendingString:optionContent];
+                                               }
+                                           }
+                                           if (upperCounter == 20 && midCounter == 8) { // Описание
+                                               if (elementChildChild.content.length) {
+                                                   sresult.info = elementChildChild.content;
+                                               }
+                                           }
+                                           NSLog(@"%i,%i: Content: %@", upperCounter,midCounter, elementChildChild.content);
+                                           NSLog(@"%i,%i: Attributes: %@", upperCounter, midCounter, elementChildChild.attributes);
+                                           NSLog(@"%i,%i: Raw: %@", upperCounter, midCounter, elementChildChild.raw);
+                                           midCounter += 1;
+                                           int counter = 0;
+                                           for (TFHppleElement *subElement in elementChildChild.children) {
+                                               NSLog(@"~=========={ %i }===========~", counter);
+                                               NSLog(@"%i,%i,%i: Sub content: %@", upperCounter,midCounter,counter, elementChildChild.content);
+                                               counter += 1;
+                                               int lowerCounter = 0;
+                                               for (TFHppleElement *sub2Element in subElement.children) {
+                                                   NSLog(@"~========{ %i", lowerCounter);
+                                                   NSLog(@"%i,%i,%i,%i: Sub sub content: %@", upperCounter,midCounter,counter,lowerCounter, sub2Element.content);
+                                                   lowerCounter += 1;
+                                                   for (TFHppleElement *sub3Element in sub2Element.children) {
+                                                       NSLog(@"Sub sub sub content: %@", sub3Element.content);
+                                                       for (TFHppleElement *sub4Element in sub3Element.children) {
+                                                           NSLog(@"Sub sub sub sub content: %@", sub4Element.content);
+                                                           
+                                                       }
+                                                   }
+                                               }
+                                           }
+                                       }
+                                   }
+                                   grandCounter += 1;
+                                   // Убираем последнюю запятую
+                                   if (sresult.options.length) {
+                                       if ([[sresult.options substringFromIndex:sresult.options.length-1] isEqualToString:@","])
+                                           sresult.options = [sresult.options substringToIndex:sresult.options.length-1];
+                                   }
+                                   [returnArray addObject:sresult];
+                               }
+                               NSLog(@"==============================================================");
+                               totalProgress += progressStep;
+                               if (progressBlock) progressBlock(totalProgress, kSearchStatusDataParsing);
+                           }
+                           if (progressStep) progressBlock(1.0, kSearchStatusComplete);
+                           if (successBlock) successBlock(YES, returnArray);
+                           
+                       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                           if (failureBlock) failureBlock(error);
+                           NSLog(@"[HTTPClient Error]: %@", error.localizedDescription);
+                       }];
+                   });
+
 }
 
 - (NSDictionary*)parametersContructedFromSearch:(Search*)search {

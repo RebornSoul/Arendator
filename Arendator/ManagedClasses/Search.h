@@ -2,7 +2,7 @@
 //  Search.h
 //  Arendator
 //
-//  Created by Grig Uskov on 15/9/13.
+//  Created by Yury Nechaev on 14.10.13.
 //  Copyright (c) 2013 Yury Nechaev. All rights reserved.
 //
 
@@ -31,6 +31,9 @@
 @property (nonatomic, retain) NSDate * time;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * uid;
+@property (nonatomic, retain) NSNumber * latitude;
+@property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) NSNumber * radius;
 @property (nonatomic, retain) NSSet *searchResults;
 @end
 

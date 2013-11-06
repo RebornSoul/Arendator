@@ -7,7 +7,6 @@
 //
 
 #import "ARRoomCountSelector.h"
-#import "DataModel.h"
 
 @implementation ARRoomCountSelector {
     Search *_search;    
@@ -57,7 +56,6 @@
             [sc_from setSelectedSegmentIndex:sender.selectedSegmentIndex];
         } 
     }
-    [DataModel save];
 }
 
 
@@ -69,7 +67,6 @@
         [sc_to setSelectedSegmentIndex:-1];
         _search.roomTo = nil;
     }
-    [DataModel save];
 }
 
 

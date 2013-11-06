@@ -7,9 +7,8 @@
 //
 
 #import "ARPriceSelector.h"
-#import "DataModel.h"
 #import "DataModel+Helper.h"
-
+#import <MagicalRecord/CoreData+MagicalRecord.h>
 
 @implementation ARPriceSelector {
     Search *_search;
@@ -36,8 +35,11 @@
         sl_to.value = sl_to.maximumValue;
         _search.priceTo = nil;
     }
-    [DataModel save];
-    [self updateLablels];
+    [MagicalRecord saveUsingCurrentThreadContextWithBlock:nil completion:^(BOOL success, NSError *error) {
+        if (success) {
+            [self updateLablels];
+        }
+    }];
 }
 
 
@@ -57,8 +59,11 @@
             sl_from.value = _search.priceFrom.integerValue;
         }
     }
-    [DataModel save];
-    [self updateLablels];
+    [MagicalRecord saveUsingCurrentThreadContextWithBlock:nil completion:^(BOOL success, NSError *error) {
+        if (success) {
+            [self updateLablels];
+        }
+    }];
 }
 
 

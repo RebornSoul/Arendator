@@ -8,9 +8,9 @@
 
 #import "ARSearchesViewController.h"
 #import "ARSearchViewController.h"
-#import "DataModel.h"
 #import "Search.h"
 #import <QuartzCore/QuartzCore.h>
+#import <MagicalRecord/CoreData+MagicalRecord.h>
 
 #define blueColor [UIColor colorWithRed:0 green:122/255. blue:1 alpha:1]
 
@@ -83,7 +83,7 @@
 
 
 - (void)reloadData {
-    oldSearches = [NSMutableArray arrayWithArray:[DataModel allInstances:[Search class]]];
+    oldSearches = [NSMutableArray arrayWithArray:[Search findAll]];
     [oldSearches sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         Search *s1 = obj1;
         Search *s2 = obj2;
@@ -146,8 +146,7 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
         
         Search *search = oldSearches[indexPath.row];
-        [DataModel deleteObject:search];
-        [DataModel save];
+        [search deleteEntity];
 
         [oldSearches removeObjectAtIndex:indexPath.row];
         [tableView endUpdates];

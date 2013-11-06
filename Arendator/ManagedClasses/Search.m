@@ -2,7 +2,7 @@
 //  Search.m
 //  Arendator
 //
-//  Created by Grig Uskov on 15/9/13.
+//  Created by Yury Nechaev on 14.10.13.
 //  Copyright (c) 2013 Yury Nechaev. All rights reserved.
 //
 
@@ -30,6 +30,9 @@
 @dynamic time;
 @dynamic title;
 @dynamic uid;
+@dynamic latitude;
+@dynamic longitude;
+@dynamic radius;
 @dynamic searchResults;
 
 @end
