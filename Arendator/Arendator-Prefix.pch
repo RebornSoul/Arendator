@@ -7,6 +7,8 @@
 #define MR_SHORTHAND
 
 #import <Availability.h>
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 #import "AFNetworking.h"
 
 #ifndef __IPHONE_5_0
@@ -18,5 +20,3 @@
     #import <Foundation/Foundation.h>
 #endif
 
-#import <SystemConfiguration/SystemConfiguration.h>
-#import <MobileCoreServices/MobileCoreServices.h>

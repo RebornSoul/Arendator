@@ -17,13 +17,13 @@
 
 @implementation ARNearMeLocator
     
-    - (id) initWithSearch:(Search*)search {
-        self = [super init];
-        if (self) {
-            _currentSearch = search;
-        }
-        return self;
+- (id) initWithSearch:(Search*)search {
+    self = [super init];
+    if (self) {
+        _currentSearch = search;
     }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -44,12 +44,19 @@
     // Dispose of any resources that can be recreated.
 }
     
+- (void) setCurrentSearchWithLatitude:(double) latitude longitude:(double)longitude radius:(double)radius {
+    [self.currentSearch setLatitude:[NSNumber numberWithDouble:latitude]];
+    [self.currentSearch setLongitude:[NSNumber numberWithDouble:longitude]];
+    [self.currentSearch setRadius:[NSNumber numberWithDouble:radius]];
+}
+    
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     CLLocation *location = [locations lastObject];
     NSLog(@"NewLocation %f %f", location.coordinate.latitude, location.coordinate.longitude);
     NSLog(@"Hotizontal accuracy: %f", location.horizontalAccuracy);
     NSLog(@"Vertical accuracy: %f", location.verticalAccuracy);
-    self.currentSearch setLatitude:[NSNumber numberWithDouble:<#(double)#>]
+
+
     GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude);
 //    marker.snippet = NSLocalizedString(@"mePositionSnippet", nil);

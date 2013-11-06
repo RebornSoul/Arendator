@@ -10,7 +10,11 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <CoreLocation/CLLocationManager.h>
 
+@class Search;
+
 @interface ARNearMeLocator : UIViewController <GMSMapViewDelegate, CLLocationManagerDelegate> {
     CLLocationManager *locationManager;
 }
+    
+- (id) initWithSearch:(Search*)search;
 @end

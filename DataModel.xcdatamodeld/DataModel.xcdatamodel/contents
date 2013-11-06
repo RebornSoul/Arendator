@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Search" representedClassName="Search" syncable="YES">
         <attribute name="allowedChildren" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="allowedPets" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="cityId" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="metroIdStr" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="optBalcony" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="optFridge" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -14,6 +16,7 @@
         <attribute name="optWashMachine" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="priceFrom" optional="YES" attributeType="Integer 64" syncable="YES"/>
         <attribute name="priceTo" optional="YES" attributeType="Integer 64" syncable="YES"/>
+        <attribute name="radius" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="roomFrom" optional="YES" attributeType="Integer 16" syncable="YES"/>
         <attribute name="roomTo" optional="YES" attributeType="Integer 16" syncable="YES"/>
         <attribute name="time" attributeType="Date" syncable="YES"/>
@@ -42,7 +45,7 @@
         <relationship name="search" maxCount="1" deletionRule="Nullify" destinationEntity="Search" inverseName="searchResults" inverseEntity="Search" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Search" positionX="-3438" positionY="-4752" width="128" height="328"/>
-        <element name="SearchResult" positionX="-3215" positionY="-4752" width="128" height="313"/>
+        <element name="Search" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="SearchResult" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

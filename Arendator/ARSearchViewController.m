@@ -198,8 +198,8 @@
 #define SECT_MAIN 0
 #define SECT_MORE 1
 
-#define ITEM_LOCATION 0
-#define ITEM_TITLE 1
+#define ITEM_TITLE 0
+#define ITEM_LOCATION 1
 #define ITEM_METRO 2
 #define ITEM_PRICE 3
 #define ITEM_ROOMS 4
@@ -258,6 +258,8 @@
     
     if (indexPath.section == SECT_MAIN)
     switch (indexPath.row) {
+        case ITEM_LOCATION:
+        cell.textLabel.text = NSLocalizedString(@"itemLocation", @"");
         case ITEM_TITLE:
             cell.textLabel.text = NSLocalizedString(@"itemTitle", @"");
             cell.accessoryView = titleTF;
@@ -330,7 +332,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return section == SECT_MAIN ? 4 : 8;
+    return section == SECT_MAIN ? 5 : 8;
 }
 
 
