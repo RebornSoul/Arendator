@@ -91,12 +91,11 @@
 
 - (NSDictionary*)parametersContructedFromAddress:(NSString*)address {
     NSMutableDictionary *params = [NSMutableDictionary new];
-    NSString *escapedAddress = CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
-                                                                                         (__bridge CFStringRef)address,
-                                                                                         NULL,
-                                                                                         CFSTR("!*'();:@&=+$,/?%#[]\""),
-                                                                                         kCFStringEncodingUTF8));
-    NSLog(@"Escaped address: %@", escapedAddress);
+//    NSString *escapedAddress = CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
+//                                                                                         (__bridge CFStringRef)address,
+//                                                                                         NULL,
+//                                                                                         CFSTR("!*'();:@&=+$,/?%#[]\""),
+//                                                                                         kCFStringEncodingUTF8));
     [params setObject:address forKey:@"address"];
     [params setObject:@"true" forKey:@"sensor"];
     return params;

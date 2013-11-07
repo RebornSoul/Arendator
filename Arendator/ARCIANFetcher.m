@@ -11,6 +11,7 @@
 #import "TFHpple.h"
 #import "DataModel+Helper.h"
 #import "ARMetroStations.h"
+#import "SearchCoordinate.h"
 
 @implementation ARCIANFetcher
 
@@ -351,6 +352,14 @@ static NSString *strBetween(NSString *src, NSString *from, NSString *to) {
     if (search.optWashMachine) [params setObject:@"1" forKey:washingMchnKey];
     if (search.priceFrom) [params setObject:search.priceFrom.stringValue forKey:minPriceKey];
     if (search.priceTo) [params setObject:search.priceTo.stringValue forKey:maxPriceKey];
+    
+    //Search Coordinates
+    
+    if (search.searchCoordinate) {
+        SearchCoordinate *sc = search.searchCoordinate;
+        NSString *coordString = [NSString stringWithFormat:@"%f,%f,%i", sc.longitude.doubleValue, sc.latitude.doubleValue, sc.radius.integerValue];
+        [params setValue:coordString forKey:[NSString stringWithFormat:distanceKey,1]];
+    }
     NSLog(@"%@",params);
     return params;
 }

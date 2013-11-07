@@ -59,11 +59,7 @@
             sl_from.value = _search.priceFrom.integerValue;
         }
     }
-    [MagicalRecord saveUsingCurrentThreadContextWithBlock:nil completion:^(BOOL success, NSError *error) {
-        if (success) {
-            [self updateLablels];
-        }
-    }];
+    [self updateLablels];
 }
 
 
@@ -130,8 +126,18 @@
     btn.tag = 1;
     [btn addTarget:self action:@selector(onButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
-    
+    [self.navigationItem.backBarButtonItem setAction:@selector(backPressed:)];
     [self updateLablels];
+}
+
+-(void) backPressed:(id)sender {
+    
+    [MagicalRecord saveUsingCurrentThreadContextWithBlock:nil completion:^(BOOL success, NSError *error) {
+        if (success) {
+            [self.navigationController popViewControllerAnimated:NO];
+        }
+    }];
+    
 }
 
 

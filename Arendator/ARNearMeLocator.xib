@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ARNearMeLocator">
             <connections>
                 <outlet property="mapView" destination="Psu-rH-qQ1" id="fiq-WO-nzg"/>
+                <outlet property="radiusLabel" destination="qpa-Zm-4as" id="73k-Ps-Pbc"/>
+                <outlet property="slider" destination="hZ4-1R-1bK" id="Lli-UQ-yWY"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -15,22 +17,45 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Psu-rH-qQ1" customClass="GMSMapView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Psu-rH-qQ1" customClass="GMSMapView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <subviews>
-                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wSB-Pj-0H0">
-                            <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <items>
-                                <barButtonItem systemItem="search" id="6L2-w4-YI5"/>
-                            </items>
-                        </toolbar>
-                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="500" minValue="100" maxValue="5000" translatesAutoresizingMaskIntoConstraints="NO" id="hZ4-1R-1bK">
+                    <rect key="frame" x="18" y="534" width="238" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="Nuh-b6-QP9"/>
+                    </constraints>
+                    <connections>
+                        <action selector="sliderDidChange:" destination="-1" eventType="valueChanged" id="ISt-H6-c2w"/>
+                    </connections>
+                </slider>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search radius:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpa-Zm-4as">
+                    <rect key="frame" x="20" y="510" width="234" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="zBN-Gk-ET8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Psu-rH-qQ1" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="24u-vx-wlb"/>
+                <constraint firstAttribute="bottom" secondItem="qpa-Zm-4as" secondAttribute="bottom" constant="33" id="98V-Kb-LlF"/>
+                <constraint firstAttribute="trailing" secondItem="hZ4-1R-1bK" secondAttribute="trailing" constant="66" id="CC4-4Y-KXd"/>
+                <constraint firstItem="qpa-Zm-4as" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="Iij-ju-oy0"/>
+                <constraint firstItem="Psu-rH-qQ1" firstAttribute="top" secondItem="1" secondAttribute="top" id="OJ3-tr-b4N"/>
+                <constraint firstAttribute="bottom" secondItem="Psu-rH-qQ1" secondAttribute="bottom" id="WiB-GJ-CCw"/>
+                <constraint firstAttribute="bottom" secondItem="hZ4-1R-1bK" secondAttribute="bottom" constant="1" id="jZI-kd-WSI"/>
+                <constraint firstAttribute="trailing" secondItem="Psu-rH-qQ1" secondAttribute="trailing" id="svP-UR-UYl"/>
+                <constraint firstAttribute="trailing" secondItem="qpa-Zm-4as" secondAttribute="trailing" constant="66" id="w8d-Q0-3eb"/>
+                <constraint firstItem="hZ4-1R-1bK" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="zXd-iR-UMn"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

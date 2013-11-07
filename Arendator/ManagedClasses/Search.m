@@ -2,11 +2,12 @@
 //  Search.m
 //  Arendator
 //
-//  Created by Yury Nechaev on 14.10.13.
+//  Created by Yury Nechaev on 07.11.13.
 //  Copyright (c) 2013 Yury Nechaev. All rights reserved.
 //
 
 #import "Search.h"
+#import "SearchCoordinate.h"
 #import "SearchResult.h"
 
 
@@ -30,9 +31,7 @@
 @dynamic time;
 @dynamic title;
 @dynamic uid;
-@dynamic latitude;
-@dynamic longitude;
-@dynamic radius;
 @dynamic searchResults;
+@dynamic searchCoordinate;
 
 @end

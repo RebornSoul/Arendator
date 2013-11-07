@@ -2,14 +2,14 @@
 //  Search.h
 //  Arendator
 //
-//  Created by Yury Nechaev on 14.10.13.
+//  Created by Yury Nechaev on 07.11.13.
 //  Copyright (c) 2013 Yury Nechaev. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class SearchResult;
+@class SearchCoordinate, SearchResult;
 
 @interface Search : NSManagedObject
 
@@ -31,10 +31,8 @@
 @property (nonatomic, retain) NSDate * time;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * uid;
-@property (nonatomic, retain) NSNumber * latitude;
-@property (nonatomic, retain) NSNumber * longitude;
-@property (nonatomic, retain) NSNumber * radius;
 @property (nonatomic, retain) NSSet *searchResults;
+@property (nonatomic, retain) SearchCoordinate *searchCoordinate;
 @end
 
 @interface Search (CoreDataGeneratedAccessors)

@@ -37,8 +37,6 @@
 		03E5451A17E44B2500E8F81B /* spb_metro.json in Resources */ = {isa = PBXBuildFile; fileRef = 03E5451917E44B2500E8F81B /* spb_metro.json */; };
 		03E5451D17E44B3A00E8F81B /* ARMetroStations.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5451C17E44B3A00E8F81B /* ARMetroStations.m */; };
 		03E5452417E44E1300E8F81B /* ARBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E5452317E44E1300E8F81B /* ARBaseViewController.m */; };
-		03EB53CC17E5A11A001854A5 /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EB53CB17E5A11A001854A5 /* Search.m */; };
-		03EB53CF17E5A11A001854A5 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EB53CE17E5A11A001854A5 /* SearchResult.m */; };
 		23452C7C12A74830A7D8F91E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1680E96B5B447A898FDFF2 /* libPods.a */; };
 		7106A6B917E48A0A002469FC /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 7106A6B417E48A0A002469FC /* TFHpple.m */; };
 		7106A6BA17E48A0A002469FC /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 7106A6B617E48A0A002469FC /* TFHppleElement.m */; };
@@ -70,10 +68,15 @@
 		7182FA4B17E5CE5000B33C00 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7182FA4A17E5CE5000B33C00 /* QuartzCore.framework */; };
 		719AADED180C664E00E53C28 /* ARNearMeLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = 719AADEB180C664E00E53C28 /* ARNearMeLocator.m */; };
 		719AADEE180C664E00E53C28 /* ARNearMeLocator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 719AADEC180C664E00E53C28 /* ARNearMeLocator.xib */; };
-		719AADF7180C75CA00E53C28 /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 719AADF6180C75CA00E53C28 /* Search.m */; };
-		719AADFA180C75CB00E53C28 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 719AADF9180C75CB00E53C28 /* SearchResult.m */; };
 		71CF7D7817E43E5300048063 /* ARCIANFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CF7D7717E43E5300048063 /* ARCIANFetcher.m */; };
 		71DE254417E45A5200DF20F9 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DE254317E45A5200DF20F9 /* libxml2.dylib */; };
+		71FC0250182C0EEF0023A41F /* SearchCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FC024F182C0EEF0023A41F /* SearchCoordinate.m */; };
+		71FC0253182C0EEF0023A41F /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FC0252182C0EEF0023A41F /* SearchResult.m */; };
+		71FC0256182C0EEF0023A41F /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FC0255182C0EEF0023A41F /* Search.m */; };
+		71FC0259182C1B8A0023A41F /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 71FC0257182C1B8A0023A41F /* map.png */; };
+		71FC025A182C1B8A0023A41F /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71FC0258182C1B8A0023A41F /* map@2x.png */; };
+		71FC025E182C1DA70023A41F /* ARMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FC025C182C1DA70023A41F /* ARMapViewController.m */; };
+		71FC025F182C1DA70023A41F /* ARMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71FC025D182C1DA70023A41F /* ARMapViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,10 +134,6 @@
 		03E5451C17E44B3A00E8F81B /* ARMetroStations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARMetroStations.m; path = Arendator/ARMetroStations.m; sourceTree = "<group>"; };
 		03E5452217E44E1300E8F81B /* ARBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARBaseViewController.h; sourceTree = "<group>"; };
 		03E5452317E44E1300E8F81B /* ARBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARBaseViewController.m; sourceTree = "<group>"; };
-		03EB53CA17E5A11A001854A5 /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search.h; path = Arendator/ManagedClasses/Search.h; sourceTree = "<group>"; };
-		03EB53CB17E5A11A001854A5 /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search.m; path = Arendator/ManagedClasses/Search.m; sourceTree = "<group>"; };
-		03EB53CD17E5A11A001854A5 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Arendator/ManagedClasses/SearchResult.h; sourceTree = "<group>"; };
-		03EB53CE17E5A11A001854A5 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Arendator/ManagedClasses/SearchResult.m; sourceTree = "<group>"; };
 		62300BE0BFDB45FBA72777F6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		7106A6B317E48A0A002469FC /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = Arendator/Parser/TFHpple.h; sourceTree = "<group>"; };
 		7106A6B417E48A0A002469FC /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = Arendator/Parser/TFHpple.m; sourceTree = "<group>"; };
@@ -175,13 +174,20 @@
 		719AADEA180C664E00E53C28 /* ARNearMeLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARNearMeLocator.h; sourceTree = "<group>"; };
 		719AADEB180C664E00E53C28 /* ARNearMeLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARNearMeLocator.m; sourceTree = "<group>"; };
 		719AADEC180C664E00E53C28 /* ARNearMeLocator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARNearMeLocator.xib; sourceTree = "<group>"; };
-		719AADF5180C75CA00E53C28 /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search.h; path = Arendator/ManagedClasses/Search.h; sourceTree = "<group>"; };
-		719AADF6180C75CA00E53C28 /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search.m; path = Arendator/ManagedClasses/Search.m; sourceTree = "<group>"; };
-		719AADF8180C75CB00E53C28 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Arendator/ManagedClasses/SearchResult.h; sourceTree = "<group>"; };
-		719AADF9180C75CB00E53C28 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Arendator/ManagedClasses/SearchResult.m; sourceTree = "<group>"; };
 		71CF7D7617E43E5300048063 /* ARCIANFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARCIANFetcher.h; path = Arendator/ARCIANFetcher.h; sourceTree = "<group>"; };
 		71CF7D7717E43E5300048063 /* ARCIANFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARCIANFetcher.m; path = Arendator/ARCIANFetcher.m; sourceTree = "<group>"; };
 		71DE254317E45A5200DF20F9 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		71FC024E182C0EEF0023A41F /* SearchCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCoordinate.h; path = Arendator/ManagedClasses/SearchCoordinate.h; sourceTree = "<group>"; };
+		71FC024F182C0EEF0023A41F /* SearchCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCoordinate.m; path = Arendator/ManagedClasses/SearchCoordinate.m; sourceTree = "<group>"; };
+		71FC0251182C0EEF0023A41F /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Arendator/ManagedClasses/SearchResult.h; sourceTree = "<group>"; };
+		71FC0252182C0EEF0023A41F /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Arendator/ManagedClasses/SearchResult.m; sourceTree = "<group>"; };
+		71FC0254182C0EEF0023A41F /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search.h; path = Arendator/ManagedClasses/Search.h; sourceTree = "<group>"; };
+		71FC0255182C0EEF0023A41F /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search.m; path = Arendator/ManagedClasses/Search.m; sourceTree = "<group>"; };
+		71FC0257182C1B8A0023A41F /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = Arendator/Images/map.png; sourceTree = "<group>"; };
+		71FC0258182C1B8A0023A41F /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map@2x.png"; path = "Arendator/Images/map@2x.png"; sourceTree = "<group>"; };
+		71FC025B182C1DA70023A41F /* ARMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMapViewController.h; sourceTree = "<group>"; };
+		71FC025C182C1DA70023A41F /* ARMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMapViewController.m; sourceTree = "<group>"; };
+		71FC025D182C1DA70023A41F /* ARMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARMapViewController.xib; sourceTree = "<group>"; };
 		FE1680E96B5B447A898FDFF2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -230,10 +236,6 @@
 				03E5450317E448C900E8F81B /* DataModel+Helper.h */,
 				03E5450417E448C900E8F81B /* DataModel+Helper.m */,
 				03E544FE17E448BA00E8F81B /* DataModel.xcdatamodeld */,
-				719AADF8180C75CB00E53C28 /* SearchResult.h */,
-				719AADF9180C75CB00E53C28 /* SearchResult.m */,
-				719AADF5180C75CA00E53C28 /* Search.h */,
-				719AADF6180C75CA00E53C28 /* Search.m */,
 				03E5451B17E44B3A00E8F81B /* ARMetroStations.h */,
 				03E5451C17E44B3A00E8F81B /* ARMetroStations.m */,
 			);
@@ -243,10 +245,12 @@
 		03E5450717E448CC00E8F81B /* ManagedClasses */ = {
 			isa = PBXGroup;
 			children = (
-				03EB53CD17E5A11A001854A5 /* SearchResult.h */,
-				03EB53CE17E5A11A001854A5 /* SearchResult.m */,
-				03EB53CA17E5A11A001854A5 /* Search.h */,
-				03EB53CB17E5A11A001854A5 /* Search.m */,
+				71FC0254182C0EEF0023A41F /* Search.h */,
+				71FC0255182C0EEF0023A41F /* Search.m */,
+				71FC0251182C0EEF0023A41F /* SearchResult.h */,
+				71FC0252182C0EEF0023A41F /* SearchResult.m */,
+				71FC024E182C0EEF0023A41F /* SearchCoordinate.h */,
+				71FC024F182C0EEF0023A41F /* SearchCoordinate.m */,
 			);
 			name = ManagedClasses;
 			sourceTree = "<group>";
@@ -280,6 +284,9 @@
 				032FD46B17E4D5F1005D1CD8 /* ARFavoritesViewController.m */,
 				032FD46D17E4D605005D1CD8 /* ARAddViewController.h */,
 				032FD46E17E4D605005D1CD8 /* ARAddViewController.m */,
+				71FC025B182C1DA70023A41F /* ARMapViewController.h */,
+				71FC025C182C1DA70023A41F /* ARMapViewController.m */,
+				71FC025D182C1DA70023A41F /* ARMapViewController.xib */,
 				719AADEA180C664E00E53C28 /* ARNearMeLocator.h */,
 				719AADEB180C664E00E53C28 /* ARNearMeLocator.m */,
 				719AADEC180C664E00E53C28 /* ARNearMeLocator.xib */,
@@ -290,6 +297,8 @@
 		03E5451517E448F700E8F81B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				71FC0257182C1B8A0023A41F /* map.png */,
+				71FC0258182C1B8A0023A41F /* map@2x.png */,
 				033836DA17E511D800CFEDE6 /* imgComingSoon@2x.png */,
 				033836D817E5102B00CFEDE6 /* imgAbout@2x.png */,
 				032FD47417E4D8B1005D1CD8 /* btSearch@2x.png */,
@@ -512,6 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03E5451717E4490400E8F81B /* tbSearch@2x.png in Resources */,
+				71FC025A182C1B8A0023A41F /* map@2x.png in Resources */,
 				034FE2DB17E4593A001D1226 /* Localizable.strings in Resources */,
 				032FD47317E4D6DC005D1CD8 /* tbPlus@2x.png in Resources */,
 				032FD46817E4D2B5005D1CD8 /* metroLine[4]@2x.png in Resources */,
@@ -520,10 +530,12 @@
 				03E5451A17E44B2500E8F81B /* spb_metro.json in Resources */,
 				032FD47517E4D8B1005D1CD8 /* btSearch@2x.png in Resources */,
 				032FD46517E4D2B5005D1CD8 /* metroLine[1]@2x.png in Resources */,
+				71FC0259182C1B8A0023A41F /* map.png in Resources */,
 				719AADEE180C664E00E53C28 /* ARNearMeLocator.xib in Resources */,
 				033836DB17E511D800CFEDE6 /* imgComingSoon@2x.png in Resources */,
 				712F129D17E37F4000EA2363 /* Images.xcassets in Resources */,
 				712F128C17E37F4000EA2363 /* InfoPlist.strings in Resources */,
+				71FC025F182C1DA70023A41F /* ARMapViewController.xib in Resources */,
 				032FD46617E4D2B5005D1CD8 /* metroLine[2]@2x.png in Resources */,
 				032FD46717E4D2B5005D1CD8 /* metroLine[3]@2x.png in Resources */,
 				034FE2D817E4592E001D1226 /* landscape.png in Resources */,
@@ -580,6 +592,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71FC025E182C1DA70023A41F /* ARMapViewController.m in Sources */,
+				71FC0253182C0EEF0023A41F /* SearchResult.m in Sources */,
+				71FC0250182C0EEF0023A41F /* SearchCoordinate.m in Sources */,
 				03BCCCA117E4920A00CA02CF /* ARRoomCountSelector.m in Sources */,
 				7106A6BA17E48A0A002469FC /* TFHppleElement.m in Sources */,
 				712F128E17E37F4000EA2363 /* main.m in Sources */,
@@ -587,20 +602,17 @@
 				03E5451317E448EA00E8F81B /* ARSearchesViewController.m in Sources */,
 				0362468E17E47DAA00CCCE34 /* ARMetroStationSelector.m in Sources */,
 				032FD46F17E4D605005D1CD8 /* ARAddViewController.m in Sources */,
-				03EB53CC17E5A11A001854A5 /* Search.m in Sources */,
 				03E5450017E448BA00E8F81B /* DataModel.xcdatamodeld in Sources */,
-				719AADFA180C75CB00E53C28 /* SearchResult.m in Sources */,
 				71CF7D7817E43E5300048063 /* ARCIANFetcher.m in Sources */,
-				03EB53CF17E5A11A001854A5 /* SearchResult.m in Sources */,
 				03BCCCAA17E4A8D700CA02CF /* ARBlockingView.m in Sources */,
 				712F129217E37F4000EA2363 /* ARAppDelegate.m in Sources */,
 				032FD46C17E4D5F1005D1CD8 /* ARFavoritesViewController.m in Sources */,
 				03E5451D17E44B3A00E8F81B /* ARMetroStations.m in Sources */,
 				03BCCC9E17E491FE00CA02CF /* ARPriceSelector.m in Sources */,
 				03E5451417E448EA00E8F81B /* ARSearchViewController.m in Sources */,
-				719AADF7180C75CA00E53C28 /* Search.m in Sources */,
 				03E5450617E448C900E8F81B /* DataModel+Helper.m in Sources */,
 				0362468317E4749B00CCCE34 /* ARSearchResultViewController.m in Sources */,
+				71FC0256182C0EEF0023A41F /* Search.m in Sources */,
 				719AADED180C664E00E53C28 /* ARNearMeLocator.m in Sources */,
 				0362468017E4748900CCCE34 /* ARSearchResultsViewController.m in Sources */,
 				7106A6B917E48A0A002469FC /* TFHpple.m in Sources */,

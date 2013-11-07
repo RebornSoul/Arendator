@@ -11,6 +11,7 @@
 #import "ARSearchResultViewController.h"
 #import "ARMetroStations.h"
 #import "DataModel+Helper.h"
+#import "ARMapViewController.h"
 
 #define rowHeight 68
 #define blueColor [UIColor colorWithRed:0 green:122/255. blue:1 alpha:1]
@@ -124,6 +125,16 @@
     NSArray *results;
 }
 
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"map"] style:UIBarButtonItemStylePlain target:self action:@selector(didMap:)]];
+}
+
+- (void) didMap:(id)sender {
+//    [[[UIAlertView alloc] initWithTitle:@"Sorry" message:@"This feature is not implemented yet" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+    ARMapViewController *mvc = [[ARMapViewController alloc] initWithSearchResults:results forSearch:_search];
+    [self.navigationController pushViewController:mvc animated:YES];
+}
 
 - (id)initWithSearch:(Search *)search {
     self = [super init];

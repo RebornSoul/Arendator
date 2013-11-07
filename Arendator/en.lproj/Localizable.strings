@@ -1,3 +1,9 @@
+"Yes" = "Да";
+"No" = "Нет";
+"Cancel" = "Отмена";
+"Clear" = "Очистить";
+"Save" = "Сохранить";
+
 "tabBarSearch" = "Поиск квартир";
 "tabBarFavorites" = "Избранное";
 "tabBarAbout" = "О программе…";
@@ -7,6 +13,7 @@
 "titleMetro" = "Станции метро";
 "titleRoomCount" = "Количество комнат";
 "titlePrice" = "Цена аренды";
+"titleRadius" = "Радиус поиска: %4.0fм";
 "titleSearchResults" = "Результаты поиска";
 
 "msgErrorTitle" = "Ошибка";
@@ -14,7 +21,7 @@
 "msgErrorNoResults" = "По вашему запросу ничего не найдено, попробуйте изменить условия поиска.";
 "btnOK" = "OK";
 
-"itemLocation" = "Поиск с геолокацией"
+"itemLocation" = "Поиск с геолокацией";
 "itemTitle" = "Название";
 "itemMetro" = "Станции метро";
 "itemPrice" = "Цена аренды";

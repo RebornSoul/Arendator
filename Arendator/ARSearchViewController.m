@@ -102,7 +102,7 @@
     _search = search;
     newEntity = !!!_search;
     if (!_search) {
-        _search = [Search newInstance];
+        _search = [Search createEntity];
     }
     
     titleTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 200, 25)];
@@ -221,7 +221,8 @@
         switch (indexPath.row) {
             case ITEM_LOCATION: {
                 ARNearMeLocator *selector = [[ARNearMeLocator alloc] initWithSearch:_search];
-                [self.navigationController pushViewController:selector animated:YES];
+                UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:selector];
+                [self presentViewController:navC animated:YES completion:nil];
                 break;
             }
             case ITEM_METRO: {
@@ -259,7 +260,11 @@
     if (indexPath.section == SECT_MAIN)
     switch (indexPath.row) {
         case ITEM_LOCATION:
-        cell.textLabel.text = NSLocalizedString(@"itemLocation", @"");
+            cell.textLabel.text = NSLocalizedString(@"itemLocation", @"");
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.detailTextLabel.text = _search.searchCoordinate?NSLocalizedString(@"Yes", nil):@"";
+            NSLog(@"Geolocation = %@", _search.searchCoordinate?@"YES":@"NO");
+            break;
         case ITEM_TITLE:
             cell.textLabel.text = NSLocalizedString(@"itemTitle", @"");
             cell.accessoryView = titleTF;

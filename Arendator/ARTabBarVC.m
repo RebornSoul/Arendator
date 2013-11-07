@@ -29,6 +29,14 @@ static ARTabBarVC *instanceTabBarVC = nil;
     return instanceTabBarVC;
 }
 
+- (id) init {
+    self = [super init];
+    if (self) {
+        [self.tabBar setTranslucent:NO];
+    }
+    return self;
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

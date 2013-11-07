@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Search" representedClassName="Search" syncable="YES">
         <attribute name="allowedChildren" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="allowedPets" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="cityId" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="metroIdStr" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="optBalcony" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="optFridge" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -16,13 +14,19 @@
         <attribute name="optWashMachine" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="priceFrom" optional="YES" attributeType="Integer 64" syncable="YES"/>
         <attribute name="priceTo" optional="YES" attributeType="Integer 64" syncable="YES"/>
-        <attribute name="radius" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="roomFrom" optional="YES" attributeType="Integer 16" syncable="YES"/>
         <attribute name="roomTo" optional="YES" attributeType="Integer 16" syncable="YES"/>
         <attribute name="time" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" attributeType="String" syncable="YES"/>
+        <relationship name="searchCoordinate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SearchCoordinate" inverseName="search" inverseEntity="SearchCoordinate" syncable="YES"/>
         <relationship name="searchResults" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SearchResult" inverseName="search" inverseEntity="SearchResult" syncable="YES"/>
+    </entity>
+    <entity name="SearchCoordinate" representedClassName="SearchCoordinate" syncable="YES">
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="radius" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="search" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Search" inverseName="searchCoordinate" inverseEntity="Search" syncable="YES"/>
     </entity>
     <entity name="SearchResult" representedClassName="SearchResult" syncable="YES">
         <attribute name="distanceFromMetro" optional="YES" attributeType="String" syncable="YES"/>
@@ -45,7 +49,8 @@
         <relationship name="search" maxCount="1" deletionRule="Nullify" destinationEntity="Search" inverseName="searchResults" inverseEntity="Search" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Search" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="SearchResult" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Search" positionX="0" positionY="0" width="128" height="343"/>
+        <element name="SearchResult" positionX="-209" positionY="18" width="128" height="315"/>
+        <element name="SearchCoordinate" positionX="207" positionY="216" width="128" height="103"/>
     </elements>
 </model>

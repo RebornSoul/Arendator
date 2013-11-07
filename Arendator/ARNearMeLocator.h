@@ -14,6 +14,7 @@
 
 @interface ARNearMeLocator : UIViewController <GMSMapViewDelegate, CLLocationManagerDelegate> {
     CLLocationManager *locationManager;
+    NSUInteger counter;
 }
     
 - (id) initWithSearch:(Search*)search;
