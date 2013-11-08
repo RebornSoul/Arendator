@@ -203,7 +203,7 @@ static NSString *strBetween(NSString *src, NSString *from, NSString *to) {
                                                rawStr = strBetween(rawStr, @"metro[0]=", @"\"");
                                                sresult.metroId = !!rawStr ? [NSNumber numberWithInt:rawStr.integerValue] : @-1;
                                            }
-                                           if (upperCounter == 4 && midCounter == 4) { // Улица
+                                           if (upperCounter == 4 && midCounter == 6) { // Улица
                                                NSString *rawStr = elementChildChild.raw;
                                                rawStr = strBetween(rawStr, @">", @"<");
                                                rawStr = [rawStr stringByReplacingOccurrencesOfString:@"улица" withString:@"ул."];
@@ -213,7 +213,7 @@ static NSString *strBetween(NSString *src, NSString *from, NSString *to) {
                                                rawStr = [rawStr stringByReplacingOccurrencesOfString:@"переулок" withString:@"пер."];
                                                sresult.street = rawStr;
                                            }
-                                           if (upperCounter == 4 && midCounter == 6) { // Дом
+                                           if (upperCounter == 4 && midCounter == 8) { // Дом
                                                NSString *rawStr = elementChildChild.raw;
                                                rawStr = strBetween(rawStr, @">", @"<");
                                                sresult.house = rawStr;

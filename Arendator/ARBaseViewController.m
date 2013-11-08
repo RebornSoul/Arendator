@@ -58,7 +58,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    _tableView.frame = CGRectMake(0, 64, 320, self.view.frame.size.height - 112);
+    _tableView.frame = CGRectMake(0, 64, 320, self.view.frame.size.height - 60);
 }
 
 
